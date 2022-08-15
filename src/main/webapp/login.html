@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login</title>
+</head>
+
+<body>
+	<table border=5 width=100% bgcolor=white>
+		<tr>
+			<th align = "left" style= "max-width: 11px">
+				<img src = "logoejemplo.png">
+			</th>
+			<th>
+				<a href = "index.html">Inicio</a>
+			</th>
+			<th align = "right">
+				<a href = "index.html">Volver</a>
+			</th>
+		</tr>
+	</table>
+	
+	<!-- Ejemplo de login -->
+	<form action = "LoginServlet" method = "post">
+ 		<table border=5 bgcolor=white align = "center">
+			<tr>
+				<th align = "right">Nombre de usuario:</th>
+				<th align = "left">
+					<input type = "text" name = "username">
+				</th>
+			</tr>
+			<tr>
+				<th align = "right">Contraseña:</th>
+				<th align = "left">
+					<input type = "password" name = "pass">
+				</th>
+			</tr>
+			<tr>
+				<th colspan = 2>
+					<input type = "submit" value = "Iniciar sesión" size = 40>
+				</th>
+			</tr>
+		</table>
+	</form>
+	
+	<!-- Faltaría un botón de olvidé mi contraseña y quizás
+	un <a href> con Registrarse -->
+	
+</body>
+
+</html>
