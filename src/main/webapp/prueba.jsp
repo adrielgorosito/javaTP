@@ -2,25 +2,12 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>Productos</title>
-	</head>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Prueba sesión/title>
+</head>
+
 <body>
-	<table border=5 width=100% bgcolor=white>
-		<tr>
-			<th align = "left" style= "max-width: 11px">
-				<img src = "logoejemplo.png">
-			</th>
-			<th>
-				<a href = "index.html">Inicio</a>
-			</th>
-			<th align = "right">
-				<a href = "index.html">Volver</a>
-			</th>
-		</tr>
-	</table>
-	
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
 	<%@ page import = "entities.*" %>
@@ -33,13 +20,19 @@
 		request.setAttribute("errorType", 2);
 		RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
 		rd.forward(request, response);
-	}
+	} 
+	
 	%>
 	
-	<p align = "center">
-		<font>Bienvenido, <%= request.getAttribute("userType") %></font>
+	<p align = center>
+		Si lees esto, estás en sesión.
+		<br><br>
+		Usuario: <%= userS.getName() %>
+		</br><br>
+		<a href = welcomeUser.jsp>Probar sesión</a>
+		<br><br>
+		<a href = "<%=request.getContextPath()%>/CloseSession">Salir</a>
+		<!-- Creo que no se cierra -->
 	</p>
-	<p align = "center">Prueba</p><br>
-	<a href = index.html>Salir</a>
 </body>
 </html>

@@ -1,19 +1,21 @@
 package entities;
 
 public class User {
-	private int id;
+	private int dni;
 	private String username;
 	private String password;
 	private String name;
 	private String surname;
 	private String mail;
+	private String phone;
+	private Boolean isAdmin;
 	
-	public int getId() {
-		return id;
+	public int getDni() {
+		return dni;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setDni(int dni) {
+		this.dni = dni;
 	}
 
 	public String getUsername() {
@@ -54,6 +56,22 @@ public class User {
 	
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 }

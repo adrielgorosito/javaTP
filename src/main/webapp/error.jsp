@@ -10,10 +10,56 @@
 <body>
 	<% int error = (int) request.getAttribute("errorType");
 	   String msg = "";
+	   String volver = "";
 	   
+	   switch (error) {
+	   		case 1:
+	   			msg = "Usuario y/o contraseña erróneos.";
+	 		    volver = "login.html";
+	   			break;
+	   			
+	   		case 2:
+	   			msg = "Sesión expirada.";
+	 		    volver = "index.html";
+	   			break;
+	   			
+	   		case 3:
+	   			msg = "La contraseña debe tener como mínimo 8 caracteres.";
+	 		    volver = "registro.jsp";
+	   			break;
+	   			
+	   		case 4:
+	   			msg = "Las contraseñas ingresadas no coinciden.";
+	 		    volver = "registro.jsp";
+	   			break;
+	   			
+	   		case 5:
+	   			msg = "Ya existe una cuenta con el dni ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
+	 		    volver = "registro.jsp";
+	   			break;
+	   			
+	   		case 6:
+	   			msg = "Ya existe una cuenta con el nombre de usuario ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
+	 		    volver = "registro.jsp";
+	   			break;
+	   			
+	   		case 7:
+	   			msg = "Ya existe una cuenta con el mail ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
+	 		    volver = "registro.jsp";
+	   			break;
+	   }
+	   
+	   /*
 	   if (error == 1) {
 		   msg = "Usuario y/o contraseña erróneos.";
-	   }
+		   volver = "login.html";
+	   } else if (error == 2) {
+		   msg = "Sesión expirada.";
+		   volver = "index.html";
+	   } else if (error == 3) {
+		   msg = "Las contraseñas ingresadas no coinciden.";
+		   volver = "registro.jsp";
+	   } */
 	%>
 	
 	<table border = 5 width = 100% bgcolor = white>
@@ -35,6 +81,6 @@
 		<br><br>
 		<font face = "tahoma" size = "5"><%=msg%></font>
 		<br><br>
-		<a href = "index.html">Regresar</a>
+		<a href = <%=volver%>>Regresar</a>
 	</p>
 </body>

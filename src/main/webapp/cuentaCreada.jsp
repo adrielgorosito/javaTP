@@ -2,11 +2,12 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>Productos</title>
-	</head>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Registro</title>
+</head>
 <body>
+
 	<table border=5 width=100% bgcolor=white>
 		<tr>
 			<th align = "left" style= "max-width: 11px">
@@ -24,22 +25,21 @@
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
 	<%@ page import = "entities.*" %>
-	
-	<%
-	HttpSession session1 = request.getSession();
-	User userS = (User) session1.getAttribute("userSession");
-
-	if (userS == null) {
-		request.setAttribute("errorType", 2);
-		RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-		rd.forward(request, response);
-	}
-	%>
+	<% User newUser = (User) request.getAttribute("newUser");%>
 	
 	<p align = "center">
-		<font>Bienvenido, <%= request.getAttribute("userType") %></font>
+		<font face = "tahoma" size = 4><b>Cuenta creada exitósamente.</b></font>
+		<br><br>
+		<font face = "tahoma" size = 3>
+			Usuario: <%= newUser.getUsername() %>.<br>
+			Nombre y apellido: <%= newUser.getName() %> <%= newUser.getSurname() %>.<br>
+			DNI: <%= newUser.getDni() %>.<br>
+		</font>
+		<br>
+		<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
+				
+		
+		
 	</p>
-	<p align = "center">Prueba</p><br>
-	<a href = index.html>Salir</a>
 </body>
 </html>
