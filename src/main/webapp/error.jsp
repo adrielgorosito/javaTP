@@ -25,7 +25,7 @@
 	   			
 	   		case 3:
 	   			msg = "La contraseña debe tener como mínimo 8 caracteres.";
-	 		    volver = "registro.jsp";
+	 		    volver = "registro.jsp";	
 	   			break;
 	   			
 	   		case 4:
@@ -48,18 +48,6 @@
 	 		    volver = "registro.jsp";
 	   			break;
 	   }
-	   
-	   /*
-	   if (error == 1) {
-		   msg = "Usuario y/o contraseña erróneos.";
-		   volver = "login.html";
-	   } else if (error == 2) {
-		   msg = "Sesión expirada.";
-		   volver = "index.html";
-	   } else if (error == 3) {
-		   msg = "Las contraseñas ingresadas no coinciden.";
-		   volver = "registro.jsp";
-	   } */
 	%>
 	
 	<table border = 5 width = 100% bgcolor = white>

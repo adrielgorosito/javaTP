@@ -28,7 +28,7 @@
 	<% User newUser = (User) request.getAttribute("newUser");%>
 	
 	<p align = "center">
-		<font face = "tahoma" size = 4><b>Cuenta creada exitósamente.</b></font>
+		<font face = "tahoma" size = 4 color = "green"><b>Cuenta creada exitosamente.</b></font>
 		<br><br>
 		<font face = "tahoma" size = 3>
 			Usuario: <%= newUser.getUsername() %>.<br>
@@ -36,10 +36,7 @@
 			DNI: <%= newUser.getDni() %>.<br>
 		</font>
 		<br>
-		<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
-				
-		
-		
+		<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>	
 	</p>
 </body>
 </html>

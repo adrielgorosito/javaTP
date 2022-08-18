@@ -16,7 +16,7 @@
 				<a href = "index.html">Inicio</a>
 			</th>
 			<th align = "right">
-				<a href = "index.html">Volver</a>
+				<a href = "<%=request.getContextPath()%>/CloseSessionServlet">Cerrar sesión</a>
 			</th>
 		</tr>
 	</table>
@@ -36,10 +36,15 @@
 	}
 	%>
 	
-	<p align = "center">
-		<font>Bienvenido, <%= request.getAttribute("userType") %></font>
+	<p align = center>
+		Bienvenido
+		<br><br>
+		Usuario: <%= userS.getName() %>
+		</br><br>
+		<a href = indexUser.jsp>Probar sesión</a>
+		<br><br>
+		<a href = "<%=request.getContextPath()%>/CloseSessionServlet">Salir</a>
 	</p>
-	<p align = "center">Prueba</p><br>
-	<a href = index.html>Salir</a>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-package servlets;
+package logic;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -35,9 +35,10 @@ public class LoginServlet extends HttpServlet {
 		userFound = du.getUser(userLogin);
 		
 		if (userFound != null) {
+			
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("userSession", userFound);
-			sesion.setMaxInactiveInterval(30*60); // Máximo de 30 minutos
+			sesion.setMaxInactiveInterval(30*60);
 			
 			// Probar que se logee con usuario y contraseña y si da error entonces
 			// dni y contraseña
@@ -51,6 +52,8 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			// Probar con un mostrar.println que edite la página y escriba error,
 			// en vez de abrir una nueva (tantear a ver como queda)
+			HttpSession sesion = request.getSession();
+			sesion.setAttribute("userSession", null);
 			request.setAttribute("errorType", 1);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}

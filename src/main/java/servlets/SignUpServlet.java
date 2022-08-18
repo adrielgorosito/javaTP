@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import data.*;
 import entities.*;
 
@@ -48,6 +50,10 @@ public class SignUpServlet extends HttpServlet {
 						
 						if (userFound == null) {
 							du.addNewUser(newUser);
+							
+							HttpSession sesion = request.getSession();
+							sesion.setAttribute("userSession", newUser);
+							sesion.setMaxInactiveInterval(30*60);
 							
 							request.setAttribute("newUser", newUser);
 							request.getRequestDispatcher("cuentaCreada.jsp").forward(request, response);
