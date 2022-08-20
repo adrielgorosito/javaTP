@@ -37,11 +37,7 @@
 	min-height: 100px;
 }
 
-#fonblanco {
-	background: #343a40;
-}
-
-#ribbon {
+#ribbon2 {
 	background-color: #262626;
 }
 #BGINSTA {
@@ -125,11 +121,10 @@
 	margin-bottom: 0px;
 }
 
-#inicio{
+#inicio {
 	background-size:cover;
 	padding-top:90px;
 	min-height:700px;
-	color:#1a1a1a;
 	display:flex;
 }
 
@@ -161,4 +156,13 @@
 .list {
 	text-align: left;
 	display:inline-block;
+}
+
+
+#block_container {
+    text-align: center;
+}
+#block_container > div {
+    display: inline-block;
+    vertical-align: middle;
 }

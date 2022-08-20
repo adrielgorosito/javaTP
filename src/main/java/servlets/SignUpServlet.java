@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import data.*;
 import entities.*;
+import logic.*;
 
 @WebServlet("/SignUpServlet")
 public class SignUpServlet extends HttpServlet {
@@ -18,7 +18,10 @@ public class SignUpServlet extends HttpServlet {
     public SignUpServlet() {
         super();
     }
+    
+	private CtrlSignUp csu = new CtrlSignUp();
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -26,60 +29,57 @@ public class SignUpServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DataUsers du = new DataUsers();
 		
-		User newUser = new User();
-		User userFound = new User();
+		User newUser = new User(request.getParameter("name"), request.getParameter("surname"),
+				  				Integer.parseInt(request.getParameter("dni")), request.getParameter("phone"),
+				  				request.getParameter("mail"), request.getParameter("username"), request.getParameter("password1"));
 		
 		if (request.getParameter("password1").length() >= 8) {
 			if (request.getParameter("password1").equals(request.getParameter("password2"))) {
-				newUser.setName(request.getParameter("name"));
-				newUser.setSurname(request.getParameter("surname"));
-				newUser.setDni(Integer.parseInt(request.getParameter("dni")));
-				newUser.setPhone(request.getParameter("phone"));
-				newUser.setMail(request.getParameter("mail"));
-				newUser.setUsername(request.getParameter("username"));
-				newUser.setPassword(request.getParameter("password1"));
-				newUser.setIsAdmin(false);
-			
-				userFound = du.getUserByDni(newUser);
-				
-				if (userFound == null) {
-					userFound = du.getUserByUsername(newUser);
-
-					if (userFound == null) {
-						userFound = du.getUserByMail(newUser);
+				if (!csu.hasSpecialCharacters(request.getParameter("username"))) {
+					int res = csu.createNewUser(newUser);
+					
+					switch (res) {
+					case 0:
+						HttpSession sesion = request.getSession();
+						sesion.setAttribute("userSession", newUser);
+						request.setAttribute("newUser", newUser);
+						sesion.setMaxInactiveInterval(30*60);
 						
-						if (userFound == null) {
-							du.addNewUser(newUser);
-							
-							HttpSession sesion = request.getSession();
-							sesion.setAttribute("userSession", newUser);
-							sesion.setMaxInactiveInterval(30*60);
-							
-							request.setAttribute("newUser", newUser);
-							request.getRequestDispatcher("cuentaCreada.jsp").forward(request, response);
-						} else {
-							request.setAttribute("errorType", 7);
-							request.getRequestDispatcher("error.jsp").forward(request, response);
-						}
-					} else {
+						request.getRequestDispatcher("cuentaCreada.jsp").forward(request, response);
+						break;
+						
+					case 5: // Ya existe un usuario con ese DNI
+						request.setAttribute("errorType", 5);
+						request.getRequestDispatcher("error.jsp").forward(request, response);
+						break;
+
+					case 6: // Ya existe un usuario con ese nombre de usuario
 						request.setAttribute("errorType", 6);
 						request.getRequestDispatcher("error.jsp").forward(request, response);
+						break;
+						
+					case 7: // Ya existe un usuario con ese mail
+						request.setAttribute("errorType", 7);
+						request.getRequestDispatcher("error.jsp").forward(request, response);
+						break;
+						
+					default:
+						break;
 					}
 				} else {
-					request.setAttribute("errorType", 5);
+					// La contraseña tiene caracteres especiales
+					request.setAttribute("errorType", 8);
 					request.getRequestDispatcher("error.jsp").forward(request, response);
-				}				
+				}		
 			} else {
+				// Las contraseñas no coinciden
 				request.setAttribute("errorType", 4);
 				request.getRequestDispatcher("error.jsp").forward(request, response);
 			}
-
 		} else {
+			// La contraseña no tiene como mínimo 8 caracteres
 			request.setAttribute("errorType", 3);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
-		
-
 	}
-
 }

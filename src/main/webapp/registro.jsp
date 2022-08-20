@@ -1,5 +1,4 @@
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -57,11 +56,18 @@
 			<tr><th colspan = "2"></th></tr>
 			<tr>
 				<th align = "left"><font size = "2" face = "tahoma">Email:</font><font color = red> *</font></th>
-				<th><input type = "text" required name = "mail"></input></th>
+				<th><input type = "text" required name = "mail" placeholder = "@"></input></th>
 			</tr>
 			<tr>
 				<th align = "left"><font size = "2" face = "tahoma">Nombre de usuario:</font><font color = red> *</font></th>
 				<th><input type = "text" required name = "username"></input></th>
+			</tr>
+			<tr>
+				<th colspan = "2">
+					<font size = "1" face = "tahoma" color = "#7F7F7F">
+						<i>El nombre de usuario no puede contener caracteres especiales</i>
+					</font>
+				</th>
 			</tr>
 			<tr>
 				<th align = "left"><font size = "2" face = "tahoma">Contraseña:</font><font color = red> *</font></th>

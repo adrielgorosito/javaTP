@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -14,7 +17,7 @@
 	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integriy = "sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin = "anonymous"></script>
 	
 	<!-- CSS -->
-	<link href = "indexStyle.css" rel = "stylesheet">
+	<link href = "style/indexStyle.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
 </head>
@@ -28,20 +31,14 @@
 				<img src="imgs/logo.png" alt="" width="200">
 			</a>
 			
-			<button class="navbar-toggler" 
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent"
-				aria-expanded="false"
-				aria-label="Toogle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toogle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent" >
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-					&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp; <!-- Dudosos estos espacios en blanco -->
 					<li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
 					&emsp;&emsp;&emsp;&emsp;
 					<li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
@@ -55,17 +52,52 @@
 	
 	<!-- Separador -->
 	<div id="ribbon">
-		<div id="fonblanco"> <!-- Cambiar este color -->
-			<div class="row align-items-center content-center topmargin-sm">
-				<div class="col-sm p-1">
-			 	 	<img alt="" src="" >
-				</div>
-			</div>	
+		<div class="row align-items-center content-center topmargin-sm">
+			<div class="col-sm p-1">
+			 	 <img alt="" src="" >
+			</div>
 		</div>		 
 	</div>
 	
-	<!-- Tarjetas -->
-	<section id="algProductos">
+	<!-- Inicio -->
+	<section id = "inicio">
+		<div class="container-fluit">
+			<div class="content-center topmargin-sm botmargin-no item" id="text1">
+				<h1><b>¡Bienvenido!</b></h1>
+				<h3><b>Te estábamos esperando.</b></h3>
+				<br>
+				<p><b> Lorem Ipsum is simply dummy<br>
+				 text of the printing and typesetting industry.<br>
+				Lorem Ipsum has been the industry's standard<br>
+				dummy text ever since the 1500s, when an unknown printer 
+				took a galley of type and scrambled it to make a type specimen book.<br>
+				 It has survived not only five centuries, but also the leap <br>
+				nto electronic typesetting, remaining essentially unchanged.<br>
+				 It was popularised in the 1960s with the release of Letraset <br>
+				sheets containing Lorem Ipsum passages, and more recently<br>
+				with desktop publishing software like Aldus PageMaker including<br>
+				 versions of Lorem Ipsum.</b></p>
+				 <!-- Dudoso este manejo con <br> -->
+			</div>
+		</div>
+		<div class="img-border">
+			<img alt="" src="imgs\logo.png" style="width:1020px;height:530px;margin-left:0px;padding-right:200px"> </a>
+		</div>	
+	</section>
+	
+	
+	
+	
+	<%@ page language = "java" import = "java.lang.Math"%>
+	
+	<%
+		int nroRandom = (int) Math.floor(Math.random()*10+1);
+		
+		
+	%>
+	<%= nroRandom %>
+	<!-- Tarjetas de productos -->
+	<section id="productos">
  		<div id="games" class="botpad-1">
 			<div class="container-md p-5">
 				<div class="row pt-5">
@@ -131,13 +163,25 @@
 				</div>
 			</div>
 		</div>
+		<!--  Hacer un "Para ver más, inicia sesión" y un botón -->
 	</section>
+	
+	
+	<!-- Separador -->
+	<div id="separator-2">
+		<div class="content" style="background:#f5f5f5;margin-bottom:-4%;">
+		</div>
+	</div>
+	
+	
+	
 
 	<!-- Contacto -->
 	<section id="contacto">
 		<div id="cont" class="p-5" style="padding-top:110px">
 			<div class="container w-50 pt-5" style="margin-top:-6%">
 				<div class="col text-center">
+					<br>
 					<h1><b>Contacto</b></h1>
 				</div>
 				<div class="row justify-content-md-center py-5">
@@ -151,10 +195,29 @@
 					</div>
 					<div class="col text-center font-weight-light">
 						<h4>Redes sociales</h4>
-						<a href="http://www.facebook.com"> <img alt="" src="imgs/facebookLogo.png" height=40px width=40px></a>
-						<a href="http://www.instagram.com"> <img alt="" src="imgs/instagramLogo.png" height=40px width=40px></a>
-						<a href="http://www.linkedin.com"> <img alt="" src="imgs/linkedinLogo.png" height=40px width=40px></a>
-						<a href="http://www.whatsapp.com"> <img alt="" src="imgs/whatsappLogo.png" height=40px width=40px></a>
+						
+						<div id="block_container">
+							<div id="bloc1">
+								<div class="img-border">
+									<a href="http://www.facebook.com"><img alt="" src="imgs/logosRedes/facebookLogo.png" height=40px width=40px> </a>
+								</div>
+							</div>
+    						<div id="bloc2">
+    							<div class="img-border">
+									<a href="http://www.instagram.com"><img alt="" src="imgs/logosRedes/instagramLogo.png" height=40px width=40px> </a>
+								</div>
+    						</div>
+    						<div id="bloc3">
+    							<div class="img-border">
+    								<a href="http://www.linkedin.com"><img alt="" src="imgs/logosRedes/linkedinLogo.png" height=40px width=40px> </a>
+    							</div>
+							</div>  
+    						<div id="bloc4">
+    							<div class="img-border">
+    								<a href="http://www.whatsapp.com"><img alt="" src="imgs/logosRedes/whatsappLogo.png" height=40px width=40px> </a>
+    							</div>
+    						</div>
+						</div>
 					</div>
 				</div>
 				<div class="row justify-content-md-center py-1">
@@ -168,14 +231,14 @@
  						<label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
  		 				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 					</div>
-					<a	class="btn btn-info topmargin-sm"	href="#"	role="button" style="top-margin:5px; width:680px;"><b>Enviar</b></a>
+					<a class="btn btn-info topmargin-sm" href="#" role="button" style="top-margin:5px; width:680px;"><b>Enviar</b></a>
 				</div>
 			</div>
 		</div>
 	</section>
 	
 	
-	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	
 	
 

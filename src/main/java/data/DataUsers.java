@@ -7,7 +7,7 @@ import entities.*;
 
 public class DataUsers {
 
-	public User getUser(User u)  {
+	public User loginByUsername(User u)  {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		User userFound = null;
@@ -51,7 +51,51 @@ public class DataUsers {
 		return userFound;
 	}
 	
-	public User getUserByDni(User u) {
+	public User loginByMail(User u)  {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		User userFound = null;
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin "
+					+ "FROM User WHERE email = ? AND contraseña = ?");
+			stmt.setString(1, u.getMail());
+			stmt.setString(2, u.getPassword());
+			rs = stmt.executeQuery();
+			
+			if (rs != null && rs.next()) {
+				userFound = new User();
+				userFound.setDni(rs.getInt("dni"));
+				userFound.setUsername(rs.getString("nombUsuario"));
+				userFound.setName(rs.getString("nombre"));
+				userFound.setSurname(rs.getString("apellido"));
+				userFound.setMail(rs.getString("email"));
+				userFound.setPhone(rs.getString("telefono"));
+				userFound.setIsAdmin(rs.getBoolean("isAdmin"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return userFound;
+	}
+	
+	public User searchUserByDni(User u) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		User userFound = null;
@@ -88,7 +132,7 @@ public class DataUsers {
 		return userFound;
 	}
 	
-	public User getUserByUsername(User u) {
+	public User searchUserByUsername(User u) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		User userFound = null;
@@ -125,7 +169,7 @@ public class DataUsers {
 		return userFound;
 	}
 	
-	public User getUserByMail(User u) {
+	public User searchUserByMail(User u) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		User userFound = null;

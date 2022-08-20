@@ -47,6 +47,11 @@
 	   			msg = "Ya existe una cuenta con el mail ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
 	 		    volver = "registro.jsp";
 	   			break;
+	   			
+	   		case 8:
+	   			msg = "El usuario no puede contener caracteres especiales";
+	 		    volver = "registro.jsp";
+	   			break;
 	   }
 	%>
 	

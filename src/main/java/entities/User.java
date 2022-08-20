@@ -10,6 +10,25 @@ public class User {
 	private String phone;
 	private Boolean isAdmin;
 	
+	public User(String username, String password) {
+		this.setUsername(username);
+		this.setPassword(password);
+	}
+	
+	public User(String n, String s, int dni, String p, String m, String us, String pw) {
+		this.setDni(dni);
+		this.setUsername(us);
+		this.setPassword(pw);
+		this.setName(n);
+		this.setSurname(s);
+		this.setPhone(p);
+		this.setMail(m);
+		this.setIsAdmin(false);
+	}
+	
+	public User() {
+	}
+	
 	public int getDni() {
 		return dni;
 	}

@@ -1,4 +1,4 @@
-package logic;
+package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import entities.*;
 import data.*;
+import logic.*;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private CtrlLogin cl = new CtrlLogin();
 
 	private DataUsers du = new DataUsers();
 	
@@ -27,12 +30,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		User userLogin = new User();
-		userLogin.setUsername(request.getParameter("username"));
-		userLogin.setPassword(request.getParameter("pass"));
-		
-		User userFound = new User();
-		userFound = du.getUser(userLogin);
+		User userFound = cl.userExists(request.getParameter("username"), request.getParameter("pass"));
 		
 		if (userFound != null) {
 			
@@ -40,13 +38,12 @@ public class LoginServlet extends HttpServlet {
 			sesion.setAttribute("userSession", userFound);
 			sesion.setMaxInactiveInterval(30*60);
 			
-			// Probar que se logee con usuario y contraseña y si da error entonces
-			// dni y contraseña
-			
 			if (userFound.getIsAdmin()) {
+				////////////////////
 				request.setAttribute("user", userFound);
 				request.getRequestDispatcher("indexAdmin.jsp").forward(request, response);
 			} else {
+				////////////////////
 				request.getRequestDispatcher("indexUser.jsp").forward(request, response);
 			}
 		} else {
