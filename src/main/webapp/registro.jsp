@@ -1,104 +1,105 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>Registro</title>
-	</head>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registro</title>
+    
+    <!-- Bootstrap -->
+	<meta name = "viewport" content = "width=device-width, initial-scale=1">
+	<link href = "https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel = "stylesheet">
+	<link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin = "anonymous">
+	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity = "sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin = "anonymous"></script>
+	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous">
+	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integriy = "sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin = "anonymous"></script>
+       
+    <!-- CSS -->
+	<link href = "style/indexStyle.css" rel = "stylesheet">
+	<link href = "css/bootstrap.min.css" rel = "stylesheet">
+</head>
 <body>
-	<table border=5 width=100% bgcolor=white>
-		<tr>
-			<th align = "left" style= "max-width: 11px">
-				<img src = "logoejemplo.png">
-			</th>
-			<th>
-				<a href = "index.html">Inicio</a>
-			</th>
-			<th align = "right">
-				<a href = "index.html">Volver</a>
-			</th>
-		</tr>
-	</table>
+	<!-- Header/Barra de navegación/Navbar -->
+	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
+		<div class="container-fluid">
+			<a class="navbar-brand" href = "index.html">
+				<img src="imgs/logo.png" alt="" width="200">
+			</a>
+			
+			<button class="navbar-toggler" 
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toogle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+					&emsp;&emsp;&emsp;&emsp;
+					<li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+					&emsp;&emsp;&emsp;&emsp;
+					<li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
+					</ul>
+				<ul class="navbar-nav ml-auto">
+					<li><span title = "Registro"><a href = "registro.jsp"><img src = "imgs/user.png" alt="" width="60"></a></span></li>
+				</ul>
+			</div>		
+		</div>
+	</nav>
+	<section>
+<div class="container">
+		<div class="content-center topmargin-lg">
+			<h2 class ="text-center pb-5 pt-5 h1"><b> Registro</b></h2>
+			<h5 style="margin-left:420px; margin-top:30px"> Datos Personales </h5>
+			<form	class="form-inline">
+				<div	class="form-group mx-sm-3">
+							<label	for="inputName"	class="sr-only" > Nombre </label>
+							<input	type="text"	class="form-control"	id="inputName"	placeholder="Nombre" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+				<div	class="form-group mx-sm-3">
+							<label	for="inputLName"	class="sr-only" >Apellido</label>
+							<input	type="text"	class="form-control"	id="inputLName"	placeholder="Apellido" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+				<div	class="form-group mx-sm-3">
+							<label	for="inputUser"	class="sr-only" >DNI</label>
+							<input	type="text"	class="form-control"	id="inputUser"	placeholder="DNI" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+				<div	class="form-group mx-sm-3">
+							<label	for="inputPhone"	class="sr-only" >Telefono</label>
+							<input	type="text"	class="form-control"	id="inputPhone"	placeholder="Telefono" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+			<h5 style="margin-left:420px; margin-top:30px"> Datos de la cuenta </h5>
+				<div	class="form-group	mx-sm-3">
+						<label	for="inputMail"	class="sr-only">Email</label>
+						<input	type="text"	class="form-control"	id="inputMail"	placeholder="Email" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+				<div	class="form-group	mx-sm-3">
+						<label	for="inputUsuario"	class="sr-only">Nombre de usuario</label>
+						<input	type="text"	class="form-control"	id="inputUsuario"	placeholder="Nombre de usuario" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+				<div	class="form-group	mx-sm-3">
+						<label	for="inputPass"	class="sr-only">Contraseña</label>
+						<input	type="password"	class="form-control"	id="inputPass"	placeholder="Contraseña" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+				<div	class="form-group	mx-sm-3">
+						<label	for="inputPass"	class="sr-only">Repetir contraseña</label>
+						<input	type="password"	class="form-control"	id="inputPass"	placeholder="Repetir contraseña" style="width : 350px; heigth : 10px; margin-left:390px;margin-top:10px;">
+				</div>
+		</form>
+			<button	type="submit"	class="btn	btn-primary margintop3" style="margin-left:530px; margin-top:10px"> Registrarse </button>
+		</div>
+					<a style = "margin-left:405px; margin-top:10px; color:red"><font face = "tahoma" size = "2"> * Datos obligatorios </font> </a>
+		<br>
+		<br>
+			<a href = "" style = "margin-left:490px; margin-top:40px">¿Olvidaste tu contraseña?</a>
+		<br>
+			<a href = "" style = "margin-left:460px; margin-top:10px">¿Ya tienes una cuenta? Ingresar...</a>
+	</div>
+</section>
 	
-	<br>
-	<br>
-	<form action = "SignUpServlet" method = "post">
-		<table align = center>
-			<caption><font face = "tahoma" size = "5"><b>Registro</b></font></p></caption>
-			<tr>
-				<th colspan = "2" align = "left"><font face = "tahoma" size = "4"><u>Datos personales</u></font></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Nombre:</font><font color = red> *</font></th>
-				<th><input type = "text" required name = "name"></input></th>
-			</tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Apellido:</font><font color = red> *</font></th>
-				<th><input type = "text" required  name = "surname"></input></th>
-			</tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">DNI:</font><font color = red> *</font></th>
-				<th><input type = "text" required  name = "dni"></input></th>
-			</tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Teléfono:</font></th>
-				<th><input type = "text" name = "phone"></input></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th colspan = "2" align = "left"><font face = "tahoma" size = "4"><u>Datos de la cuenta</u></font></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Email:</font><font color = red> *</font></th>
-				<th><input type = "text" required name = "mail" placeholder = "@"></input></th>
-			</tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Nombre de usuario:</font><font color = red> *</font></th>
-				<th><input type = "text" required name = "username"></input></th>
-			</tr>
-			<tr>
-				<th colspan = "2">
-					<font size = "1" face = "tahoma" color = "#7F7F7F">
-						<i>El nombre de usuario no puede contener caracteres especiales</i>
-					</font>
-				</th>
-			</tr>
-			<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Contraseña:</font><font color = red> *</font></th>
-				<th><input type = "password" required name = "password1"></input></th>
-			</tr>
-						<tr>
-				<th align = "left"><font size = "2" face = "tahoma">Repetir contraseña:</font><font color = red> *</font></th>
-				<th><input type = "password" required name = "password2"></input></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th colspan = "2"><input type = "submit" value = "Crear cuenta"></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th colspan = "2" align = "left"><font face = "tahoma" size = "1" color = red>*: Datos obligatorios</font></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th colspan = "2" align = "right"><a href = login.jsp><font face = "tahoma" size = "2">¿Olvidaste tu contraseña?</font></a></th>
-			</tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr><th colspan = "2"></th></tr>
-			<tr>
-				<th colspan = "2" align = "right"><a href = login.jsp><font face = "tahoma" size = "2">¿Ya tienes una cuenta? Ingresar...</font></a></th>
-			</tr>
-		</table>
-	</form>
-	
+    
 </body>
 </html>
