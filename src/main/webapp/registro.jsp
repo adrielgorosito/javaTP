@@ -49,8 +49,9 @@
 			</div>		
 		</div>
 	</nav>
+	
 	<section>
-<div class="container">
+	<div class="container">
 		<div class="content-center topmargin-lg">
 			<h2 class ="text-center pb-5 pt-5 h1"><b> Registro</b></h2>
 			<h5 style="margin-left:420px; margin-top:30px"> Datos Personales </h5>
@@ -98,7 +99,7 @@
 		<br>
 			<a href = "" style = "margin-left:460px; margin-top:10px">¿Ya tienes una cuenta? Ingresar...</a>
 	</div>
-</section>
+	</section>
 	
     
 </body>

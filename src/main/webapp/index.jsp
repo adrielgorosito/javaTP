@@ -27,7 +27,7 @@
 	<!-- Header/Barra de navegación/Navbar -->
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
-			<a class="navbar-brand" href = "index.html">
+			<a class="navbar-brand" href = "index.jsp">
 				<img src="imgs/logo.png" alt="" width="200">
 			</a>
 			
