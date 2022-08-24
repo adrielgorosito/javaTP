@@ -24,7 +24,6 @@
 
 <body>
 
-	<!-- Header/Barra de navegación/Navbar -->
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
 			<a class="navbar-brand" href = "index.jsp">
@@ -50,7 +49,6 @@
 		</div>
 	</nav>
 	
-	<!-- Separador -->
 	<div id="ribbon">
 		<div class="row align-items-center content-center topmargin-sm">
 			<div class="col-sm p-1">
