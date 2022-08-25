@@ -27,12 +27,11 @@ public class SignUpServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DataUsers du = new DataUsers();
-		
 		User newUser = new User(request.getParameter("name"), request.getParameter("surname"),
 				  				Integer.parseInt(request.getParameter("dni")), request.getParameter("phone"),
 				  				request.getParameter("mail"), request.getParameter("username"), request.getParameter("password1"));
 		
+		// Corroborar que el mail tenga @
 		if (request.getParameter("password1").length() >= 8) {
 			if (request.getParameter("password1").equals(request.getParameter("password2"))) {
 				if (!csu.hasSpecialCharacters(request.getParameter("username"))) {

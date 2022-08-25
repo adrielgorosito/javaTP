@@ -88,7 +88,7 @@
 	
 	
 	
-	<%@ page language = "java" import = "java.lang.Math"%>
+	<%@ page language = "java" import = "logic.*" %>
 	
 	<%
 		int nroRandom = (int) Math.floor(Math.random()*10+1);
