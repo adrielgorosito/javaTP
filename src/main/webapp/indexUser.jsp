@@ -16,7 +16,7 @@
 				<a href = "index.html">Inicio</a>
 			</th>
 			<th align = "right">
-				<a href = "<%=request.getContextPath()%>/CloseSessionServlet">Cerrar sesión</a>
+				<a href = "<%=request.getContextPath()%>/CloseSession">Cerrar sesión</a>
 			</th>
 		</tr>
 	</table>
@@ -43,7 +43,7 @@
 		</br><br>
 		<a href = indexUser.jsp>Probar sesión</a>
 		<br><br>
-		<a href = "<%=request.getContextPath()%>/CloseSessionServlet">Salir</a>
+		<a href = "<%=request.getContextPath()%>/CloseSession">Salir</a>
 	</p>
 
 </body>

@@ -162,7 +162,14 @@
 #block_container {
     text-align: center;
 }
+
 #block_container > div {
     display: inline-block;
     vertical-align: middle;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }

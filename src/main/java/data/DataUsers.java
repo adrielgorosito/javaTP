@@ -176,14 +176,16 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, email FROM User WHERE email = ?");
+					"SELECT dni, nombre, email, contraseña FROM User WHERE email = ?");
 			stmt.setString(1, u.getMail());
 			rs = stmt.executeQuery();
 			
 			if (rs != null && rs.next()) {
 				userFound = new User();
 				userFound.setDni(rs.getInt("dni"));
-				userFound.setUsername(rs.getString("nombUsuario"));
+				userFound.setName(rs.getString("nombre"));
+				userFound.setMail(rs.getString("email"));
+				userFound.setPassword(rs.getString("contraseña"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

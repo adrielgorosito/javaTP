@@ -4,6 +4,8 @@
 target/
 
 *.class
+toDo.md
+
 
 # Package Files #
 *.jar

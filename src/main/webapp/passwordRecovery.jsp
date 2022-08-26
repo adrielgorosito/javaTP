@@ -36,11 +36,11 @@
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent" >
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.jsp#">Inicio</a></li>
 					&emsp;&emsp;&emsp;&emsp; <!-- Dudosos estos espacios en blanco -->
-					<li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.jsp#productos">Productos</a></li>
 					&emsp;&emsp;&emsp;&emsp;
-					<li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
+					<li class="nav-item"><a class="nav-link" href="index.jsp#contacto">Contacto</a></li> 
 					</ul>
 				<ul class="navbar-nav ml-auto">
 					<li><span title = "Registro"><a href = "registro.jsp"><img src = "imgs/user.png" alt="" width="60"></a></span></li>
@@ -61,16 +61,16 @@
 		<div class="container">
 			<div class="content-center topmargin-lg">
 				<h3 class ="text-center pt-5 h3"><b>Recupera tu cuenta</b></h3>
-				<p class ="text-center">Ingresa tu correo electrónico. Te enviaremos tu contraseña por medio del mismo.</p>
-				<form class="form-inline">
+				<p class ="text-center">Olvidar la contraseña es un problema más común de lo que crees. No te sientas con culpa.</p>
+				<p class ="text-center">Ingresa el correo electrónico asociado a tu cuenta. Recibirás un correo con tu contraseña.</p>
+				<form action = "ForgotPass">
 					<div class="form-group mx-sm-3">
-						<label for="inputMail" class="sr-only">Tu email</label>
-						<input type="text" class="form-control" id="inputMail" placeholder="Email" style="width : 350px; heigth : 10px">
+						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; heigth : 10px">
+					</div>
+					<div class ="text-center">
+   					 	<button type="submit" class="btn btn-primary margintop3"  style="margin-top:10px">Enviar</button>
 					</div>
 				</form>
-				<div class ="text-center">
-   					 <button type="submit" class="btn btn-primary margintop3"  style="margin-top:10px">Enviar</button>
-				</div>
 			</div>
 			<br>
 			<br>

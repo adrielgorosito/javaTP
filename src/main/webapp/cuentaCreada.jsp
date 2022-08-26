@@ -5,6 +5,16 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Registro</title>
+	
+	<%@ page language = "java" import = "javax.*" %>
+	<%@ page language = "java" import = "java.io.*" %>
+	<%@ page import = "entities.*" %>
+	<% User newUser = (User) request.getAttribute("newUser");
+	
+		HttpSession sesion = request.getSession();
+		sesion.setAttribute("userSession", newUser);
+		sesion.setMaxInactiveInterval(30*60); 
+	%>
 </head>
 <body>
 
@@ -14,19 +24,15 @@
 				<img src = "logoejemplo.png">
 			</th>
 			<th>
-				<a href = "index.html">Inicio</a>
+				<a href = "index.jsp">Inicio</a>
 			</th>
 			<th align = "right">
-				<a href = "index.html">Volver</a>
+				<a href = "index.jsp">Volver</a>
 			</th>
 		</tr>
 	</table>
 	
-	<%@ page language = "java" import = "javax.*" %>
-	<%@ page language = "java" import = "java.io.*" %>
-	<%@ page import = "entities.*" %>
-	<% User newUser = (User) request.getAttribute("newUser");%>
-	
+
 	<p align = "center">
 		<font face = "tahoma" size = 4 color = "green"><b>Cuenta creada exitosamente.</b></font>
 		<br><br>

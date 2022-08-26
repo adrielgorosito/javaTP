@@ -22,7 +22,7 @@
 	</table>
 	
 	<!-- Ejemplo de login -->
-	<form action = "LoginServlet" method = "post">
+	<form action = "Login" method = "post">
  		<table border=5 bgcolor=white align = "center">
 			<tr>
 				<th align = "right">Nombre de usuario:</th>

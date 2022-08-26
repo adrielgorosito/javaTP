@@ -52,6 +52,11 @@
 	   			msg = "El usuario no puede contener caracteres especiales";
 	 		    volver = "registro.jsp";
 	   			break;
+	   			
+	   		case 9:
+	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado";
+	 		    volver = "passwordRecovery.jsp";
+	   			break;
 	   }
 	%>
 	
@@ -61,7 +66,7 @@
 				<img src = "logoejemplo.png">
 			</th>
 			<th>
-				<a href = "index.html">Inicio</a>
+				<a href = "index.jsp">Inicio</a>
 			</th>
 			<th align = "right">
 				<a href = "login.html">Iniciar sesión</a>
