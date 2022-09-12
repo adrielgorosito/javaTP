@@ -1,28 +1,20 @@
 package logic;
 
+import data.DataProducts;
+import entities.Product;
+
 public class CtrlIndex {
 	
+	public DataProducts dp = new DataProducts();
 	
-	public static void main(String[] args) { // Borrar esto
-		int integ;
-	}
-	
-	public void tarjProd() {
-		int min = 1;
-		int max = 5;
+	public Product getRandomProduct(int max, int min) {
+		// Recibe dos números
+		int randomId = (int) (Math.random()*(max-min)) + 1;
 		
-		for (int i = 0; i < 6; i++) {
-			int randomValue = (int) (Math.random()*(max-min)) + min;
-			
-			min = min + 5;
-			max = max + 5;
-			
-			
-			// método a db, retorno una linkedList de productos,
-			// desde index uso dicha linkedList
-			
-			
-			System.out.println(randomValue);
-		}
+		Product p = new Product();
+		p.setId_prod(randomId);
+		p = dp.searchProductById(p);
+		
+		return p;
 	}
 }

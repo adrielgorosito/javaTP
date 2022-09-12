@@ -86,16 +86,11 @@
 	</section>
 	
 	
-	
-	
-	<%@ page language = "java" import = "logic.*" %>
-	
-	<%
-		int nroRandom = (int) Math.floor(Math.random()*10+1);
-		
-		
-	%>
-	<%= nroRandom %>
+	<%@ page language = "java" import = "logic.CtrlIndex" %>
+	<%@ page language = "java" import = "entities.Product" %>
+	<% CtrlIndex ci = new CtrlIndex();
+	   Product p = new Product(); %>
+
 	<!-- Tarjetas de productos -->
 	<section id="productos">
  		<div id="games" class="botpad-1">
@@ -106,28 +101,34 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<img src="imgs\LOGO2.jpg" class="card-img-top" alt="...">
+							<% p = ci.getRandomProduct(5, 1); %>
+  							<img src= "<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
-   								<h5 class="card-title">Card title</h5>
-   								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   								<p class="card-text"><%=p.getDescription()%></p>
+   								<h5 class="card-text">$<%=p.getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<img src="imgs\LOGO2.jpg" class="card-img-top" alt="...">
+							<% p = ci.getRandomProduct(5, 1); %>
+  							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
-   								<h5 class="card-title">Card title</h5>
-   								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   								<p class="card-text"><%=p.getDescription()%></p>
+   								<h5 class="card-text">$<%=p.getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<img src="imgs\LOGO2.jpg" class="card-img-top" alt="...">
+							<% p = ci.getRandomProduct(5, 1); %>
+  							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
-   								 <h5 class="card-title">Card title</h5>
-   								 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   								<p class="card-text"><%=p.getDescription()%></p>
+   								<h5 class="card-text">$<%=p.getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
@@ -135,28 +136,34 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<img src="imgs\LOGO2.jpg" class="card-img-top" alt="...">
+  							<% p = ci.getRandomProduct(5, 1); %>
+  							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
-   								<h5 class="card-title">Card title</h5>
-   								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   								<p class="card-text"><%=p.getDescription()%></p>
+   								<h5 class="card-text">$<%=p.getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<img src="imgs\LOGO2.jpg" class="card-img-top" alt="...">
+  							<% p = ci.getRandomProduct(5, 1); %>
+  							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
-   								<h5 class="card-title">Card title</h5>
-   								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   								<p class="card-text"><%=p.getDescription()%></p>
+   								<h5 class="card-text">$<%=p.getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<img src="imgs\LOGO2.jpg" class="card-img-top" alt="...">
+  							<% p = ci.getRandomProduct(5, 1); %>
+  							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
-   								 <h5 class="card-title">Card title</h5>
-   								 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   								<p class="card-text"><%=p.getDescription()%></p>
+   								<h5 class="card-text">$<%=p.getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
@@ -191,7 +198,7 @@
 					</div>
 					<div class="col text-center font-weight-light">
 						<h4>Gmail</h4>
-						<p>bgelectronics@gmail.com</p>
+						<p>bgelectronicsofficial@gmail.com</p>
 					</div>
 					<div class="col text-center font-weight-light">
 						<h4>Redes sociales</h4>
@@ -220,19 +227,23 @@
 						</div>
 					</div>
 				</div>
-				<div class="row justify-content-md-center py-1">
-					<div class="mb-3">
-  						<label for="exampleFormControlInput1" class="form-label">Email</label>
-  						<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="@gmail.com">
+				<form action = "Contact" method = "post">
+					<div class="row justify-content-md-center py-1">
+						<div class="mb-3">
+  							<label class="form-label">Email</label>
+  							<input name = "mailInput" type="email" class="form-control" id="exampleFormControlInput1" placeholder="@gmail.com">
+						</div>
+						<div class="mb-3">
+  							<label class="form-label">Asunto</label>
+  							<input name = "subjectInput" class="form-control" id="exampleFormControlInput1" placeholder="Escriba el asunto...">
+ 						</div>
+ 						<div class="mb-3">
+ 							<label class="form-label">Mensaje</label>
+ 		 					<textarea name = "msgInput" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+						</div>
+						<input class="btn btn-info topmargin-sm" role="button" style="top-margin:5px; width:680px;" type = "submit" value = "Enviar">
 					</div>
-					<div class="mb-3">
-  						<label for="exampleFormControlInput1" class="form-label">Asunto</label>
-  						<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Escriba el asunto...">
- 						<label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
- 		 				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-					</div>
-					<a class="btn btn-info topmargin-sm" href="#" role="button" style="top-margin:5px; width:680px;"><b>Enviar</b></a>
-				</div>
+				</form>
 			</div>
 		</div>
 	</section>
