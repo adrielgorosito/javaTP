@@ -78,16 +78,16 @@
 				<br>
 				<p>BG Electronics es una tienda online basada exclúsivamente en periféricos gaming.<br><br>
 				Aquí encontrarás, todo lo que estás buscando:<br>
-				<img src = "imgs/check.png"> Monitores.<br>
-				<img src = "imgs/check.png"> Mouses.<br>
-				<img src = "imgs/check.png"> Teclados.<br>
-				<img src = "imgs/check.png"> Y más!<br><br>
+				<img src = "imgs/index/check.png"> Monitores.<br>
+				<img src = "imgs/index/check.png"> Mouses.<br>
+				<img src = "imgs/index/check.png"> Teclados.<br>
+				<img src = "imgs/index/check.png"> Y más!<br><br>
 				En BG Electronics nos caracterizamos por pensar siempre en el cliente. Por
 				eso te ofrecemos:<br>
-				<img src = "imgs/check.png"> Productos exclusivos de excelente calidad con garantías de 12 meses.<br>
-				<img src = "imgs/check.png"> Precios baratos, con cualquier forma de pago.<br>
-				<img src = "imgs/check.png"> Hasta 12 cuotas sin interés.<br>
-				<img src = "imgs/check.png"> Un servicio al cliente pensado única y exclúsivamente para vos.<br><br>
+				<img src = "imgs/index/check.png"> Productos exclusivos de excelente calidad con garantías de 12 meses.<br>
+				<img src = "imgs/index/check.png"> Precios baratos, con cualquier forma de pago.<br>
+				<img src = "imgs/index/check.png"> Hasta 12 cuotas sin interés.<br>
+				<img src = "imgs/index/check.png"> Un servicio al cliente pensado única y exclúsivamente para vos.<br><br>
 				No te preocupes más por la incomodidad, con nosotros podrás librar<br>
 				tus batallas más legendarias de forma segura y sin ningún tipo<br>
 				de inconveniente.<br>

@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		User userFound = cl.userExists(request.getParameter("username"), request.getParameter("pass"));
+		User userFound = cl.userExists(request.getParameter("userInput"), request.getParameter("userPass"));
 		
 		if (userFound != null) {
 			
