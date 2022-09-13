@@ -113,8 +113,12 @@
 
 	<%@ page language = "java" import = "logic.CtrlIndex" %>
 	<%@ page language = "java" import = "entities.Product" %>
+	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlIndex ci = new CtrlIndex();
-	   Product p = new Product(); %>
+	   Product p = new Product(); 
+	   int totProds = ci.getTotalProducts();
+	   
+	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
 
 	<!-- Tarjetas de productos -->
 	<section id="productos">
@@ -126,7 +130,7 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-							<% p = ci.getRandomProduct(5, 1); %>
+							<% p = ci.getProduct(tarjProds.get(0)); %>
   							<img src= "<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -137,7 +141,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-							<% p = ci.getRandomProduct(5, 1); %>
+							<% p = ci.getProduct(tarjProds.get(1)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -148,7 +152,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-							<% p = ci.getRandomProduct(5, 1); %>
+							<% p = ci.getProduct(tarjProds.get(2)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -161,7 +165,7 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<% p = ci.getRandomProduct(5, 1); %>
+  							<% p = ci.getProduct(tarjProds.get(2)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -172,7 +176,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<% p = ci.getRandomProduct(5, 1); %>
+  							<% p = ci.getProduct(tarjProds.get(1)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -183,7 +187,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<% p = ci.getRandomProduct(5, 1); %>
+  							<% p = ci.getProduct(tarjProds.get(0)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>

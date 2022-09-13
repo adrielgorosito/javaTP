@@ -1,5 +1,7 @@
 package logic;
 
+import java.util.LinkedList;
+
 import data.DataProducts;
 import entities.Product;
 
@@ -7,14 +9,42 @@ public class CtrlIndex {
 	
 	public DataProducts dp = new DataProducts();
 	
-	public Product getRandomProduct(int max, int min) {
-		// Recibe dos números
-		int randomId = (int) (Math.random()*(max-min)) + 1;
-		
+	public Product getProduct(int id) {
 		Product p = new Product();
-		p.setId_prod(randomId);
+		p.setId_prod(id);
 		p = dp.searchProductById(p);
 		
 		return p;
 	}
+	
+	
+	
+	public int getTotalProducts() {
+		return dp.searchTotalProducts();
+	}
+	
+	public int getRandomId(int max) {
+		int randomId = (int) (Math.random()*(max-1)) + 1;
+		return randomId;
+	}
+	
+	public LinkedList<Integer> fillTarjs(int totProds) {
+		LinkedList<Integer> tarjProds = new LinkedList<>();
+		
+		while (tarjProds.size() < 3) {
+			   int idRandom = getRandomId(totProds);
+			
+			   if (!tarjProds.contains(idRandom)) {
+				   tarjProds.add(idRandom);
+			   }
+		   }
+		   
+		   for (int i = 0; i < tarjProds.size(); i++) {
+		   		System.out.println(tarjProds.get(i));
+		   }
+		   
+		return tarjProds;
+	}
+	
+	
 }

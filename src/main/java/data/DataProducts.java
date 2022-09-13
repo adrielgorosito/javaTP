@@ -55,4 +55,40 @@ public class DataProducts {
 	}
 	
 	
+	public int searchTotalProducts()  {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT MAX(id_prod) tot FROM producto");
+			rs = stmt.executeQuery();
+			
+			if (rs != null && rs.next()) {
+				tot = rs.getInt("tot");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return tot;
+	}
+	
+	
+	
 }
