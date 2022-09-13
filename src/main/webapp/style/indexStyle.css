@@ -72,7 +72,8 @@
 	background-repeat: repeat-x;
 	background-size: 75%;
 	margin-top: -20px;
-	
+	position: relative;
+	z-index: 2;
 	}
 /*	
 #games
