@@ -13,8 +13,8 @@ public class ContactEmail {
 
     public void sendMail(String userMail, String subject, String userMsg) {
 
-        final String username = "bgelectronicsofficial@gmail.com";
-        final String password = "hsghqfbpiiztvfbm";
+        final String username = "";
+        final String password = "";
 
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
