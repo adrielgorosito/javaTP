@@ -21,7 +21,7 @@
 	<!-- Header/Barra de navegación/Navbar -->
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
-			<a class="navbar-brand" href = "index.html">
+			<a class="navbar-brand" href = "index.jsp">
 				<img src="imgs/logo.png" alt="" width="200">
 			</a>
 			
@@ -42,9 +42,6 @@
 					<li class="nav-item"><a class="nav-link" href="index.jsp#productos">Productos</a></li>
 					&emsp;&emsp;&emsp;&emsp;
 					<li class="nav-item"><a class="nav-link" href="index.jsp#contacto">Contacto</a></li> 
-					</ul>
-				<ul class="navbar-nav ml-auto">
-					<li><span title = "Registro"><a href = "registro.jsp"><img src = "imgs/user.png" alt="" width="60"></a></span></li>
 				</ul>
 			</div>		
 		</div>

@@ -41,9 +41,10 @@
 					<li class="nav-item"><a class="nav-link" href="index.jsp#productos">Productos</a></li>
 					&emsp;&emsp;&emsp;&emsp;
 					<li class="nav-item"><a class="nav-link" href="index.jsp#contacto">Contacto</a></li> 
-					</ul>
+				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li><span title = "Registro"><a href = "registro.jsp"><img src = "imgs/user.png" alt="" width="60"></a></span></li>
+					<li class="nav-item"><a	class="btn btn-primary" href="registro.jsp" role="button"><b>Registrarse</b></a></li> 
+					<li class="nav-item"><a	class="btn btn-outline-primary topmargin-sm margenleft-sm"	href="login.jsp" role="button"><b>Iniciar Sesion</b></a></li> 
 				</ul>
 			</div>		
 		</div>
@@ -57,22 +58,22 @@
 		</div>		 
 	</div>
 	
+
 	<section>
 		<div class="container">
 			<div class="content-center topmargin-lg">
-				<h3 class ="text-center pt-5 h3"><b>Recupera tu cuenta</b></h3>
+				<h3 class ="text-center pt-3 h3"><b>Recupera tu cuenta</b></h3>
 				<p class ="text-center">Olvidar la contraseña es un problema más común de lo que crees. No te sientas con culpa.</p>
 				<p class ="text-center">Ingresa el correo electrónico asociado a tu cuenta. Recibirás un correo con tu contraseña.</p>
 				<form action = "ForgotPass">
-					<div class="form-group mx-sm-3">
-						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; heigth : 10px">
+					<div class="content-center">
+						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; heigth : 10px; margin:auto">
 					</div>
 					<div class ="text-center">
-   					 	<button type="submit" class="btn btn-primary margintop3"  style="margin-top:10px">Enviar</button>
+   					 	<button type="submit" class="btn btn-primary margintop3" style="margin-top:10px">Enviar</button>
 					</div>
 				</form>
 			</div>
-			<br>
 			<br>
 			<div class ="text-center">
 				<a href = "login.jsp">Regresar</a>

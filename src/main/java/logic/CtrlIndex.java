@@ -39,10 +39,6 @@ public class CtrlIndex {
 			   }
 		   }
 		   
-		   for (int i = 0; i < tarjProds.size(); i++) {
-		   		System.out.println(tarjProds.get(i));
-		   }
-		   
 		return tarjProds;
 	}
 	

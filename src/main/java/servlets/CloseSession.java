@@ -23,7 +23,7 @@ public class CloseSession extends HttpServlet {
 			session1.invalidate();
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.html");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}
 

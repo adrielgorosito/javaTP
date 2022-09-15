@@ -35,16 +35,12 @@
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.jsp">Inicio</a></li>
 					&emsp;&emsp;&emsp;&emsp;
-					<li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.jsp#productos">Productos</a></li>
 					&emsp;&emsp;&emsp;&emsp;
-					<li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
+					<li class="nav-item"><a class="nav-link" href="index.jsp#contacto">Contacto</a></li> 
 					&emsp;&emsp;&emsp;&emsp;
-				</ul>
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a	class="btn btn-primary" href="registro.jsp" role="button"><b>Registrarse</b></a></li> 
-					<li class="nav-item"><a	class="btn btn-outline-primary topmargin-sm margenleft-sm"	href="login.jsp" role="button"><b>Iniciar Sesion</b></a></li> 
 				</ul>
 			</div>		
 		</div>
