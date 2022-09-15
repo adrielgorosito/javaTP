@@ -87,8 +87,8 @@
 						<label for="inputPass" class="sr-only">Repetir contraseña</label>
 						<input type="password" class="form-control"	id="inputPass" placeholder="Repetir contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
-				</form>
-				<button	type="submit" class="btn btn-primary margintop3" style="margin-left:530px; margin-top:10px">Registrarse</button>
+					<input type = "submit" class="btn btn-primary margintop3" style="margin-left:530px; margin-top:10px" value = "Registrarse">
+                </form>
 			</div>
 			<a style = "margin-left:405px; margin-top:10px; color:red"><font face = "tahoma" size = "2">* Datos obligatorios</font> </a>
 			<br>
