@@ -55,37 +55,37 @@
 				<form action = "SignUp" class="form-inline">
 					<div class = "form-group mx-sm-3">
 						<label for="inputName" class="sr-only">Nombre</label>
-						<input type="text" class="form-control" id="inputName" placeholder="Nombre" style = "width: 350px; margin-left:390px; margin-top:10px;">
+						<input type="text" name = "name" class="form-control" id="inputName" placeholder="Nombre" style = "width: 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputLName"	class="sr-only">Apellido</label>
-						<input type="text" class="form-control" id="inputLName"	placeholder="Apellido" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="text" name = "surname" class="form-control" id="inputLName"	placeholder="Apellido" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputUser" class="sr-only">DNI</label>
-						<input type="text" class="form-control"	id="inputUser" placeholder="DNI" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="text" name = "dni" class="form-control"	id="inputUser" placeholder="DNI" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputPhone" class="sr-only">Telefono</label>
-						<input type="text" class="form-control"	id="inputPhone"	placeholder="Telefono" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="text" name = "phone" class="form-control"	id="inputPhone"	placeholder="Telefono" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 				
 					<h5 style = "margin-left:420px; margin-top:30px">Datos de la cuenta </h5>
 					<div class = "form-group mx-sm-3">
 						<label for="inputMail" class="sr-only">Email</label>
-						<input type="text" class="form-control" id="inputMail" placeholder="Email" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="text" name = "mail" class="form-control" id="inputMail" placeholder="Email" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputUsuario" class="sr-only">Nombre de usuario</label>
-						<input type="text" class="form-control"	id="inputUsuario" placeholder="Nombre de usuario" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="text" name = "username" class="form-control"	id="inputUsuario" placeholder="Nombre de usuario" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputPass" class="sr-only">Contraseña</label>
-						<input type="password" class="form-control"	id="inputPass" placeholder="Contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="password" name = "password1" class="form-control" id="inputPass" placeholder="Contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputPass" class="sr-only">Repetir contraseña</label>
-						<input type="password" class="form-control"	id="inputPass" placeholder="Repetir contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="password" name = "password2" class="form-control" id="inputPass" placeholder="Repetir contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<input type = "submit" class="btn btn-primary margintop3" style="margin-left:530px; margin-top:10px" value = "Registrarse">
                 </form>
