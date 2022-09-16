@@ -5,22 +5,36 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Error</title>
+	
+	<!-- Bootstrap -->
+	<!-- ? -->  <link href = "https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel = "stylesheet">
+	<!-- b5 --> <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin = "anonymous">
+	<!-- b5 --> <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity = "sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin = "anonymous"></script>
+	<!-- b5 --> <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integriy = "sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin = "anonymous"></script>
+	<!-- b4 --> <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous">
+
+	<!-- CSS -->
+	<link href = "style/indexStyle.css" rel = "stylesheet">
+	<link href = "css/bootstrap.min.css" rel = "stylesheet">
+	
 </head>
 
 <body>
+
 	<% int error = (int) request.getAttribute("errorType");
 	   String msg = "";
 	   String volver = "";
+	   String indexBack = "index.jsp";
 	   
 	   switch (error) {
 	   		case 1:
 	   			msg = "Usuario y/o contraseña erróneos.";
-	 		    volver = "login.html";
+	 		    volver = "login.jsp";
 	   			break;
 	   			
 	   		case 2:
 	   			msg = "Sesión expirada.";
-	 		    volver = "index.html";
+	 		    volver = "index.jsp";
 	   			break;
 	   			
 	   		case 3:
@@ -57,28 +71,46 @@
 	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado";
 	 		    volver = "passwordRecovery.jsp";
 	   			break;
+	   		
+	   		// Acordarse de esto
+	   		// Acordarse de esto
+	   		// Acordarse de esto
+	   		// Acordarse de esto
+	   		// Acordarse de esto
+	   		case 10:
+	   			msg = "Producto no encontrado";
+	 		    volver = "PaginaTodaviaNoHecha.jsp";
+	 		    indexBack = "indexUser.jsp";
+	   			break;
 	   }
 	%>
 	
-	<table border = 5 width = 100% bgcolor = white>
-		<tr>
-			<th align = "left" style= "max-width: 11px">
-				<img src = "logoejemplo.png">
-			</th>
-			<th>
-				<a href = "index.jsp">Inicio</a>
-			</th>
-			<th align = "right">
-				<a href = "login.html">Iniciar sesión</a>
-			</th>
-		</tr>
-	</table>
-	
+	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
+		<div class="container-fluid">
+			<a class="navbar-brand" href = "index.jsp">
+				<img src="imgs/index/logo.png" alt="" width="200">
+			</a>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toogle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					
+					<li class="nav-item"><a class="nav-link" href="<%=indexBack%>">Inicio</a></li>
+				</ul>
+			</div>		
+		</div>
+	</nav>
+
+	<h3 class="text-center pt-5 h1"><font color = "red"><b>Error</b></font></h3>
+
 	<p align = "center">
-		<font face = "tahoma" size = "15" color = "red"><b>Error</b></font>
-		<br><br>
+		<br>
 		<font face = "tahoma" size = "5"><%=msg%></font>
 		<br><br>
-		<a href = <%=volver%>>Regresar</a>
+		<a	class="btn btn-primary" href="index.jsp" role="button"><b>Regresar</b></a></li> 
+
 	</p>
 </body>

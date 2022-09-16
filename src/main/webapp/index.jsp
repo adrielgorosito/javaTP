@@ -192,7 +192,7 @@
 	
 	<!-- Separador -->
 	<div id="separator-2">
-		<div class="content" style="background:#f5f5f5;margin-bottom:-4%;">
+		<div class="content" style="background:#f5f5f5">
 		</div>
 	</div>
 	

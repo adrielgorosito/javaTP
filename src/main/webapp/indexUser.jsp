@@ -60,7 +60,7 @@
 					<li class="nav-item dropdown">
     					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src = "imgs/index/user.png" alt="" width="60"><%=userS.getName()%> </a>
    						<div class="dropdown-menu dropdown-menu-right">
-      						<a class="dropdown-item" href="#">Perfil</a>
+      						<a class="dropdown-item" href="modifyPersonalData.jsp">Mi perfil</a>
             	    		<a class="dropdown-item" href="#">Mis compras</a>
             	    		<a class="dropdown-item" href="#">Ayuda</a>
             	    		<div class="dropdown-divider"></div>
@@ -84,12 +84,14 @@
 
 	<!-- Tarjetas de productos -->
 
-		<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
+	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
 
 	<section id="productos">
  		<div id="" class="">
 			<div class="container-md p-2">
+				<%for (int i = 1; i <= 4; i++) {%>
 				<div class="row row-cols-1 row-cols-md-3 g-4">
+					<%for (int j = 1; j <= 4; j++) {%>
   					<div class="col mb-4">
   						<div class="card h-100">
   							<% p = ci.getProduct(tarjProds.get(0)); %>
@@ -103,154 +105,9 @@
     						 </div>
   						</div>
   					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(1)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
+  					<%}%>
   				</div>
-  								<div class="row row-cols-1 row-cols-md-3 g-4">
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(0)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(1)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  				</div>
-  								<div class="row row-cols-1 row-cols-md-3 g-4">
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(0)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(1)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  				</div>
+  				<%}%>
   			</div>
 		</div>
 	</section>
