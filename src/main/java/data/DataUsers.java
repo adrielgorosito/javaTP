@@ -14,7 +14,7 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin "
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, image "
 					+ "FROM User WHERE nombUsuario = ? AND contraseña = ?");
 			stmt.setString(1, u.getUsername());
 			stmt.setString(2, u.getPassword());
@@ -28,7 +28,8 @@ public class DataUsers {
 				userFound.setSurname(rs.getString("apellido"));
 				userFound.setMail(rs.getString("email"));
 				userFound.setPhone(rs.getString("telefono"));
-				userFound.setIsAdmin(rs.getBoolean("isAdmin"));
+				userFound.setAdmin(rs.getBoolean("isAdmin"));
+				userFound.setImage(rs.getString("image"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,7 +59,7 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin "
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, image "
 					+ "FROM User WHERE email = ? AND contraseña = ?");
 			stmt.setString(1, u.getMail());
 			stmt.setString(2, u.getPassword());
@@ -72,7 +73,8 @@ public class DataUsers {
 				userFound.setSurname(rs.getString("apellido"));
 				userFound.setMail(rs.getString("email"));
 				userFound.setPhone(rs.getString("telefono"));
-				userFound.setIsAdmin(rs.getBoolean("isAdmin"));
+				userFound.setAdmin(rs.getBoolean("isAdmin"));
+				userFound.setImage(rs.getString("image"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

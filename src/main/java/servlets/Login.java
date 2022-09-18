@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 			sesion.setAttribute("userSession", userFound);
 			sesion.setMaxInactiveInterval(30*60);
 			
-			if (userFound.getIsAdmin()) {
+			if (userFound.isAdmin()) {
 				////////////////////
 				request.setAttribute("user", userFound);
 				request.getRequestDispatcher("indexAdmin.jsp").forward(request, response);

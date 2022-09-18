@@ -67,7 +67,7 @@
 				<p class ="text-center">Ingresa el correo electrónico asociado a tu cuenta. Recibirás un correo con tu contraseña.</p>
 				<form action = "ForgotPass">
 					<div class="content-center">
-						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; heigth : 10px; margin:auto">
+						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; margin:auto">
 					</div>
 					<div class ="text-center">
    					 	<button type="submit" class="btn btn-primary margintop3" style="margin-top:10px">Enviar</button>

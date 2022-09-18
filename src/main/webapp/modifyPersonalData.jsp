@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Productos</title>
-		
+	<title>Modificar datos personales</title>
+			
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
 	<%@ page import = "entities.*" %>
@@ -37,14 +36,12 @@
 	<!-- CSS -->
 	<link href = "style/indexStyle.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
-	
-		
-	</head>
-<body>
+</head>
 
+<body>
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
-			<a class="navbar-brand" href = "index.jsp">
+			<a class="navbar-brand" href = "indexUser.jsp">
 				<img src="imgs/index/logo.png" alt="" width="200">
 			</a>
 			
@@ -54,13 +51,13 @@
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="indexUser.jsp">Inicio</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item dropdown">
     					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src = "imgs/index/user.png" alt="" width="60"><%=userS.getName()%> </a>
    						<div class="dropdown-menu dropdown-menu-right">
-      						<a class="dropdown-item" href="myProfile.jsp">Mi perfil</a>
+      						<a class="dropdown-item" href="modifyPersonalData.jsp">Perfil</a>
             	    		<a class="dropdown-item" href="#">Mis compras</a>
             	    		<a class="dropdown-item" href="#">Ayuda</a>
             	    		<div class="dropdown-divider"></div>
@@ -72,45 +69,31 @@
 		</div>
 	</nav>
 	
-	
-	<%@ page language = "java" import = "logic.CtrlIndex" %>
-	<%@ page language = "java" import = "entities.Product" %>
-	<%@ page language = "java" import = "java.util.LinkedList" %>
-	<% CtrlIndex ci = new CtrlIndex();
-	   Product p = new Product(); 
-	   int totProds = ci.getTotalProducts();
-	   
-	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
-
-	<!-- Tarjetas de productos -->
-
-	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
-
-	<section id="productos">
- 		<div id="" class="">
-			<div class="container-md p-2">
-				<%for (int i = 1; i <= 4; i++) {%>
-				<div class="row row-cols-1 row-cols-md-3 g-4">
-					<%for (int j = 1; j <= 4; j++) {%>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(0)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  							<div class="card-body">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
- 							 </div>
- 							 <div class="card-footer">
-      								<h5 class="card-text">$<%=p.getPrice()%></h5>
-    						 </div>
-  						</div>
-  					</div>
-  					<%}%>
-  				</div>
-  				<%}%>
-  			</div>
+	<div class="container">
+	<div class="content-center topmargin-lg">
+	<h3 class ="text-center pt-3 h3"><b>Modificar datos personales</b></h3>
+	<form action = "ForgotPass">
+		<div class="mb-3 row">
+			<label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+			<div class="col-sm-10">
+      			<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; margin:auto">
+    		</div>
+    	</div>
+    	<div class="mb-3 row">
+    		<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    		<div class="col-sm-10">
+      			<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; margin:auto">
+    		</div>
 		</div>
-	</section>
-	
+		<div class="mb-3">
+  			<label for="formFile" class="form-label">Default file input example</label>
+  			<input class="form-control" type="file" id="formFile">
+		</div>
+		
+	</form>
+ 	</div>
+    	</div>
+
+
 </body>
 </html>

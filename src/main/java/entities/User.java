@@ -8,7 +8,8 @@ public class User {
 	private String surname;
 	private String mail;
 	private String phone;
-	private Boolean isAdmin;
+	private boolean isAdmin;
+	private String image;
 	
 	public User(String username, String password) {
 		this.setUsername(username);
@@ -23,7 +24,7 @@ public class User {
 		this.setSurname(s);
 		this.setPhone(p);
 		this.setMail(m);
-		this.setIsAdmin(false);
+		this.setAdmin(false);
 	}
 	
 	public User() {
@@ -84,13 +85,24 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	public Boolean getIsAdmin() {
+
+	public boolean isAdmin() {
 		return isAdmin;
 	}
 
-	public void setIsAdmin(Boolean isAdmin) {
+	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
+	
+	
 }
