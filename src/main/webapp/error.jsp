@@ -29,47 +29,38 @@
 	   switch (error) {
 	   		case 1:
 	   			msg = "Usuario y/o contraseña erróneos.";
-	 		    volver = "login.jsp";
 	   			break;
 	   			
 	   		case 2:
 	   			msg = "Sesión expirada.";
-	 		    volver = "index.jsp";
 	   			break;
 	   			
 	   		case 3:
-	   			msg = "La contraseña debe tener como mínimo 8 caracteres.";
-	 		    volver = "registro.jsp";	
+	   			msg = "La contraseña debe tener como mínimo 8 caracteres.";	
 	   			break;
 	   			
 	   		case 4:
 	   			msg = "Las contraseñas ingresadas no coinciden.";
-	 		    volver = "registro.jsp";
 	   			break;
 	   			
 	   		case 5:
 	   			msg = "Ya existe una cuenta con el dni ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
-	 		    volver = "registro.jsp";
 	   			break;
 	   			
 	   		case 6:
 	   			msg = "Ya existe una cuenta con el nombre de usuario ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
-	 		    volver = "registro.jsp";
 	   			break;
 	   			
 	   		case 7:
 	   			msg = "Ya existe una cuenta con el mail ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
-	 		    volver = "registro.jsp";
 	   			break;
 	   			
 	   		case 8:
 	   			msg = "El usuario no puede contener caracteres especiales";
-	 		    volver = "registro.jsp";
 	   			break;
 	   			
 	   		case 9:
 	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado";
-	 		    volver = "passwordRecovery.jsp";
 	   			break;
 	   		
 	   		// Acordarse de esto
@@ -105,12 +96,19 @@
 	</nav>
 
 	<h3 class="text-center pt-5 h1"><font color = "red"><b>Error</b></font></h3>
-
-	<p align = "center">
-		<br>
-		<font face = "tahoma" size = "5"><%=msg%></font>
-		<br><br>
-		<a	class="btn btn-primary" href="index.jsp" role="button"><b>Regresar</b></a></li> 
-
-	</p>
+	<%if (error == 2) {%>
+		<p align = "center">
+			<br>
+			<font face = "tahoma" size = "5"><%=msg%></font>
+			<br><br>
+			<a class="btn btn-primary" href="index.jsp" role="button">Regresar</a>
+		</p>
+	<%} else {%>
+		<p align = "center">
+			<br>
+			<font face = "tahoma" size = "5"><%=msg%></font>
+			<br><br>
+			<a href = "index.jsp" class="btn btn-primary topmargin-sm" role="button" type="button">Regresar</a>
+		</p>
+	<%}%>
 </body>
