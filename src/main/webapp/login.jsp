@@ -57,7 +57,7 @@
 					</div>
 					<div class = "form-group mx-sm-3">
 						<label for="inputLName"	class="sr-only">Contraseña</label>
-						<input type="password" name = "userPass" class="form-control" id="inputLName"	placeholder="Contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
+						<input type="password" name = "userPass" class="form-control" id="inputPass" placeholder="Contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
 					</div>
 					<input type = "submit" class="btn btn-primary margintop3" style="margin-left:530px; margin-top:10px" value = "Iniciar sesión">
 				</form>
