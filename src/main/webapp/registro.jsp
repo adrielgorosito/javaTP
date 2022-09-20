@@ -22,7 +22,7 @@
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
 			<a class="navbar-brand" href = "index.jsp">
-				<img src="imgs/logo.png" alt="" width="200">
+				<img src="imgs/index/logo.png" alt="" width="200">
 			</a>
 			
 			<button class="navbar-toggler" 

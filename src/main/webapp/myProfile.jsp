@@ -80,7 +80,7 @@
 					<img src = "<%=userS.getImage()%>" style = "width:300px; height: 300px; border-radius: 50%;">
 				<%}%>
 				<br><br><br>
-   				<a href = "modifyPersonalData"><button class="btn btn-primary margintop3" style = "width:230px">Modificar datos personales</button></a>
+   				<a href = "modifyPersonalData.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar datos personales</button></a>
 				<br><br>
 				<a href = "#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar datos de la cuenta</button></a>
 				<br><br>
