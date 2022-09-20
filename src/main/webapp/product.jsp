@@ -9,7 +9,7 @@
 		
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
-	<%@ page import = "entities.*" %>
+	<%@ page language = "java" import = "entities.*" %>
 	
 	<%
 	HttpSession session1 = request.getSession();
@@ -72,46 +72,23 @@
 		</div>
 	</nav>
 	
+	<%Product p = (Product) session1.getAttribute("prod");%>
 	
-	<%@ page language = "java" import = "logic.CtrlIndex" %>
-	<%@ page language = "java" import = "entities.Product" %>
-	<%@ page language = "java" import = "java.util.LinkedList" %>
-	<% CtrlIndex ci = new CtrlIndex();
-	   Product p = new Product(); 
-	   int totProds = ci.getTotalProducts();
-	   
-	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
-
-	<!-- Tarjetas de productos -->
-
-	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
-
-	<section id="productos">
+	<h3 class="text-center pb-3 pt-5 h1">Producto</h3>
+	
+	<section id="producto">
  		<div id="" class="">
 			<div class="container-md p-2">
-				<%for (int i = 1; i <= 2; i++) {%>
-				<div class="row row-cols-1 row-cols-md-3 g-4">
-					<%for (int j = 1; j <= 2; j++) {%>
-  					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(i)); %>
-  							<form id="formProd" action = "ProductS" method = "post">
-  								<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
-  								<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  								<div class="card-body">
-   									<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   									<p class="card-text"><%=p.getDescription()%></p>
- 								</div>
- 								<div class="card-footer">
-      								<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
-      								<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
-    							</div>
-    						</form>
-  						</div>
-  					</div>
-  					<%}%>
+  				<div class="card h-100">
+  					<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
+  					<div class="card-body">
+   						<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   						<p class="card-text"><%=p.getDescription()%></p>
+ 						</div>
+ 					<div class="card-footer">
+      					<h5 class="card-text">$<%=p.getPrice()%></h5>
+    				</div>
   				</div>
-  				<%}%>
   			</div>
 		</div>
 	</section>
