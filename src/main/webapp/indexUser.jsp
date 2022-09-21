@@ -87,7 +87,6 @@
 	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
 
 	<section id="productos">
- 		<div id="" class="">
 			<div class="container-md p-2">
 				<%for (int i = 1; i <= 2; i++) {%>
 				<div class="row row-cols-1 row-cols-md-3 g-4">
@@ -113,7 +112,6 @@
   				</div>
   				<%}%>
   			</div>
-		</div>
 	</section>
 	
 </body>

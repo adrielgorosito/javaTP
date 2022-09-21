@@ -101,14 +101,14 @@
 			<br>
 			<font face = "tahoma" size = "5"><%=msg%></font>
 			<br><br>
-			<a class="btn btn-primary" href="index.jsp" role="button">Regresar</a>
+			<a class="btn btn-primary" href="registro.jsp" role="button">Regresar</a>
 		</p>
 	<%} else {%>
 		<p align = "center">
 			<br>
 			<font face = "tahoma" size = "5"><%=msg%></font>
 			<br><br>
-			<a href = "index.jsp" class="btn btn-primary topmargin-sm" role="button" type="button">Regresar</a>
+			<a class="btn btn-primary topmargin-sm" href = "index.jsp" role="button" type="button" onclick="history.back()">Regresar</a>
 		</p>
 	<%}%>
 </body>

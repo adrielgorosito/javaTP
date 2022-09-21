@@ -73,24 +73,19 @@
 	</nav>
 	
 	<%Product p = (Product) session1.getAttribute("prod");%>
-	
-	<h3 class="text-center pb-3 pt-5 h1">Producto</h3>
-	
 	<section id="producto">
- 		<div id="" class="">
-			<div class="container-md p-2">
-  				<div class="card h-100">
-  					<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  					<div class="card-body">
-   						<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   						<p class="card-text"><%=p.getDescription()%></p>
- 						</div>
- 					<div class="card-footer">
-      					<h5 class="card-text">$<%=p.getPrice()%></h5>
-    				</div>
+			<div class="container">
+				<div class="">
+					<img src= "<%=p.getImg()%>" width = "750px" alt="...">
+  				</div>
+  				<div class="" id="texto">
+  					<ul>
+  						<li><h4 class=""><b><%=p.getName()%></b></h4></li>
+   						<li><p class=""><%=p.getDescription()%></p></li>
+   						<li><h5 class="t">$<%=p.getPrice()%></h5></li>					
+  					</ul>
   				</div>
   			</div>
-		</div>
 	</section>
 	
 </body>
