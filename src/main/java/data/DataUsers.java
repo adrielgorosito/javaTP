@@ -239,5 +239,30 @@ public class DataUsers {
 		}
 
 	}
+	
+	public void changePassword(User u) {
+		PreparedStatement pstmt = null;
 
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "UPDATE User SET contraseña = ? WHERE dni = ?");
+			pstmt.setString(1, u.getPassword());
+			pstmt.setInt(2, u.getDni());
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+
+	}
+	
 }

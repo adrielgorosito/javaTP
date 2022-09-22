@@ -23,7 +23,6 @@
 
 	<% int error = (int) request.getAttribute("errorType");
 	   String msg = "";
-	   String volver = "";
 	   String indexBack = "index.jsp";
 	   
 	   switch (error) {
@@ -62,15 +61,23 @@
 	   		case 9:
 	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado";
 	   			break;
+	   			
+	   		case 10:
+	   			msg = "La contraseña ingresada no coincide.";
+	   			break;
+	   			
+	   		case 11:
+	   			msg = "El código ingresado no es correcto.";
+	   			break;
 	   		
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
-	   		case 10:
+	   		case 12:
 	   			msg = "Producto no encontrado";
-	 		    volver = "PaginaTodaviaNoHecha.jsp";
+	 		    // volver = "PaginaTodaviaNoHecha.jsp";
 	 		    indexBack = "indexUser.jsp";
 	   			break;
 	   }
@@ -101,7 +108,7 @@
 			<br>
 			<font face = "tahoma" size = "5"><%=msg%></font>
 			<br><br>
-			<a class="btn btn-primary" href="registro.jsp" role="button">Regresar</a>
+			<a class="btn btn-primary" href="index.jsp" role="button">Regresar</a>
 		</p>
 	<%} else {%>
 		<p align = "center">
