@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logic.CtrlForgotPassword;
+import logic.CtrlPassword;
 import entities.User;
 
 @WebServlet("/ForgotPass")
@@ -22,7 +22,7 @@ public class ForgotPass extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CtrlForgotPassword cfp = new CtrlForgotPassword();
+		CtrlPassword cfp = new CtrlPassword();
 		
 		User u = new User();
 		u.setMail(request.getParameter("mail"));

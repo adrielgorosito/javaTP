@@ -1,13 +1,13 @@
 package logic;
 
-import utils.ContactEmail;
+import utils.SendEmail;
 
 public class CtrlContact {
 	
 	public void sendMailContact(String userMail, String subject, String userMsg) {
-		ContactEmail ce = new ContactEmail();
+		SendEmail se = new SendEmail();
 		
-		ce.sendMail(userMail, subject, userMsg);
+		se.sendMail(userMail, subject, userMsg);
 		
 	}
 	

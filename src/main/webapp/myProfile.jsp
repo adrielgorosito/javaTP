@@ -84,7 +84,7 @@
 				<br><br>
 				<a href = "#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar email</button></a>
 				<br><br>
-				<a href = "#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar contraseña</button></a>
+				<a href = "modifyPassword.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar contraseña</button></a>
 				<br><br>
 				<a href = "#"><button class="btn btn-primary margintop3" style = "width:230px">Ver mi historial de compras</button></a>
 				<br><br>

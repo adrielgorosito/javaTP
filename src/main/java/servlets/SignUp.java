@@ -40,8 +40,7 @@ public class SignUp extends HttpServlet {
 					switch (res) {
 					case 0:
 						HttpSession sesion = request.getSession();
-						sesion.setAttribute("userSession", newUser);
-						request.setAttribute("newUser", newUser);
+						sesion.setAttribute("accountCreated", "accountCreated");
 						sesion.setMaxInactiveInterval(30*60);
 						
 						request.getRequestDispatcher("cuentaCreada.jsp").forward(request, response);
