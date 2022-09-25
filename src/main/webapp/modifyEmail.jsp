@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Mi perfil</title>
-			
+	<title>Modificar email</title>
+		
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
 	<%@ page import = "entities.*" %>
@@ -36,9 +37,11 @@
 	<!-- CSS -->
 	<link href = "style/indexStyle.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
+	
+		
 </head>
-
 <body>
+
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
 			<a class="navbar-brand" href = "indexUser.jsp">
@@ -57,7 +60,7 @@
 					<li class="nav-item dropdown">
     					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src = "imgs/index/user.png" alt="" width="60"><%=userS.getName()%> </a>
    						<div class="dropdown-menu dropdown-menu-right">
-      						<a class="dropdown-item" href="modifyPersonalData.jsp">Perfil</a>
+      						<a class="dropdown-item" href="myProfile.jsp">Mi perfil</a>
             	    		<a class="dropdown-item" href="#">Mis compras</a>
             	    		<a class="dropdown-item" href="#">Ayuda</a>
             	    		<div class="dropdown-divider"></div>
@@ -70,27 +73,27 @@
 	</nav>
 	
 	
-	<div class="container">
-		<div class="content-center topmargin-lg">
-			<h2 class ="text-center pb-5 pt-5 h1"><b><%= userS.getName()%> <%=userS.getSurname()%></b></h2>
-			<div class ="text-center">
-				<%if (userS.getImage() == null) {%>
-					<img src = "imgs/index/user.png" style = "width:300px; height: 300px">
-				<%} else {%>
-					<img src = "<%=userS.getImage()%>" style = "width:300px; height: 300px; border-radius: 50%;">
-				<%}%>
-				<br><br><br>
-   				<a href = "modifyPersonalData.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar datos personales</button></a>
-				<br><br>
-				<a href = "modifyEmail.jsp#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar email</button></a>
-				<br><br>
-				<a href = "modifyPassword.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar contraseña</button></a>
-				<br><br>
-				<a href = "#"><button class="btn btn-primary margintop3" style = "width:230px">Ver mi historial de compras</button></a>
-				<br><br>
-				<a href = "#"><button class="btn btn-primary margintop3">Cerrar sesión</button></a>
+	<%@ page language = "java" import = "logic.CtrlIndex" %>
+	<%@ page language = "java" import = "entities.Product" %>
+	<%@ page language = "java" import = "java.util.LinkedList" %>
+
+	<div class = "container w-25 pt-5">
+		<form action = "ChangeMail" method = "post">
+			<div class = "row justify-content-md-center py-1">
+				<h3 class = "text-center pt-3 pb-4 h3"><b>Modificar email</b></h3>
+				<div class = "input-group mb-3 align-items-center">
+  					<label for = "currentMail" style ="height:20px">Mail actual:&ensp;</label>
+  					<input id = "currentMail" name = "currentMail" type="email" class="form-control" placeholder = "<%=userS.getMail()%>" disabled>
+				</div>
+				<div class = "input-group mb-3 align-items-center">
+  					<label for = "mailInput" style ="height:20px">Nuevo mail:&ensp;</label>
+  					<input id = "mailInput" name = "mailInput" type="email" class="form-control">
+				</div>
+				<a class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
+				&ensp;
+				<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Confirmar">
 			</div>
-		</div>
+		</form>
 	</div>
 
 </body>

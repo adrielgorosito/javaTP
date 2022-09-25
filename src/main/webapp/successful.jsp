@@ -87,15 +87,20 @@
 				DNI: <%= userS.getDni() %>.<br>
 			</font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>	
+			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
 	<%} else if (request.getAttribute("passChanged") != null) {%>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Contraseña modificada exitosamente.</b></font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>	
+			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
-	<%}%>
-
+	<%} else if (request.getAttribute("mailChanged") != null) {%>
+		<p align = "center">
+			<font face = "tahoma" size = 4 color = "green"><b>Mail modificado exitosamente.</b></font>
+			<br>
+			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
+		</p>
+	<%} %>
 </body>
 </html>

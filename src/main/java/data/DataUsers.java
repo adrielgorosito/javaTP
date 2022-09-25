@@ -265,4 +265,29 @@ public class DataUsers {
 
 	}
 	
+	public void changeMail(User u) {
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "UPDATE User SET email = ? WHERE dni = ?");
+			pstmt.setString(1, u.getMail());
+			pstmt.setInt(2, u.getDni());
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+
+	}
+	
 }
