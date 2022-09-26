@@ -34,7 +34,7 @@ public class SignUp extends HttpServlet {
 		// Corroborar que el mail tenga @
 		if (request.getParameter("password1").length() >= 8) {
 			if (request.getParameter("password1").equals(request.getParameter("password2"))) {
-				if (!csu.hasSpecialCharacters(request.getParameter("username"))) {
+				if (!csu.checkCharacters(request.getParameter("username"))) {
 					int res = csu.createNewUser(newUser);
 					
 					switch (res) {

@@ -1,24 +1,18 @@
 package logic;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import data.DataUsers;
 import entities.*;
+import utils.SpecialCharactersChecker;
 
 public class CtrlSignUp {
 	
 	private DataUsers du = new DataUsers();
-
-	public boolean hasSpecialCharacters(String word) {
-		Pattern pat = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
-		Matcher m = pat.matcher(word);
-		
-		if (m.find()) {
-			return true;
-		} else {
-			return false;
-		}
+	private SpecialCharactersChecker scc;
+	
+	public boolean checkCharacters(String word) {
+		return scc.hasSpecialCharacters(word);
 	}
+	
 	
 	public int createNewUser(User u1) {
 		User u2 = new User();
