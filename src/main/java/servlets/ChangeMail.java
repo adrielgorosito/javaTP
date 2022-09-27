@@ -31,10 +31,19 @@ public class ChangeMail extends HttpServlet {
 		u1.setMail(request.getParameter("mailInput"));
 			
 		CtrlMail cm = new CtrlMail();
-		cm.changeMail(u1);
+		if (cm.mailExists(u1) == false) {
+			cm.changeMail(u1);
 			
-		request.setAttribute("mailChanged", u1.getMail());
-		request.getRequestDispatcher("successful.jsp").forward(request, response);
+			request.setAttribute("mailChanged", u1.getMail());
+			request.getRequestDispatcher("successful.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 7);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
+		
+		
+			
+
 	}
 
 }

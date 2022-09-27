@@ -69,7 +69,7 @@
 	   		case 11:
 	   			msg = "El código ingresado no es correcto.";
 	   			break;
-	   		
+
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
