@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Mi perfil</title>
+	<title>Modificar dirección</title>
 			
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
@@ -68,29 +68,59 @@
 			</div>		
 		</div>
 	</nav>
+
+	<div class="mt-5 col text-center">
+		<h1><b>Modificar dirección</b></h1>
+	</div>
 	
-	
-	<div class="container">
-		<div class="content-center topmargin-lg">
-			<h2 class ="text-center pb-5 pt-5 h1"><b><%= userS.getName()%> <%=userS.getSurname()%></b></h2>
-			<div class ="text-center">
-				<%if (userS.getImage() == null) {%>
-					<img src = "imgs/index/user.png" style = "width:300px; height: 300px">
-				<%} else {%>
-					<img src = "<%=userS.getImage()%>" style = "width:300px; height: 300px; border-radius: 50%;">
-				<%}%>
-				<br><br><br>
-				<a href = "modifyProfilePhoto.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar foto</button></a>
-				<br><br>
-				<a href = "modifyAddress.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar dirección</button></a>
-				<br><br>
-				<a href = "modifyEmail.jsp#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar email</button></a>
-				<br><br>
-				<a href = "modifyPassword.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar contraseña</button></a>
-				<br><br>
-				<a href = "<%= request.getContextPath()%>/CloseSession"><button class="btn btn-primary margintop3">Cerrar sesión</button></a>
+	<div class="container w-25 pt-2">
+		<form action = "" method = "post">
+			<div class="row justify-content-md-center py-1">
+				<div class="input-group mb-3 align-items-center">
+  					<label for="imageInput" style ="height:20px">Foto de perfil:&ensp;</label>
+  					<input id = "imageInput" name ="imageInput" class="form-control" type="file" accept="image/png, image/jpeg">
+				</div>
+				<div class="input-group mb-3 align-items-center">
+  					<label for="stateInput" style ="height:20px">Provincia:&ensp;</label>
+  					<select id = "stateInput" name ="stateInput" class="form-select">
+   						<option selected>Elija una opción...</option>
+   						<option value="1">Buenos Aires</option>
+   						<option value="2">Ciudad Autónoma de Buenos Aires</option>
+   						<option value="3">Catamarca</option>
+   						<option value="4">Chaco</option>
+   						<option value="5">Chubut</option>
+   						<option value="6">Córdoba</option>
+   						<option value="7">Corrientes</option>
+   						<option value="8">Entre Ríos</option>
+   						<option value="9">Formosa</option>
+   						<option value="10">Jujuy</option>
+   						<option value="11">La Pampa</option>
+   						<option value="12">Mendoza</option>
+   						<option value="13">Misiones</option>
+   						<option value="14">Neuquén</option>
+   						<option value="15">Río Negro</option>
+   						<option value="16">Salta</option>
+   						<option value="17">San Juan</option>
+   						<option value="18">San Luis</option>
+   						<option value="19">Santa Cruz</option>
+   						<option value="20">Santa Fe</option>
+   						<option value="21">Santiago del Estero</option>
+   						<option value="22">Tucumán</option>
+   					</select>
+				</div>
+				<div class="input-group mb-3 align-items-center">
+  					<label for="cityInput" style ="height:20px">Ciudad:&ensp;</label>
+  					<input id = "citynput" name = "ciudadInput" type="text" class="form-control" placeholder="Ciudad">
+				</div>
+				<div class="input-group mb-3 align-items-center">
+  					<label for="addressInput" style ="height:20px">Dirección:&ensp;</label>
+  					<input id = "addressInput" name = "addressInput" type="text" class="form-control" placeholder="Dirección">
+				</div>
+				<a	class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
+				&ensp;
+				<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Modificar">
 			</div>
-		</div>
+		</form>
 	</div>
 
 </body>
