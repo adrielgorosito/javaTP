@@ -74,48 +74,84 @@
 	</div>
 	
 	<div class="container w-25 pt-2">
-		<form action = "" method = "post">
+		<form action = "ChangeAddress" method = "post">
 			<div class="row justify-content-md-center py-1">
-				<div class="input-group mb-3 align-items-center">
-  					<label for="imageInput" style ="height:20px">Foto de perfil:&ensp;</label>
-  					<input id = "imageInput" name ="imageInput" class="form-control" type="file" accept="image/png, image/jpeg">
-				</div>
-				<div class="input-group mb-3 align-items-center">
-  					<label for="stateInput" style ="height:20px">Provincia:&ensp;</label>
-  					<select id = "stateInput" name ="stateInput" class="form-select">
-   						<option selected>Elija una opción...</option>
-   						<option value="1">Buenos Aires</option>
-   						<option value="2">Ciudad Autónoma de Buenos Aires</option>
-   						<option value="3">Catamarca</option>
-   						<option value="4">Chaco</option>
-   						<option value="5">Chubut</option>
-   						<option value="6">Córdoba</option>
-   						<option value="7">Corrientes</option>
-   						<option value="8">Entre Ríos</option>
-   						<option value="9">Formosa</option>
-   						<option value="10">Jujuy</option>
-   						<option value="11">La Pampa</option>
-   						<option value="12">Mendoza</option>
-   						<option value="13">Misiones</option>
-   						<option value="14">Neuquén</option>
-   						<option value="15">Río Negro</option>
-   						<option value="16">Salta</option>
-   						<option value="17">San Juan</option>
-   						<option value="18">San Luis</option>
-   						<option value="19">Santa Cruz</option>
-   						<option value="20">Santa Fe</option>
-   						<option value="21">Santiago del Estero</option>
-   						<option value="22">Tucumán</option>
-   					</select>
-				</div>
-				<div class="input-group mb-3 align-items-center">
-  					<label for="cityInput" style ="height:20px">Ciudad:&ensp;</label>
-  					<input id = "citynput" name = "ciudadInput" type="text" class="form-control" placeholder="Ciudad">
-				</div>
-				<div class="input-group mb-3 align-items-center">
-  					<label for="addressInput" style ="height:20px">Dirección:&ensp;</label>
-  					<input id = "addressInput" name = "addressInput" type="text" class="form-control" placeholder="Dirección">
-				</div>
+				<%if (userS.getCity() != null) {%>
+					<div class="input-group mb-3 align-items-center">
+  						<label for="stateInput" style ="height:20px">Provincia:&ensp;</label>
+  						<select id = "stateInput" name ="stateInput" class="form-select">
+   							<option selected><%=userS.getState()%></option>
+   							<option value="Buenos Aires">Buenos Aires</option>
+   							<option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+   							<option value="Catamarca">Catamarca</option>
+   							<option value="Chaco">Chaco</option>
+   							<option value="Chubut">Chubut</option>
+   							<option value="Córdoba">Córdoba</option>
+   							<option value="Corrientes">Corrientes</option>
+   							<option value="Entre Ríos">Entre Ríos</option>
+   							<option value="Formosa">Formosa</option>
+   							<option value="Jujuy">Jujuy</option>
+   							<option value="La Pampa">La Pampa</option>
+   							<option value="Mendoza">Mendoza</option>
+   							<option value="Misiones">Misiones</option>
+   							<option value="Neuquén">Neuquén</option>
+   							<option value="Río Negro">Río Negro</option>
+   							<option value="Salta">Salta</option>
+   							<option value="San Juan">San Juan</option>
+   							<option value="San Luis">San Luis</option>
+   							<option value="Santa Cruz">Santa Cruz</option>
+   							<option value="Santa Fe">Santa Fe</option>
+   							<option value="Santiago del Estero">Santiago del Estero</option>
+   							<option value="Tucumán">Tucumán</option>
+   						</select>
+					</div>
+					<div class="input-group mb-3 align-items-center">
+  						<label for="cityInput" style ="height:20px">Ciudad:&ensp;</label>
+  						<input id = "cityInput" name = "cityInput" type="text" class="form-control" value = "<%=userS.getCity()%>" required>
+  						
+					</div>
+					<div class="input-group mb-3 align-items-center">
+  						<label for="addressInput" style ="height:20px">Dirección:&ensp;</label>
+  						<input id = "addressInput" name = "addressInput" type="text" class="form-control" value="<%=userS.getAddress()%>" required>
+					</div>
+				<%} else {%>
+					<div class="input-group mb-3 align-items-center">
+  						<label for="stateInput" style ="height:20px">Provincia:&ensp;</label>
+  						<select id = "stateInput" name ="stateInput" class="form-select">
+   							<option selected>Elija una opción...</option>
+   							<option value="Buenos Aires">Buenos Aires</option>
+   							<option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+   							<option value="Catamarca">Catamarca</option>
+   							<option value="Chaco">Chaco</option>
+   							<option value="Chubut">Chubut</option>
+   							<option value="Córdoba">Córdoba</option>
+   							<option value="Corrientes">Corrientes</option>
+   							<option value="Entre Ríos">Entre Ríos</option>
+   							<option value="Formosa">Formosa</option>
+   							<option value="Jujuy">Jujuy</option>
+   							<option value="La Pampa">La Pampa</option>
+   							<option value="Mendoza">Mendoza</option>
+   							<option value="Misiones">Misiones</option>
+   							<option value="Neuquén">Neuquén</option>
+   							<option value="Río Negro">Río Negro</option>
+   							<option value="Salta">Salta</option>
+   							<option value="San Juan">San Juan</option>
+   							<option value="San Luis">San Luis</option>
+   							<option value="Santa Cruz">Santa Cruz</option>
+   							<option value="Santa Fe">Santa Fe</option>
+   							<option value="Santiago del Estero">Santiago del Estero</option>
+   							<option value="Tucumán">Tucumán</option>
+   						</select>
+					</div>
+					<div class="input-group mb-3 align-items-center">
+  						<label for="cityInput" style ="height:20px">Ciudad:&ensp;</label>
+  						<input id = "cityInput" name = "cityInput" type="text" class="form-control" placeholder="Ciudad" required>
+					</div>
+					<div class="input-group mb-3 align-items-center">
+  						<label for="addressInput" style ="height:20px">Dirección:&ensp;</label>
+  						<input id = "addressInput" name = "addressInput" type="text" class="form-control" placeholder="Dirección" required>
+					</div>
+				<%}%>
 				<a	class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
 				&ensp;
 				<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Modificar">

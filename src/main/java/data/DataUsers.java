@@ -14,8 +14,8 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, image "
-					+ "FROM User WHERE nombUsuario = ? AND contraseña = ?");
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, image, provincia,"
+							+ "ciudad, direccion FROM User WHERE nombUsuario = ? AND contraseña = ?");
 			stmt.setString(1, u.getUsername());
 			stmt.setString(2, u.getPassword());
 			rs = stmt.executeQuery();
@@ -30,6 +30,9 @@ public class DataUsers {
 				userFound.setPhone(rs.getString("telefono"));
 				userFound.setAdmin(rs.getBoolean("isAdmin"));
 				userFound.setImage(rs.getString("image"));
+				userFound.setState(rs.getString("provincia"));
+				userFound.setCity(rs.getString("ciudad"));
+				userFound.setAddress(rs.getString("direccion"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,8 +62,8 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, image "
-					+ "FROM User WHERE email = ? AND contraseña = ?");
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, image, provincia,"
+					+ "ciudad, direccion FROM User WHERE email = ? AND contraseña = ?");
 			stmt.setString(1, u.getMail());
 			stmt.setString(2, u.getPassword());
 			rs = stmt.executeQuery();
@@ -75,6 +78,9 @@ public class DataUsers {
 				userFound.setPhone(rs.getString("telefono"));
 				userFound.setAdmin(rs.getBoolean("isAdmin"));
 				userFound.setImage(rs.getString("image"));
+				userFound.setState(rs.getString("provincia"));
+				userFound.setCity(rs.getString("ciudad"));
+				userFound.setAddress(rs.getString("direccion"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -273,6 +279,33 @@ public class DataUsers {
 				   "UPDATE User SET email = ? WHERE dni = ?");
 			pstmt.setString(1, u.getMail());
 			pstmt.setInt(2, u.getDni());
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+
+	}
+	
+	public void changeAddress(User u) {
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "UPDATE User SET provincia = ?, ciudad = ?, direccion = ? WHERE dni = ?");
+			pstmt.setString(1, u.getState());
+			pstmt.setString(2, u.getCity());
+			pstmt.setString(3, u.getAddress());
+			pstmt.setInt(4, u.getDni());
 			
 			pstmt.executeUpdate();
 
