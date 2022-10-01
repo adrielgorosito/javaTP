@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Modificar imagen</title>
+	<title>Modificar foto de perfil</title>
 			
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
@@ -70,7 +70,7 @@
 	</nav>
 
 	<div class="mt-5 col text-center">
-		<h1><b>Cambiar foto</b></h1>	
+		<h1><b>Cambiar foto de perfil</b></h1>	
 	</div>
 	
 	<div class="container w-25 pt-2">
