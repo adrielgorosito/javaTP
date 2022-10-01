@@ -70,11 +70,18 @@
 	</nav>
 
 	<div class="mt-5 col text-center">
-		<h1><b>Cambiar foto de perfil</b></h1>	
+		<h1><b>Cambiar foto de perfil</b></h1>
+		<br>
+		<%if (userS.getImage() == null) {%>
+			<img src = "imgs/index/user.png" style = "width:300px; height: 300px">
+		<%} else {%>
+			<img src = "<%=userS.getImage()%>" style = "width:300px; height: 300px; border-radius: 50%;">
+		<%}%>
+		
 	</div>
-	
+	<br>
 	<div class="container w-25 pt-2">
-		<form action = "" method = "post">
+		<form action = "ChangeProfilePhoto" method = "post">
 			<div class="row justify-content-md-center py-1">
 				<div class="input-group mb-3 align-items-center">
   					<label for="imageInput" style ="height:20px">Foto de perfil:&ensp;</label>
