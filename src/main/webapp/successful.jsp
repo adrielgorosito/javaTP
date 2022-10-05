@@ -77,7 +77,6 @@
 	</nav>
 	
 	<% if (request.getAttribute("accountCreated") != null) {%>
-		<% User newUser = (User) request.getAttribute("newUser");%>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Cuenta creada exitosamente.</b></font>
 			<br><br>

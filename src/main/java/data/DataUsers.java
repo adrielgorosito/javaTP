@@ -219,7 +219,7 @@ public class DataUsers {
 
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-				   "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+				   "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			stmt.setInt(1, u.getDni());
 			stmt.setString(2, u.getUsername());
 			stmt.setString(3, u.getPassword());
@@ -228,6 +228,9 @@ public class DataUsers {
 			stmt.setString(6, u.getMail());
 			stmt.setString(7, u.getPhone());
 			stmt.setInt(8, 0);
+			stmt.setString(9, null);
+			stmt.setString(10, null);
+			stmt.setString(11, null);
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {

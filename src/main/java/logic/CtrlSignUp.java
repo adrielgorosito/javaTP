@@ -7,7 +7,7 @@ import utils.SpecialCharactersChecker;
 public class CtrlSignUp {
 	
 	private DataUsers du = new DataUsers();
-	private SpecialCharactersChecker scc;
+	private SpecialCharactersChecker scc = new SpecialCharactersChecker();
 	
 	public boolean checkCharacters(String word) {
 		return scc.hasSpecialCharacters(word);

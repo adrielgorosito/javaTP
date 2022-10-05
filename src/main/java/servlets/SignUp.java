@@ -40,10 +40,11 @@ public class SignUp extends HttpServlet {
 					switch (res) {
 					case 0:
 						HttpSession sesion = request.getSession();
-						sesion.setAttribute("accountCreated", "accountCreated");
+						sesion.setAttribute("userSession", newUser);
 						sesion.setMaxInactiveInterval(30*60);
 						
-						request.getRequestDispatcher("cuentaCreada.jsp").forward(request, response);
+						request.setAttribute("accountCreated", newUser);
+						request.getRequestDispatcher("successful.jsp").forward(request, response);
 						break;
 						
 					case 5: // Ya existe un usuario con ese DNI
