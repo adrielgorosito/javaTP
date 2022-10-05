@@ -72,16 +72,10 @@
 	
 	<div class="container">
 		<div class="content-center topmargin-lg">
-			<h2 class ="text-center pb-5 pt-5 h1"><b><%= userS.getName()%> <%=userS.getSurname()%></b></h2>
+			<h2 class ="text-center pb-4 pt-5 h1"><b><%= userS.getName()%> <%=userS.getSurname()%></b></h2>
 			<div class ="text-center">
-				<%if (userS.getImage() == null) {%>
-					<img src = "imgs/index/user.png" style = "width:300px; height: 300px">
-				<%} else {%>
-					<img src = "<%=userS.getImage()%>" style = "width:300px; height: 300px; border-radius: 50%;">
-				<%}%>
+				<img src = "imgs/index/user.png">
 				<br><br><br>
-				<a href = "modifyProfilePhoto.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar foto</button></a>
-				<br><br>
 				<a href = "modifyAddress.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar dirección</button></a>
 				<br><br>
 				<a href = "modifyEmail.jsp#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar email</button></a>

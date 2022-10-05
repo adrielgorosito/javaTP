@@ -9,7 +9,6 @@ public class User {
 	private String mail;
 	private String phone;
 	private boolean isAdmin;
-	private String image;
 	private String state;
 	private String city;
 	private String address;
@@ -95,14 +94,6 @@ public class User {
 
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public String getState() {
