@@ -27,6 +27,7 @@ public class DataProducts {
 				p2.setDescription(rs.getString("descripcion"));
 				p2.setPrice(rs.getDouble("precio"));
 				p2.setImg(rs.getString("imagen"));
+				p2.setStock(rs.getInt("stock"));
 				
 				ProductType pt = new ProductType();
 				pt.setId(rs.getInt("id_tipo"));

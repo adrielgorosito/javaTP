@@ -6,6 +6,7 @@ public class Product {
 	private String description;
 	private Double price;
 	private String img;
+	private int stock;
 	private ProductType type;
 	
 	public int getId_prod() {
@@ -38,6 +39,13 @@ public class Product {
 	public void setImg(String img) {
 		this.img = img;
 	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	
 	public ProductType getType() {
 		return type;
 	}
