@@ -56,7 +56,7 @@ public class DataProducts {
 	}
 	
 	
-	public int searchTotalProducts()  {
+	public int getMaxId()  {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		int tot = 0;
