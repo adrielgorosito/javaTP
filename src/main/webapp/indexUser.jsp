@@ -78,7 +78,7 @@
 	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlIndex ci = new CtrlIndex();
 	   Product p = new Product(); 
-	   int totProds = ci.getTotalProducts();
+	   int totProds = ci.getMaxIdProducts();
 	   
 	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
 

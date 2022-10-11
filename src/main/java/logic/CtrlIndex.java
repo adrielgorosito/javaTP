@@ -17,9 +17,7 @@ public class CtrlIndex {
 		return p;
 	}
 	
-	
-	
-	public int getTotalProducts() {
+	public int getMaxIdProducts() {
 		return dp.searchTotalProducts();
 	}
 	
