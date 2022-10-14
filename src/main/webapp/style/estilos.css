@@ -1,6 +1,13 @@
 @charset "ISO-8859-1";
 
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 
+
+/* Márgenes y padding automáticos */
 .margenleft-sm{
 	margin-left:15px;
 }
@@ -17,6 +24,7 @@
 }
 .topmargin-dlong {
 	padding-top: 110px;
+	
 } .topmargin-dlong2 {
 	padding-top: 140px;
 }
@@ -31,24 +39,34 @@
 .botpad-2 {
 	padding-bottom: 300px;
 }
+
+.botmargin-lg {
+	margin-bottom: 450px;
+}
+
+
+.botmargin-no {
+	margin-bottom: 0px;
+}
+
+/*-------------------------*/
+
+
+/*Barra de navegación*/
+
 .navbar {
 	background-color: #ffffff;
 	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
 	min-height: 100px;
 }
 
+/*Color del separador*/
 #ribbon2 {
 	background-color: #262626;
 }
-#BGINSTA {
-	background-color: #1a1a1a;
-	margin-top: 0px;
-}
-#insti 
-	{
-	background: #ffffff;
-	}
 
+
+/*Cartas de inicio visitante*/
 .card-border{
 	border: solid 10px white;
 	border-radius: 20px;
@@ -65,7 +83,7 @@
 .img-border:hover{
 	transform:scale(1.05);
 }
-#games
+#tarjetaProducts
 	{
 	background: rgb(255, 255, 255);
 	background: linear-gradient(0deg, rgba(255, 255, 255, 1) 8%, rgba(52, 58, 64,1) 63% );
@@ -74,17 +92,7 @@
 	margin-top: -20px;
 	position: relative;
 	z-index: 2;
-	}
-/*	
-#games
-	{
-	background: #ffffff;
-	/*background: linear-gradient(to bottom, #ffffff, #c3c3c3, #8a8a8a, #565656, rgba(52, 58, 64,1)); 
-	background-repeat: repeat-x;
-	background-size: 75%;
-	margin-top: -20px;
-	} */
-	 
+	}	 
 #separator-ribbon{
 	width: 100%;
 	overflow: hidden;
@@ -113,14 +121,6 @@
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
 }
-.botmargin-lg {
-	margin-bottom: 450px;
-}
-
-
-.botmargin-no {
-	margin-bottom: 0px;
-}
 
 #inicio {
 	background-size:cover;
@@ -129,20 +129,13 @@
 	display:flex;
 }
 
-#in
-{
-	background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #262626);
-}
-
-.item {
-	float:left;
-}
-
+/* Márgenes del texto de inicio */
 #text1 {
 	padding-left: 140px;
 	margin-right: 140px
 }
 
+/* Color de el apartado de contacto */
 #cont {
 	background: #F5F5F5;
 }
@@ -167,10 +160,4 @@
 #block_container > div {
     display: inline-block;
     vertical-align: middle;
-}
-
-.center-block {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
 }
