@@ -35,10 +35,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<!-- CSS -->
-	<link href = "style/indexStyle.css" rel = "stylesheet">
+	<link href = "style/estilos.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
-		<%@ page language = "java" import = "javax.*" %>
+	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
 	<%@ page import = "entities.*" %>
 		

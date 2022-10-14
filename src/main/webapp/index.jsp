@@ -22,7 +22,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<!-- CSS -->
-	<link href = "style/indexStyle.css" rel = "stylesheet">
+	<link href = "style/estilos.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
 </head>
@@ -104,13 +104,13 @@
 	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlIndex ci = new CtrlIndex();
 	   Product p = new Product(); 
-	   int totProds = ci.getTotalProducts();
+	   int totProds = ci.getMaxIdProducts();
 	   
 	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
 
 	<!-- Tarjetas de productos -->
 	<section id="productos">
- 		<div id="games" class="botpad-1">
+ 		<div id="tarjetaProducts" class="botpad-1">
 			<div class="container-md p-5">
 				<div class="row pt-5">
 					<h3 class="text-center pb-5 pt-5 h1" style="color:#ffffff">Algunos de nuestros productos</h3>
