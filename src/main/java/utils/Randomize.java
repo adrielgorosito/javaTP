@@ -19,4 +19,9 @@ public class Randomize {
 		return generatedString;
 	}
 	
+	public int getRandomId(int max) {
+		int randomId = (int) (Math.random()*(max-1)) + 1;
+		return randomId;
+	}
+	
 }
