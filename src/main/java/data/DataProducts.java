@@ -3,6 +3,8 @@ package data;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+
 import entities.Product;
 import entities.ProductType;
 
@@ -59,15 +61,15 @@ public class DataProducts {
 	public int getMaxId()  {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		int tot = 0;
+		int maxId = 0;
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT MAX(id_prod) tot FROM producto");
+					"SELECT MAX(id_prod) maxId FROM producto");
 			rs = stmt.executeQuery();
 			
 			if (rs != null && rs.next()) {
-				tot = rs.getInt("tot");
+				maxId = rs.getInt("maxId");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,9 +89,57 @@ public class DataProducts {
 			}
 		}
 		
-		return tot;
+		return maxId;
 	}
 	
+	public LinkedList<Product> getAll()  {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<Product> allProducts = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM Producto p INNER JOIN Tipo_producto tp ON p.tipo_prod = tp.id_tipo;");
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					Product p = new Product();
+					p.setId_prod(rs.getInt("id_prod"));
+					p.setName(rs.getString("nombre"));
+					p.setDescription(rs.getString("descripcion"));
+					p.setPrice(rs.getDouble("precio"));
+					p.setImg(rs.getString("imagen"));
+					p.setStock(rs.getInt("stock"));
+				
+					ProductType pt = new ProductType();
+					pt.setId(rs.getInt("id_tipo"));
+					pt.setName(rs.getString("tipo"));
+					p.setType(pt);
+				
+					allProducts.add(p);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return allProducts;
+	}
 	
 	
 }
