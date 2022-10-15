@@ -72,11 +72,6 @@
 		</div>
 	</nav>
 	
-	
-	<%@ page language = "java" import = "logic.CtrlIndex" %>
-	<%@ page language = "java" import = "entities.Product" %>
-	<%@ page language = "java" import = "java.util.LinkedList" %>
-
 	<div class = "container w-25 pt-5">
 		<form action = "ChangeMail" method = "post">
 			<div class = "row justify-content-md-center py-1">

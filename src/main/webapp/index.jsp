@@ -22,7 +22,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<!-- CSS -->
-	<link href = "style/estilos.css" rel = "stylesheet">
+	<link href = "style/estilos.css" rel = "stylesheet">	
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
 </head>
@@ -99,18 +99,18 @@
 	<div id="separator-ribbon"><div class="content bg-dark"></div></div>
 	<div id="separator-2"><div class="content bg-dark"></div></div>
 
-	<%@ page language = "java" import = "logic.CtrlIndex" %>
+	<%@ page language = "java" import = "logic.CtrlProduct" %>
 	<%@ page language = "java" import = "entities.Product" %>
 	<%@ page language = "java" import = "java.util.LinkedList" %>
-	<% CtrlIndex ci = new CtrlIndex();
+	<% CtrlProduct cp = new CtrlProduct();
 	   Product p = new Product(); 
-	   int totProds = ci.getMaxIdProducts();
+	   int totProds = cp.getMaxIdProducts();
 	   
-	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
+	   LinkedList<Integer> tarjProds = cp.fillTarjs(totProds); %>
 
 	<!-- Tarjetas de productos -->
 	<section id="productos">
- 		<div id="tarjetaProducts" class="botpad-1">
+ 		<div id="games" class="botpad-1">
 			<div class="container-md p-5">
 				<div class="row pt-5">
 					<h3 class="text-center pb-5 pt-5 h1" style="color:#ffffff">Algunos de nuestros productos</h3>
@@ -118,7 +118,7 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-							<% p = ci.getProduct(tarjProds.get(0)); %>
+							<% p = cp.getProduct(tarjProds.get(0)); %>
   							<img src= "<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -129,7 +129,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-							<% p = ci.getProduct(tarjProds.get(1)); %>
+							<% p = cp.getProduct(tarjProds.get(1)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -140,7 +140,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-							<% p = ci.getProduct(tarjProds.get(2)); %>
+							<% p = cp.getProduct(tarjProds.get(2)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -153,7 +153,7 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<% p = ci.getProduct(tarjProds.get(2)); %>
+  							<% p = cp.getProduct(tarjProds.get(3)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -164,7 +164,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<% p = ci.getProduct(tarjProds.get(1)); %>
+  							<% p = cp.getProduct(tarjProds.get(4)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
@@ -175,7 +175,7 @@
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5">
-  							<% p = ci.getProduct(tarjProds.get(0)); %>
+  							<% p = cp.getProduct(tarjProds.get(5)); %>
   							<img src="<%=p.getImg()%>" class="card-img-top">
   							<div class="card-body">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>

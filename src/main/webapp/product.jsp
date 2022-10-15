@@ -72,20 +72,43 @@
 		</div>
 	</nav>
 	
-	<%Product p = (Product) session1.getAttribute("prod");%>
+	<%Product p = (Product) request.getAttribute("prod");%>
 	<section id="producto">
-			<div class="container">
+			<div class="container mt-5">
 				<div class="">
-					<img src= "<%=p.getImg()%>" width = "750px" alt="...">
+					<h6 class=""><a href = "/indexUser.jsp/">Productos</a> > <%=p.getType().getName()%></a></h6>
+					<img src= "<%=p.getImg()%>" style = "width: 570px" alt="..." align = "left">
   				</div>
-  				<div class="" id="texto">
-  					<ul>
-  						<li><h4 class=""><b><%=p.getName()%></b></h4></li>
-   						<li><p class=""><%=p.getDescription()%></p></li>
-   						<li><h5 class="t">$<%=p.getPrice()%></h5></li>					
-  					</ul>
+  				<div class="container-md mt-5" id="texto">
+  					<h6 class=""><%=p.getType().getName()%></h6>
+  					<h4 class=""><b><%=p.getName()%></b></h4>
+   					<p class=""><%=p.getDescription()%></p>
+   					<h5 class="">$<%=p.getPrice()%></h5>
+   					<br>
+   					<h6 class="">Stock: <%=p.getStock()%> unidades.</h6>
+   					<br>
   				</div>
-  			</div>
+
+  				<form action = "BuyProduct" class="form-inline" method = "post">
+					<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
+				
+					<div class="input-group mb-3 align-items-center">
+  						<label for="quantityInput" style = "height:20px">Cantidad:&ensp;</label>
+  						<select id = "quantityInput" name ="quantityInput" class="form-select">
+   							<% int cant = p.getStock();
+   						   	   for (int i = 1; i <= cant; i++) {
+   							%>
+   							<option value="<%=i%>"><%=i%></option>
+   							<% }%>
+   						</select>
+   					</div>
+  					
+  					<div class="container mt-1">
+  						<input type = "submit" class="btn btn-primary" value = "Comprar">
+  					</div>
+  				</form>
+			</div>
+  			
 	</section>
 	
 </body>

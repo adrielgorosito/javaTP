@@ -73,14 +73,14 @@
 	</nav>
 	
 	
-	<%@ page language = "java" import = "logic.CtrlIndex" %>
+	<%@ page language = "java" import = "logic.CtrlProduct" %>
 	<%@ page language = "java" import = "entities.Product" %>
 	<%@ page language = "java" import = "java.util.LinkedList" %>
-	<% CtrlIndex ci = new CtrlIndex();
+	<% CtrlProduct cp = new CtrlProduct();
 	   Product p = new Product(); 
-	   int totProds = ci.getMaxIdProducts();
+	   int totProds = cp.getMaxIdProducts();
 	   
-	   LinkedList<Integer> tarjProds = ci.fillTarjs(totProds); %>
+	   LinkedList<Product> tarjProds = cp.getAllProducts(); %>
 
 	<!-- Tarjetas de productos -->
 
@@ -88,27 +88,33 @@
 
 	<section id="productos">
 			<div class="container-md p-2">
-				<%for (int i = 1; i <= 2; i++) {%>
+				<%int cont = 0;%>
+				<%for (int i = 1; i <= (tarjProds.size()/4 + 1); i++) {%>
+				<%if (tarjProds.get(cont) == null)
+				break;%>
 				<div class="row row-cols-1 row-cols-md-3 g-4">
-					<%for (int j = 1; j <= 2; j++) {%>
+					<%for (int j = 1; j <= 4; j++) {%>
+					<%if (tarjProds.get(cont) == null)
+					break;%>
   					<div class="col mb-4">
-  						<div class="card h-100">
-  							<% p = ci.getProduct(tarjProds.get(i)); %>
+  						<div class="card h-100" style = "width: 18rem">
+  							<% p = tarjProds.get(cont); %>
   							<form id="formProd" action = "ProductS" method = "post">
   								<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
   								<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  								<div class="card-body">
+  								<div class="card-body" style = "height: 12rem">
    									<h4 class="card-title"><b><%=p.getName()%></b></h4>
    									<p class="card-text"><%=p.getDescription()%></p>
  								</div>
- 								<div class="card-footer">
+ 								<div class="card-footer" style = "height: 4rem">
       								<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
       								<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
     							</div>
     						</form>
   						</div>
   					</div>
-  					<%}%>
+  					<%cont++;
+  					}%>
   				</div>
   				<%}%>
   			</div>

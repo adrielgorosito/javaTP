@@ -72,12 +72,6 @@
 		</div>
 	</nav>
 	
-	
-	<%@ page language = "java" import = "logic.CtrlIndex" %>
-	<%@ page language = "java" import = "entities.Product" %>
-	<%@ page language = "java" import = "java.util.LinkedList" %>
-
-	
 	<%if (request.getAttribute("correctCode") != null) {%>
 		<div class="container w-25 pt-5">
 			<form action = "ChangePassword" method = "post">

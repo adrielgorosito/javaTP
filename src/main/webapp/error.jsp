@@ -14,7 +14,7 @@
 	<!-- b4 --> <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous">
 
 	<!-- CSS -->
-	<link href = "style/estilos.css" rel = "stylesheet">
+	<link href = "style/estilos.css"rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
 </head>
@@ -69,13 +69,17 @@
 	   		case 11:
 	   			msg = "El código ingresado no es correcto.";
 	   			break;
+	   			
+	   		case 12:
+	   			msg = "No tienes acceso a esta sección.";
+	   			break;
 
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
 	   		// Acordarse de esto
-	   		case 12:
+	   		case 13:
 	   			msg = "Producto no encontrado";
 	 		    // volver = "PaginaTodaviaNoHecha.jsp";
 	 		    indexBack = "indexUser.jsp";
