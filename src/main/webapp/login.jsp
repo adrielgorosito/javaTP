@@ -42,31 +42,35 @@
 					<li class="nav-item"><a class="nav-link" href="index.jsp#contacto">Contacto</a></li> 
 					&emsp;&emsp;&emsp;&emsp;
 				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a	class="btn btn-primary" href="registro.jsp" role="button"><b>Registrarse</b></a></li> 
+				</ul>
 			</div>		
 		</div>
 	</nav>
 	
 	<section>
-		<div class="container">
+		<div class="container w-25">
 			<div class="content-center topmargin-lg">
-				<h2 class ="text-center pb-5 pt-5 h1"><b>Iniciar sesión</b></h2>
-				<form action = "Login" class="form-inline" method = "post">
-					<div class = "form-group mx-sm-3">
-						<label for="inputName" class="sr-only">Nombre de usuario, mail o dni</label>
-						<input type="text" name = "userInput" class="form-control" id="inputName" placeholder="Nombre de usuario, mail o dni" style = "width: 350px; margin-left:390px; margin-top:10px;">
+				<h2 class ="text-center pb-3 pt-5 h1"><b>Iniciar sesión</b></h2>
+				<form action = "Login" method = "post">
+					<div class="row justify-content-md-center py-1">
+						<div class="input-group mb-3 align-items-center">
+							<label for="inputName" class="sr-only">Nombre de usuario, mail o dni</label>
+							<input type="text" name = "userInput" class="form-control" id="inputName" placeholder="Nombre de usuario, mail o dni" style = "width: 330px">
+						</div>
+						<div class="input-group mb-3 align-items-center">
+							<label for="inputLName"	class="sr-only">Contraseña</label>
+							<input type="password" name = "userPass" class="form-control" id="inputPass" placeholder="Contraseña" style = "width : 300px">
+						</div>
+						<input type = "submit" class="btn btn-primary" value = "Iniciar sesión" style = "top-margin:5px; width:330px">
 					</div>
-					<div class = "form-group mx-sm-3">
-						<label for="inputLName"	class="sr-only">Contraseña</label>
-						<input type="password" name = "userPass" class="form-control" id="inputPass" placeholder="Contraseña" style = "width : 350px; margin-left:390px; margin-top:10px;">
-					</div>
-					<input type = "submit" class="btn btn-primary margintop3" style="margin-left:530px; margin-top:10px" value = "Iniciar sesión">
 				</form>
 			</div>
 			<br>
+			<a href = "passwordRecovery.jsp">¿Olvidaste tu contraseña?</a>
 			<br>
-			<a href = "passwordRecovery.jsp" style = "margin-left:490px; margin-top:40px">¿Olvidaste tu contraseña?</a>
-			<br>
-			<a href = "registro.jsp" style = "margin-left:460px; margin-top:10px">¿No tienes cuenta? Regístrate...</a>
+			<a href = "registro.jsp">¿No tienes cuenta? Regístrate...</a>
 		</div>
 	</section>
 	

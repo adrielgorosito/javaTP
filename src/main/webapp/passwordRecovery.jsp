@@ -27,7 +27,7 @@
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
 			<a class="navbar-brand" href = "index.jsp">
-				<img src="imgs/logo.png" alt="" width="200">
+				<img src="imgs/index/logo.png" alt="" width="200">
 			</a>
 			
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toogle navigation">
@@ -58,14 +58,13 @@
 		</div>		 
 	</div>
 	
-
 	<section>
 		<div class="container">
 			<div class="content-center topmargin-lg">
 				<h3 class ="text-center pt-3 h3"><b>Recupera tu cuenta</b></h3>
 				<p class ="text-center">Olvidar la contraseña es un problema más común de lo que crees. No te sientas con culpa.</p>
 				<p class ="text-center">Ingresa el correo electrónico asociado a tu cuenta. Recibirás un correo con tu contraseña.</p>
-				<form action = "ForgotPass">
+				<form action = "ForgotPass" method = "post">
 					<div class="content-center">
 						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; margin:auto">
 					</div>
