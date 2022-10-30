@@ -82,41 +82,68 @@
 	   
 	   LinkedList<Product> tarjProds = cp.getAllProducts(); %>
 
-	<!-- Tarjetas de productos -->
 
 	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
-
+	
 	<section id="productos">
-			<div class="container-md p-2">
-				<%int cont = 0;%>
-				<%for (int i = 1; i <= (tarjProds.size()/4 + 1); i++) {%>
-				<%if (tarjProds.get(cont) == null)
-				break;%>
-				<div class="row row-cols-1 row-cols-md-3 g-4">
-					<%for (int j = 1; j <= 4; j++) {%>
-					<%if (tarjProds.get(cont) == null)
-					break;%>
-  					<div class="col mb-4">
-  						<div class="card h-100" style = "width: 18rem">
-  							<% p = tarjProds.get(cont); %>
-  							<form id="formProd" action = "ProductS" method = "post">
-  								<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
-  								<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  								<div class="card-body" style = "height: 12rem">
-   									<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   									<p class="card-text"><%=p.getDescription()%></p>
- 								</div>
- 								<div class="card-footer" style = "height: 4rem">
-      								<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
-      								<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
-    							</div>
-    						</form>
-  						</div>
+			<div class="container-md p-2"> 
+				<%int cont = 0;
+				int cantReng = tarjProds.size()/4;
+				int prodsRestantes = (tarjProds.size() - cantReng * 4);
+				  
+				for (int i = 1; i <= cantReng; i++) {%>
+					<div class="row row-cols-1 row-cols-md-3 g-4">
+						<%for (int j = 1; j <= 4; j++) {%>
+  							<div class="col mb-4">
+  								<div class="card h-100" style = "width: 18rem">
+  								<%p = tarjProds.get(cont); %>
+  								<form id="formProd" action = "ProductS" method = "post">
+  									<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
+  									<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
+  									<div class="card-body" style = "height: 12rem">
+   										<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   										<p class="card-text"><%=p.getDescription()%></p>
+ 									</div>
+ 									<div class="card-footer" style = "height: 4rem">
+      									<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
+      									<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
+    								</div>
+    								</form>
+  								</div>
+  								<%cont++;%>
+  							</div>
+  						<%}%>
   					</div>
-  					<%cont++;
-  					}%>
-  				</div>
+  				<%}
+				
+  				if (prodsRestantes != 0) {%>
+  					<div class="row row-cols-1 row-cols-md-3 g-4">
+  						<%
+  						int i = 1;
+  						do {%>
+  							<div class="col mb-4">
+  								<div class="card h-100" style = "width: 18rem">
+  								<%p = tarjProds.get(cont); %>
+  								<form id="formProd" action = "ProductS" method = "post">
+  									<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
+  									<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
+  									<div class="card-body" style = "height: 12rem">
+   										<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   										<p class="card-text"><%=p.getDescription()%></p>
+ 									</div>
+ 									<div class="card-footer" style = "height: 4rem">
+      									<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
+      									<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
+    								</div>
+    								</form>
+  								</div>
+  								<%cont++;
+  								  i++;%>
+  							</div>
+  						<%} while (i <= prodsRestantes);%>
+  					</div>
   				<%}%>
+  				
   			</div>
 	</section>
 	
