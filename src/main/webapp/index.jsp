@@ -110,7 +110,7 @@
 
 	<!-- Tarjetas de productos -->
 	<section id="productos">
- 		<div id="games" class="botpad-1">
+ 		<div id="tarjetaProducts" class="botpad-1">
 			<div class="container-md p-5">
 				<div class="row pt-5">
 					<h3 class="text-center pb-5 pt-5 h1" style="color:#ffffff">Algunos de nuestros productos</h3>
