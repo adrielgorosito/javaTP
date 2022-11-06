@@ -7,6 +7,7 @@ public class Product {
 	private Double price;
 	private String img;
 	private int stock;
+	private boolean isActive;
 	private ProductType type;
 	
 	public int getId_prod() {
@@ -44,6 +45,12 @@ public class Product {
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 	
 	public ProductType getType() {

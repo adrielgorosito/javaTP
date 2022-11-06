@@ -30,6 +30,7 @@ public class DataProducts {
 				p2.setPrice(rs.getDouble("precio"));
 				p2.setImg(rs.getString("imagen"));
 				p2.setStock(rs.getInt("stock"));
+				p2.setActive(rs.getBoolean("activo"));
 				
 				ProductType pt = new ProductType();
 				pt.setId(rs.getInt("id_tipo"));
@@ -56,7 +57,6 @@ public class DataProducts {
 		
 		return p2;
 	}
-	
 	
 	public int getMaxId()  {
 		PreparedStatement stmt = null;
@@ -111,6 +111,7 @@ public class DataProducts {
 					p.setPrice(rs.getDouble("precio"));
 					p.setImg(rs.getString("imagen"));
 					p.setStock(rs.getInt("stock"));
+					p.setActive(rs.getBoolean("activo"));
 				
 					ProductType pt = new ProductType();
 					pt.setId(rs.getInt("id_tipo"));
@@ -141,5 +142,28 @@ public class DataProducts {
 		return allProducts;
 	}
 	
+	public void updateStock(Product p)  {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+					   "UPDATE Producto SET stock = ? WHERE id_prod = ?");
+			pstmt.setInt(1, p.getStock());
+			pstmt.setInt(2, p.getId_prod());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+
+	}
 	
 }
