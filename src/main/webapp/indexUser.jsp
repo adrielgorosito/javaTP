@@ -96,18 +96,23 @@
 						<%for (int j = 1; j <= 4; j++) {%>
   							<div class="col mb-4">
   								<div class="card h-100" style = "width: 18rem">
-  								<%p = tarjProds.get(cont); %>
-  								<form id="formProd" action = "ProductS" method = "post">
-  									<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
-  									<img src= "<%=p.getImg()%>" class="card-img-top" alt="...">
-  									<div class="card-body" style = "height: 12rem">
-   										<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   										<p class="card-text"><%=p.getDescription()%></p>
- 									</div>
- 									<div class="card-footer" style = "height: 4rem">
-      									<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
-      									<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
-    								</div>
+  									<%p = tarjProds.get(cont); %>
+									<form id="formProd" action = "ProductS" method = "post">
+  										<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
+  										<img src= "<%=p.getImg()%>" class="card-img-top" style = "height: 250px; width: 285px">
+  										<div class="card-body" style = "height: 12rem">
+  											<small class="text-muted"><%= p.getType().getName() %></small>
+   											<h4 class="card-title"><b><%=p.getName()%></b></h4>
+   											<p class="text-truncate"><%=p.getDescription()%></p>
+  										</div>
+ 										<div class="card-footer" style = "height: 4rem">
+      										<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
+      										<%if (p.getStock() == 0) {%>
+												<input type = "submit" class="btn btn btn-dark float-end" style="width: 100px" value = "Sin stock" disabled>
+  											<%} else {%>
+      											<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
+    										<%}%>
+    									</div>
     								</form>
   								</div>
   								<%cont++;%>

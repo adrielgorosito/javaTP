@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Comprar producto</title>
+	<title>Compra exitosa</title>
 		
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
@@ -75,71 +75,33 @@
 	<%Product p = (Product) request.getAttribute("prod");%>
 	<%int cant = (int) request.getAttribute("cant");%>
 
-	
 	<section id="producto">
 		<div class="container mt-5">
-			<form action = "FinishBuy" method = "post">
-				<input type="hidden" name="id_prod" value=<%=p.getId_prod()%>>
-				<input type="hidden" name="quantityInput" value=<%=cant%>>
-				<div class="card mb-3">
-					<div class="row g-0">
-						<div class="col-md-4">
-							<img src="<%=p.getImg()%>" class="img-fluid rounded-start" alt="...">
-   						</div>
-    					<div class="col-md-8">
-    						<div class="card-body">
-    							<h4 class="card-title"><b><%=p.getName()%></b></h4>
-    							<p class="card-text">Precio unitario: $<%=p.getPrice()%></p>
-        						<p class="card-text">Cantidad: <%=cant%></p>
-        						<hr class="ml-auto">
-        						<h5 class="card-text">Subtotal: $<%=cant * p.getPrice()%></h5>
-        						<br><br>
-        						<table class="table">
-        							<thead>
-        								<tr>
-        									<th scope="col">Datos del envío</th>
-        									<th scope="col">Método de pago</th>
-        								</tr>
-        							</thead>
-        							<tbody>
-        								<tr>
-        									<td>
-        										<p>Dirección: <%=userS.getState()%>, <%=userS.getCity()%>, <%=userS.getAddress()%></p>
-        										<p>Costo de envío: $600</p>
-        									</td>
-        									<td>
-        										<div class="form-check">
-        											<input class="form-check-input" type="radio" name="metodoPago" id="radio1" checked>
-   													<label class="form-check-label" for="radio1">Pago fácil</label>
-        										</div>
-        										<div class="form-check">
-        											<input class="form-check-input" type="radio" name="metodoPago" id="radio2">
-     												<label class="form-check-label" for="radio2">Rapipago</label>
-        										</div>
-											</td>
-        								</tr>
-        							</tbody>
-        						</table>
-        						
-        						<div class="d-flex bd-highlight mb-3">
-        							<div class="ms-auto p-2 bd-highlight">
-        								<h5 class="card-text"><b>Total: $<%=cant * p.getPrice() + 600%></b></h5>
-        							</div>
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="<%=p.getImg()%>" class="img-fluid rounded-start" alt="...">
+   					</div>
+    				<div class="col-md-8">
+    					<div class="card-body">
+    						<h4 class="card-title"><b><font color = "green">Felicitaciones!</font></b></h4>
+    						<p class="card-text">Realizaste exitosamente la compra de: <b><%=p.getName()%></b></p>
+    						
+    						
+        					<p class="card-text">Tu envío será despachado en el día hábil más cercano.</p>
+        					<p class="card-text">
+        						Lo recibirás dentro de los proximos 10 días.
+        						En caso de no recibirlo o si tienes dudas puedes enviarnos un mail.
+        					</p>
+        					<div class="d-flex bd-highlight mb-3">
+        						<div class="ms-auto p-2 bd-highlight">
+        							<a	class="btn btn-primary"	href="indexUser.jsp" role="button">Volver al inicio</a>
         						</div>
-        						
-        						
-        						<div class="d-flex bd-highlight mb-3">
-        							<div class="ms-auto p-2 bd-highlight">
-        								<a	class="btn btn-outline-primary"	href="indexUser.jsp" role="button">Cancelar</a>
-        								<input type = "submit" class="btn btn-primary" value = "Comprar" style = "top-margin:5px; width:330px">
-        							</div>
-        						</div>
-        						
-      						</div>
-    					</div>
-  					</div>
-				</div>
-			</form>
+        					</div>
+      					</div>
+    				</div>
+  				</div>
+			</div>
 		</div>
   	</section>
 	
