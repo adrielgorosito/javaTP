@@ -165,5 +165,49 @@ public class DataProducts {
 		}
 
 	}
+
+	public void enableProduct(Product p) {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+					   "UPDATE Producto SET activo = 1 WHERE nombre = ?");
+			pstmt.setString(1, p.getName());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
 	
+	public void disableProduct(Product p) {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+					   "UPDATE Producto SET activo = 0 WHERE nombre = ?");
+			pstmt.setString(1, p.getName());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+
 }

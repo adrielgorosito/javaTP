@@ -34,13 +34,39 @@
 	<!-- b5 --> <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integriy = "sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin = "anonymous"></script>
 	<!-- b4 --> <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous">
 	
-		<!-- Para el dropdown -->
+	<!-- Para el dropdown -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
+	<!-- Para el modal -->
+	<script>
+		$(function(){
+    		$('#deleteModal').on('show.bs.modal', function (event) {
+        		var button = $(event.relatedTarget);
+        		var product = button.data('id');
+        		var modal = $(this);
+        		modal.find('.modal-title').text(product);
+        		modal.find('.modal-body input').val(product);
+        		modal.find('.modal-body label').html(product);
+    		});
+		});
+		
+		$(function(){
+    		$('#updateModal').on('show.bs.modal', function (event) {
+        		var button = $(event.relatedTarget);
+        		var product = button.data('id');
+        		var modal = $(this);
+        		modal.find('.modal-title').text(product);
+        		modal.find('.modal-body input').val(product);
+        		modal.find('.modal-body label').html(product);
+    		});
+		});
+	</script>
+</head>
+	
 	<!-- CSS -->
-	<link href = "style/indexStyle.css" rel = "stylesheet">
+	<link href = "style/estilos.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
 		
@@ -49,7 +75,7 @@
 
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
-			<a class="navbar-brand" href = "indexUser.jsp">
+			<a class="navbar-brand" href = "indexAdmin.jsp">
 				<img src="imgs/index/logo.png" alt="" width="200">
 			</a>
 			
@@ -59,7 +85,7 @@
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="indexUser.jsp">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="indexAdmin.jsp">Inicio</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item dropdown">
@@ -84,6 +110,7 @@
 	
 	<div class="container">
 		<div class="content-center topmargin-lg">
+			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de productos</b></h3>
 			<table class="table table-striped">
   				<thead>
     				<tr>
@@ -93,6 +120,7 @@
       					<th scope="col">Descripción</th>
      					<th scope="col">Stock</th>
      					<th scope="col">Precio</th>
+     					<th scope="col">Estado</th>
      					<th scope="col">Acción</th>
     				</tr>
   				</thead>
@@ -106,10 +134,24 @@
       						<td><%=allProducts.get(i).getStock()%></td>
       						<td>$<%=allProducts.get(i).getPrice()%></td>
       						<td>
-      							<img src= "https://w7.pngwing.com/pngs/233/449/png-transparent-magnifying-glass-computer-icons-magnifying-glass-glass-wikimedia-commons-magnifier.png" style = "width: 20px; weight: 20px">
-      							<img src= "https://cdn3.iconfinder.com/data/icons/ui-ux-circles-1/24/edit-circle-512.png" style = "width: 20px; weight: 20px">
-      							<img src= "https://toppng.com/uploads/preview/edit-delete-icon-delete-icon-11553444925vxge0bju5o.png" style = "width: 20px; weight: 20px">
-      							&emsp;
+      							<%if (allProducts.get(i).isActive()) {%>
+      								<img src = "imgs/indexAdmin/enabled.png" style = "width: 20px; weight: 20px">
+      							<%} else {%>
+      								<img src = "imgs/indexAdmin/disabled.png" style = "width: 20px; weight: 20px">
+      							<%}%>
+      						</td>
+      						<td align = "center">
+      							<img src= "imgs/indexAdmin/edit.png" style = "width: 20px; weight: 20px">
+      							<%if (allProducts.get(i).isActive()) {%>
+      								<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allProducts.get(i).getName()%>">
+      									<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
+      								</a>
+      							<%} else {%>
+      								<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
+      									<img src= "imgs/indexAdmin/setActive.png" style = "width: 20px; weight: 20px">
+      								</a>
+      							<%}%>
+      							
       						</td>
     					</tr>
     				<%} %>
@@ -117,6 +159,64 @@
 			</table>
 		</div>
 	</div>
+	
+	
+	
+	<!-- Delete Modal -->
+	<form action = "DisableProduct" method = "post">
+    	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    		<div class="modal-dialog">
+        		<div class="modal-content">
+            		<div class="modal-header">
+            			<h4 class="modal-title" id="deleteModalLabel">Titulo</h4>
+                		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		</div>
+           			<div class="modal-body">
+                    	<div class="form-group">
+                        	Estás a punto de dar de baja: <label></label>
+                        	<input type = "hidden" name="prodName">
+                        	<br>
+                        	<p>Estás seguro?</p>
+                    	</div>
+            		</div>
+            		
+            		
+            		<div class="modal-footer">
+                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                		<input type = "submit" class="btn btn-primary" value = "Confirmar">
+            		</div>
+        		</div>
+    		</div>
+		</div>
+	</form>
+	
+	<!-- Update Modal -->
+	<form action = "EnableProduct" method = "post">
+    	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    		<div class="modal-dialog">
+        		<div class="modal-content">
+            		<div class="modal-header">
+            			<h4 class="modal-title" id="updateModalLabel">Titulo</h4>
+                		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		</div>
+           			<div class="modal-body">
+                    	<div class="form-group">
+                        	Estás a punto de dar de alta: <label></label>
+                        	<input type = "hidden" name="prodName">
+                        	<br>
+                        	<p>Estás seguro?</p>
+                    	</div>
+            		</div>
+            		
+            		
+            		<div class="modal-footer">
+                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                		<input type = "submit" class="btn btn-primary" value = "Confirmar">
+            		</div>
+        		</div>
+    		</div>
+		</div>
+	</form>
 	
 </body>
 </html>

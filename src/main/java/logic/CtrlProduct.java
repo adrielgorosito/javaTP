@@ -40,4 +40,19 @@ public class CtrlProduct {
 		   
 		return tarjProds;
 	}
+	
+	public void updateStock(Product p) {
+		dp.updateStock(p);
+	}
+	
+	public void disableProduct(Product p) {
+		dp.disableProduct(p);
+	}
+	
+	public void enableProduct(Product p) {
+		dp.enableProduct(p);
+	}
+	
+	
+	
 }
