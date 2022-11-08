@@ -76,7 +76,7 @@
 	<section id="producto">
 			<div class="container mt-5">
 				<div class="">
-					<h6 class=""><a href = "/indexUser.jsp/">Productos</a> > <%=p.getType().getName()%></a></h6>
+					<h6 class=""><a href = "indexUser.jsp">Productos</a> > <%=p.getType().getName()%></a></h6>
 					<img src= "<%=p.getImg()%>" style = "width: 570px" alt="..." align = "left">
   				</div>
   				<div class="container-md mt-5" id="texto">
