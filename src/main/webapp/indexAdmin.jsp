@@ -48,7 +48,7 @@
 
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
-			<a class="navbar-brand" href = "indexUser.jsp">
+			<a class="navbar-brand" href = "indexAdmin.jsp">
 				<img src="imgs/index/logo.png" alt="" width="200">
 			</a>
 			
@@ -58,7 +58,7 @@
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="indexUser.jsp">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="indexAdmin.jsp">Inicio</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item dropdown">
