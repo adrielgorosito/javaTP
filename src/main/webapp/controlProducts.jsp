@@ -141,7 +141,10 @@
       							<%}%>
       						</td>
       						<td align = "center">
-      							<img src= "imgs/indexAdmin/edit.png" style = "width: 20px; weight: 20px">
+      							<form action = "EditProduct" method = "post">
+      								<input type="hidden" name="id_prod" value=<%=allProducts.get(i).getId_prod()%>>
+      								<input type = "image" src = "imgs/indexAdmin/edit.png" style = "width: 20px; weight: 20px">
+      							</form>
       							<%if (allProducts.get(i).isActive()) {%>
       								<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allProducts.get(i).getName()%>">
       									<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">

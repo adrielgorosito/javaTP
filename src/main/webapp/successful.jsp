@@ -106,6 +106,12 @@
 			<br>
 			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
+	<%} else if (request.getAttribute("productChanged") != null) {%>
+		<p align = "center">
+			<font face = "tahoma" size = 4 color = "green"><b>Producto modificado exitosamente.</b></font>
+			<br>
+			<font face = "tahoma" size = 2><a href = "controlProducts.jsp">Regresar.</a></font>
+		</p>
 	<%} %>
 </body>
 </html>

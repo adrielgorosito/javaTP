@@ -210,4 +210,34 @@ public class DataProducts {
 		}
 	}
 
+	public void updateProduct(Product p) {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+					   "UPDATE Producto SET nombre = ?, descripcion = ?, precio = ?, "
+					   + "stock = ?, tipo_prod = ? WHERE id_prod = ?");
+			
+			pstmt.setString(1, p.getName());
+			pstmt.setString(2, p.getDescription());
+			pstmt.setDouble(3, p.getPrice());
+			pstmt.setInt(4, p.getStock());
+			pstmt.setInt(5, p.getType().getId());
+			pstmt.setInt(6, p.getId_prod());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+	}
+
 }

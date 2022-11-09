@@ -52,6 +52,10 @@ public class CtrlProduct {
 	public void enableProduct(Product p) {
 		dp.enableProduct(p);
 	}
+
+	public void updateProduct(Product p) {
+		dp.updateProduct(p);
+	}
 	
 	
 	
