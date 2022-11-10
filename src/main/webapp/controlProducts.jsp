@@ -101,6 +101,7 @@
 	
 	
 	<%@ page language = "java" import = "logic.CtrlProduct" %>
+	<%@ page language = "java" import = "logic.CtrlProductType" %>
 	<%@ page language = "java" import = "entities.Product" %>
 	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlProduct cp = new CtrlProduct();
@@ -108,9 +109,88 @@
 	   
 	   LinkedList<Product> allProducts = cp.getAllProducts();%>
 	
+	<div class="container mt-5">
+		<h3 class ="text-center pt-5 pb-5 h1"><b>Añadir un producto</b></h3>
+		<form action = "NewProduct" method = "post">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<div class="card-body">
+							<h3 class ="text-center pt-5 pb-5 h5"><b>Vista previa</b></h3>
+							<img id="fotoCargada">
+						</div>
+						
+   					</div>
+    				<div class="col-md-8">
+    					<div class="card-body">
+    						<div class="input-group mb-3 align-items-center">
+  								<label for="nameInput" style ="height:20px">Nombre:&ensp;</label>
+  								<input id = "nameInput" name = "nameInput" type="text" class="form-control" required>
+							</div>
+    							
+    						<div class="input-group mb-3 align-items-center">
+  								<%CtrlProductType cpt = new CtrlProductType(); 
+  								  LinkedList<ProductType> listpt = new LinkedList<ProductType>();
+  								  listpt = cpt.getAllProductTypes();
+  								%>
+  								
+  								<label for="catInput" style ="height:20px">Categoría:&ensp;</label>
+  								
+  								<select id = "catInput" name ="catInput" class="form-select">
+   									<option selected>Seleccione una categoría</option>
+  									<%for (int i = 0; i < listpt.size(); i++) {%>
+   										<option value = "<%=listpt.get(i).getName()%>"><%=listpt.get(i).getName()%></option>
+   									<%}%>
+   								</select>
+							</div>
+							
+							<div class="input-group mb-3 align-items-center">
+  								<label for="photoInput" style ="height:20px">Foto:&ensp;</label>
+  								
+  								<input id = "photoInput" name = "photoInput" type="file" class="form-control" accept="image/png, image/jpeg" onchange="cargaFoto(event)">
+								<script>
+									var cargaFoto = function(event) {
+										var mostrarFoto = document.getElementById('fotoCargada');
+										mostrarFoto.src = URL.createObjectURL(event.target.files[0]);
+										mostrarFoto.onload = function() {
+											URL.revokeObjectURL(mostrarFoto.src) // Para liberar la memoria
+										}
+									};
+								</script>
+							</div>
+							
+    						<div class="input-group mb-3 align-items-center">
+  								<label for="descInput" style ="height:20px">Descripción:&ensp;</label>
+  								<input id = "descInput" name = "descInput" type="text" class="form-control" required>
+							</div>
+							<div class="input-group mb-3 align-items-center">
+  								<label for="priceInput" style ="height:20px">Precio:&ensp;</label>
+  								<input id = "priceInput" name = "priceInput" type="text" class="form-control" required>
+							</div>
+							<div class="input-group mb-3 align-items-center">
+  								<label for="stockInput" style ="height:20px">Stock:&ensp;</label>
+  								<input id = "stockInput" name = "stockInput" type="text" class="form-control" required>
+							</div>
+        					
+        					<div class="d-flex bd-highlight mb-3">
+        						<div class="ms-auto p-2 bd-highlight">
+        							<a	class="btn btn-outline-primary"	href="controlProducts.jsp" role="button">Cancelar</a>
+        							<input type = "submit" class="btn btn-primary" value = "Crear producto" style = "top-margin:5px; width:330px">
+       							</div>
+       						</div>
+       						
+     					</div>
+   					</div>
+  				</div>
+			</div>
+		</form>
+	</div>
+	
+	
 	<div class="container">
 		<div class="content-center topmargin-lg">
 			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de productos</b></h3>
+			<% if (allProducts != null) {%>
 			<table class="table table-striped">
   				<thead>
     				<tr>
@@ -160,6 +240,9 @@
     				<%} %>
   				</tbody>
 			</table>
+			<%} else {%>
+			<p>No hay productos</p>
+			<%}%>
 		</div>
 	</div>
 	
