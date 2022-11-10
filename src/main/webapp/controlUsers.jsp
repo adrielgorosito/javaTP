@@ -75,20 +75,14 @@
 		</div>
 	</nav>
 	
-	
 	<%@ page language = "java" import = "logic.CtrlUser" %>
 	<%@ page language = "java" import = "entities.User" %>
 	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlUser cu = new CtrlUser();
 	   User u = new User();
 	   
-	   LinkedList<User> allUsers = cu.getAllUsers();
-	   
-	   
-	   // Hacer q busque para no admins
-	   %>
-	   
-	
+	   LinkedList<User> allUsers = cu.getAllUsers();%>
+	 
 	<div class="container">
 		<div class="content-center topmargin-lg">
 			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de usuarios</b></h3>
@@ -150,64 +144,6 @@
 			<%}%>
 		</div>
 	</div>
-	
-	
-	
-	<!-- Delete Modal -->
-	<form action = "DisableProduct" method = "post">
-    	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    		<div class="modal-dialog">
-        		<div class="modal-content">
-            		<div class="modal-header">
-            			<h4 class="modal-title" id="deleteModalLabel">Titulo</h4>
-                		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            		</div>
-           			<div class="modal-body">
-                    	<div class="form-group">
-                        	Estás a punto de dar de baja: <label></label>
-                        	<input type = "hidden" name="prodName">
-                        	<br>
-                        	<p>Estás seguro?</p>
-                    	</div>
-            		</div>
-            		
-            		
-            		<div class="modal-footer">
-                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                		<input type = "submit" class="btn btn-primary" value = "Confirmar">
-            		</div>
-        		</div>
-    		</div>
-		</div>
-	</form>
-	
-	<!-- Update Modal -->
-	<form action = "EnableProduct" method = "post">
-    	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-    		<div class="modal-dialog">
-        		<div class="modal-content">
-            		<div class="modal-header">
-            			<h4 class="modal-title" id="updateModalLabel">Titulo</h4>
-                		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            		</div>
-           			<div class="modal-body">
-                    	<div class="form-group">
-                        	Estás a punto de dar de alta: <label></label>
-                        	<input type = "hidden" name="prodName">
-                        	<br>
-                        	<p>Estás seguro?</p>
-                    	</div>
-            		</div>
-            		
-            		
-            		<div class="modal-footer">
-                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                		<input type = "submit" class="btn btn-primary" value = "Confirmar">
-            		</div>
-        		</div>
-    		</div>
-		</div>
-	</form>
 	
 </body>
 </html>
