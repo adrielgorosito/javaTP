@@ -3,6 +3,8 @@ package data;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+
 import entities.*;
 
 public class DataUsers {
@@ -322,6 +324,81 @@ public class DataUsers {
             }
 		}
 
+	}
+
+	public LinkedList<User> getAll() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<User> allUsers = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
+					+ "ciudad, direccion FROM User");
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					User u = new User();
+					
+					u.setDni(rs.getInt("dni"));
+					u.setUsername(rs.getString("nombUsuario"));
+					u.setName(rs.getString("nombre"));
+					u.setSurname(rs.getString("apellido"));
+					u.setMail(rs.getString("email"));
+					u.setPhone(rs.getString("telefono"));
+					u.setAdmin(rs.getBoolean("isAdmin"));
+					u.setState(rs.getString("provincia"));
+					u.setCity(rs.getString("ciudad"));
+					u.setAddress(rs.getString("direccion"));
+					
+					allUsers.add(u);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return allUsers;
+	}
+
+	public void deleteUser(User u) {
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement("DELETE FROM User WHERE dni = ?");
+			stmt.setInt(1, u.getDni());
+
+			stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 }
