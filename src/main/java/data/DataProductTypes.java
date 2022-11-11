@@ -27,7 +27,8 @@ public class DataProductTypes {
 					pt = new ProductType();
 					pt.setId(rs.getInt("id_tipo"));
 					pt.setName(rs.getString("tipo"));
-				
+					pt.setActive(rs.getBoolean("activo"));
+					
 					allProductTypes.add(pt);
 				}
 			}
@@ -68,6 +69,7 @@ public class DataProductTypes {
 				pt = new ProductType();
 				pt.setId(rs.getInt("id_tipo"));
 				pt.setName(rs.getString("tipo"));
+				pt.setActive(rs.getBoolean("activo"));
 			}
 			
 		} catch (SQLException e) {
