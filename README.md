@@ -55,18 +55,19 @@ Descripción del trabajo:
 
 <h2>Checklist Regularidad</h2> 	
 	
-[![MDTP-Java.png](https://i.postimg.cc/sxH7mJ8X/MDTP-Java.png)](https://postimg.cc/wRJ1TD98)
+| Requerimiento | 2 integrantes | Detalle/ Listado de casos incluidos 
+| --- | --- | --- |
+| ABMC simple | 1 x int | ABMC - Usuario <br>
+			  ABMC - Producto |
+| ABMC dependiente | 1 | ABMC - Tipo producto |
+| CU NO-ABMC | 1 | CUS - Comprar producto|
+| Listado simple | 1 | Listado de productos |
+| Listado complejo | 0 | - |
 
 <h2>Checklist Aprobación Directa</h2> 	
 
 ![image](https://user-images.githubusercontent.com/111536783/201493665-86504231-f2db-4bb5-83fd-6dcb25660253.png)
 
-| Requerimiento | 2 integrantes | Detalle/ Listado de casos incluidos 
-| --- | --- | --- |
-| ABMC simple | 1 x int | ABMC - Usuario |
-| CU NO-ABMC | 1 | |
-| Listado simple | | |
-| Listado complejo | | |
 
 
 
