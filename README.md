@@ -32,24 +32,23 @@ Descripción del trabajo:
 
 <h2>Caso de uso complejo</h2>
 
-<b>CUS: Compra de un producto<b>
+<h4><b>CUS: Compra de un producto<h4><b>
 
-Camino principal
+<h5>Camino principal</h5>
 1. El cliente ingresa a la página y se loguea con su cuenta en el sistema.
 2. El cliente se decide por un producto y procede con la compra. El sistema lo redirecciona para completar el pedido.
 3. El cliente elige la cantidad que desea. El sistema lo redirecciona para terminar la compra.
 4. El cliente elige si pagar en Rapipago o Pagofácil. El sistema muestra el subtotal, dirección del cliente, precio del envío y el total.
 5. El cliente confirma la compra y el sistema lo registra.
 
-Camino alternativo
-	
-1.a. <Durante> El cliente no tiene cuenta.<br> 	
-1.a.1. El cliente se crea una cuenta y el sistema lo registra.<br> 
-2.a. <Anterior> El cliente no se decide por ningún producto.<br> 
+<h5>Camino alternativo</h5>
+ 1.a. <Durante> El cliente no tiene cuenta.<br> 	
+ 1.a.1. El cliente se crea una cuenta y el sistema lo registra.<br> 
+ 2.a. <Anterior> El cliente no se decide por ningún producto.<br> 
 	2.a.1. Fin de CU.<br> 
-5.a. <Reemplaza> El cliente no confirma o cancela la compra.<br> 
+ 5.a. <Reemplaza> El cliente no confirma o cancela la compra.<br> 
 	5.a.1. Fin de CU.<br> 
 
-    
+<h2>Modelo de Dominio</h2>    
     
 [![MDTP-Java.png](https://i.postimg.cc/JhVCs5Gb/MDTP-Java.png)](https://postimg.cc/Yv3sVgN9)
