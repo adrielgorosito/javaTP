@@ -19,18 +19,20 @@ Descripción del trabajo:
 - Usuario registrado: cumple las mismas funciones que el invitado, a diferencia de que si puede realizar compras, teniendo un historial de las mismas a su alcance (en su perfil).
 - Administrador: es un empleado que tiene permisos completos dentro de la página cuyas funciones incluyen consultar productos, darlos de alta/baja, actualizarlos, manejo de usuarios, etc.
 
-ABMCs
-ABMC de productos (por parte de un administrador), depende de categoría.
-ABMC de categorías de productos (por parte de un administrador).
-ABMC de usuarios (alta por parte de un usuario y lo demás por un administrador).
+<h4>ABMCs</h4>
 
-Listados
-Listado de todos los productos (listado simple).
-Listado de productos específicos por categoría (ej., productos → audio → auricular).
+- ABMC de productos (por parte de un administrador), depende de categoría.
+- ABMC de categorías de productos (por parte de un administrador).
+- ABMC de usuarios (alta por parte de un usuario y lo demás por un administrador).
 
-Casos de usos complejo
+<h4>Listados</h4>
 
-CUS: Compra de un producto
+- Listado de todos los productos (listado simple).
+- Listado de productos específicos por categoría (ej., productos → audio → auricular).
+
+<h2>Caso de uso complejo</h2>
+
+<b>CUS: Compra de un producto<b>
 
 Camino principal
 1. El cliente ingresa a la página y se loguea con su cuenta en el sistema.
