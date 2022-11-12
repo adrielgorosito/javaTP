@@ -57,8 +57,8 @@ Descripción del trabajo:
 	
 | Requerimiento | 2 integrantes | Detalle/ Listado de casos incluidos 
 | --- | --- | --- |
-| ABMC simple | 1 x int | ABMC - Usuario 
-			  ABMC - Producto |
+| ABMC simple | 1 x int | ABMC - Usuario <br> ABMC - Productos|
+			 
 | ABMC dependiente | 1 | ABMC - Tipo producto |
 | CU NO-ABMC | 1 | CUS - Comprar producto|
 | Listado simple | 1 | Listado de productos |
