@@ -15,9 +15,9 @@ Descripción del trabajo:
 
 <h4>Niveles de acceso</h4>
 
-Invitado: es aquella persona que visita la página sin estar logueado, pudiendo ver algunos productos que se encuentran a la venta pero sin poder realizar ningún tipo de compra. Además pueden enviar un mail de contacto.
-Usuario registrado: cumple las mismas funciones que el invitado, a diferencia de que si puede realizar compras, teniendo un historial de las mismas a su alcance (en su perfil).
-Administrador: es un empleado que tiene permisos completos dentro de la página cuyas funciones incluyen consultar productos, darlos de alta/baja, actualizarlos, manejo de usuarios, etc.
+- Invitado: es aquella persona que visita la página sin estar logueado, pudiendo ver algunos productos que se encuentran a la venta pero sin poder realizar ningún tipo de compra. Además pueden enviar un mail de contacto.
+- Usuario registrado: cumple las mismas funciones que el invitado, a diferencia de que si puede realizar compras, teniendo un historial de las mismas a su alcance (en su perfil).
+- Administrador: es un empleado que tiene permisos completos dentro de la página cuyas funciones incluyen consultar productos, darlos de alta/baja, actualizarlos, manejo de usuarios, etc.
 
 ABMCs
 ABMC de productos (por parte de un administrador), depende de categoría.
