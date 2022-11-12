@@ -35,11 +35,11 @@ Descripción del trabajo:
 <h4><b>CUS: Compra de un producto<h4><b>
 
 <h5>Camino principal</h5>
-1. El cliente ingresa a la página y se loguea con su cuenta en el sistema.
-2. El cliente se decide por un producto y procede con la compra. El sistema lo redirecciona para completar el pedido.
-3. El cliente elige la cantidad que desea. El sistema lo redirecciona para terminar la compra.
-4. El cliente elige si pagar en Rapipago o Pagofácil. El sistema muestra el subtotal, dirección del cliente, precio del envío y el total.
-5. El cliente confirma la compra y el sistema lo registra.
+1.El cliente ingresa a la página y se loguea con su cuenta en el sistema.
+2.El cliente se decide por un producto y procede con la compra. El sistema lo redirecciona para completar el pedido.
+3.El cliente elige la cantidad que desea. El sistema lo redirecciona para terminar la compra.
+4.El cliente elige si pagar en Rapipago o Pagofácil. El sistema muestra el subtotal, dirección del cliente, precio del envío y el total.
+5.El cliente confirma la compra y el sistema lo registra.
 
 <h5>Camino alternativo</h5>
  1.a. <Durante> El cliente no tiene cuenta.<br> 	
