@@ -7,13 +7,12 @@ Integrantes:
     Gorosito, Adriel (Legajo: 47066)
     Botali, Santiago (Legajo: 47477)
     
-Descripción del trabajo:
-
+Descripción del trabajo: 
     Realizaremos una página web acerca de una tienda online de artículos de computación.
 
-<h3>Alcance funcional</h3>
+<h2>Alcance funcional</h2>
 
-<b>Niveles de acceso</b>
+<h4>Niveles de acceso</h4>
 
 Invitado: es aquella persona que visita la página sin estar logueado, pudiendo ver algunos productos que se encuentran a la venta pero sin poder realizar ningún tipo de compra. Además pueden enviar un mail de contacto.
 Usuario registrado: cumple las mismas funciones que el invitado, a diferencia de que si puede realizar compras, teniendo un historial de las mismas a su alcance (en su perfil).
