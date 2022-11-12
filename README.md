@@ -42,7 +42,9 @@ Camino principal
 5. El cliente confirma la compra y el sistema lo registra.
 
 Camino alternativo
+	
 1.a. <Durante> El cliente no tiene cuenta.
+	
 1.a.1. El cliente se crea una cuenta y el sistema lo registra.
 2.a. <Anterior> El cliente no se decide por ningún producto.
 	2.a.1. Fin de CU.
