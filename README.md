@@ -43,12 +43,12 @@ Camino principal
 
 Camino alternativo
 	
-1.a. <Durante> El cliente no tiene cuenta.<t>	
-1.a.1. El cliente se crea una cuenta y el sistema lo registra.<t>
-2.a. <Anterior> El cliente no se decide por ningún producto.
-	2.a.1. Fin de CU.
-5.a. <Reemplaza> El cliente no confirma o cancela la compra
-	5.a.1. Fin de CU.
+1.a. <Durante> El cliente no tiene cuenta.<br> 	
+1.a.1. El cliente se crea una cuenta y el sistema lo registra.<br> 
+2.a. <Anterior> El cliente no se decide por ningún producto.<br> 
+	2.a.1. Fin de CU.<br> 
+5.a. <Reemplaza> El cliente no confirma o cancela la compra.<br> 
+	5.a.1. Fin de CU.<br> 
 
     
     
