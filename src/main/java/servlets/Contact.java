@@ -24,10 +24,9 @@ public class Contact extends HttpServlet {
 		CtrlContact cc = new CtrlContact();
 		
 		cc.sendMailContact(request.getParameter("mailInput"), request.getParameter("subjectInput"), request.getParameter("msgInput"));
-		
-		/* Modificar esto:
-		request.setAttribute("mailSent", request.getParameter("mail"));
-		request.getRequestDispatcher("mailSent.jsp").forward(request, response); */
+
+		request.setAttribute("mailSent", request.getParameter("mailInput"));
+		request.getRequestDispatcher("mailSent.jsp").forward(request, response);
 	}
 
 }

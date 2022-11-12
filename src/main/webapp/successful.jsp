@@ -112,6 +112,13 @@
 			<br>
 			<font face = "tahoma" size = 2><a href = "controlProducts.jsp">Regresar.</a></font>
 		</p>
+	<%} else if (request.getAttribute("mailSent") != null) {%>
+		<p align = "center">
+			<font face = "tahoma" size = 4 color = "green"><b>Mail enviado exitosamente.</b></font>
+			Nos pondremos en contacto a la brevedad.
+			<br>
+			<font face = "tahoma" size = 2><a href = "index.jsp">Regresar.</a></font>
+		</p>
 	<%} %>
 </body>
 </html>
