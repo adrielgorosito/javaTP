@@ -29,7 +29,6 @@ public class ChangeAddress extends HttpServlet {
 		User u = (User) session1.getAttribute("userSession");
 		
 		u.setState(request.getParameter("stateInput"));
-		System.out.println(u.getState());
 		u.setCity(request.getParameter("cityInput"));
 		u.setAddress(request.getParameter("addressInput"));
 		
