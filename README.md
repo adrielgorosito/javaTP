@@ -52,3 +52,9 @@ Descripción del trabajo:
 <h2>Modelo de Dominio</h2>    
     
 [![MDTP-Java.png](https://i.postimg.cc/JhVCs5Gb/MDTP-Java.png)](https://postimg.cc/Yv3sVgN9)
+
+<h2>Checklist Regularidad</h2> 	
+	
+[![MDTP-Java.png](https://i.postimg.cc/nrZPx3SL/MDTP-Java.png)](https://postimg.cc/VrGRBW8y)
+
+
