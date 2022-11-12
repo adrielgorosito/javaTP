@@ -55,10 +55,9 @@ Descripción del trabajo:
 
 <h2>Checklist Regularidad</h2> 	
 	
-| Requerimiento | 2 integrantes | Detalle/ Listado de casos incluidos 
+| Requerimiento | Cantidad minima<br>2 Integrantes | Detalle/ Listado de casos incluidos 
 | --- | --- | --- |
-| ABMC simple | 1 x int | ABMC - Usuario <br> ABMC - Productos|
-			 
+| ABMC simple | 1 x int | ABMC - Usuario <br> ABMC - Productos|			 
 | ABMC dependiente | 1 | ABMC - Tipo producto |
 | CU NO-ABMC | 1 | CUS - Comprar producto|
 | Listado simple | 1 | Listado de productos |
@@ -66,7 +65,15 @@ Descripción del trabajo:
 
 <h2>Checklist Aprobación Directa</h2> 	
 
-![image](https://user-images.githubusercontent.com/111536783/201493665-86504231-f2db-4bb5-83fd-6dcb25660253.png)
+| Requerimiento | Cantidad minima<br>2 Integrantes | Detalle/ Listado de casos incluidos 
+| --- | --- | --- |
+| ABMC | todos | ABMC - Usuario <br> ABMC - Productos <br> ABMC - Tipo de producto |			 
+| CU NO-ABMC | 1 | CUS - Comprar producto |
+| Listado complejo | 1 | -|
+| Nivel de acceso | 2 | Cliente<br>Administrador<br>Visitante |
+| Manejo de errores | oblitagorio | no requiere detalles |
+| Requerimientos extra | 1 | Envio de mail para contactarse<br>Envio de mail para recuperar contraseña |
+| Rublicar el sitio | obligatorio | no requiere detalles |
 
 
 
