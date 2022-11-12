@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
-
 import entities.Product;
 import entities.ProductType;
 
@@ -234,6 +233,89 @@ public class DataProducts {
             try {
                 if (pstmt != null)
                 	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+	}
+
+	public LinkedList<Product> getProductsByType(int idType) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<Product> prods = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM Producto p INNER JOIN Tipo_producto tp ON p.tipo_prod = tp.id_tipo "
+					+ "WHERE tp.id_tipo = ?");
+			stmt.setInt(1, idType);
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					Product p = new Product();
+					p.setId_prod(rs.getInt("id_prod"));
+					p.setName(rs.getString("nombre"));
+					p.setDescription(rs.getString("descripcion"));
+					p.setPrice(rs.getDouble("precio"));
+					p.setImg(rs.getString("imagen"));
+					p.setStock(rs.getInt("stock"));
+					p.setActive(rs.getBoolean("activo"));
+				
+					ProductType pt = new ProductType();
+					pt.setId(rs.getInt("id_tipo"));
+					pt.setName(rs.getString("tipo"));
+					pt.setActive(rs.getBoolean("activo"));
+					p.setType(pt);
+				
+					prods.add(p);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return prods;
+	}
+
+	public void addNewProduct(Product p) {
+		PreparedStatement stmt = null;
+
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "INSERT INTO Producto (tipo_prod, nombre, descripcion, precio, imagen, stock, activo) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			
+			stmt.setInt(1, p.getType().getId());
+			stmt.setString(2, p.getName());
+			stmt.setString(3, p.getDescription());
+			stmt.setDouble(4, p.getPrice());
+			stmt.setString(5, p.getImg());
+			stmt.setInt(6, p.getStock());
+			stmt.setBoolean(7, p.isActive());
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (stmt != null)
+                	stmt.close();
                 DbConnector.getInstancia().releaseConn();
             } catch (SQLException e) {
             	e.printStackTrace();

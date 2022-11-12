@@ -57,6 +57,15 @@ public class CtrlProduct {
 		dp.updateProduct(p);
 	}
 	
-	
+	public LinkedList<Product> getProductsByType(int idType) {
+		LinkedList<Product> prods = new LinkedList<>();
+		prods = dp.getProductsByType(idType);
+		
+		return prods;
+	}
+
+	public void addNewProduct(Product p) {
+		dp.addNewProduct(p);
+	}
 	
 }

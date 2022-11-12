@@ -63,7 +63,6 @@
     		});
 		});
 	</script>
-</head>
 	
 	<!-- CSS -->
 	<link href = "style/estilos.css" rel = "stylesheet">
@@ -111,13 +110,13 @@
 	
 	<div class="container mt-5">
 		<h3 class ="text-center pt-5 pb-5 h1"><b>Añadir un producto</b></h3>
-		<form action = "NewProduct" method = "post">
+		<form action = "NewProduct" method = "post" enctype="multipart/form-data">
 			<div class="card mb-3">
 				<div class="row g-0">
 					<div class="col-md-4">
 						<div class="card-body">
 							<h3 class ="text-center pt-5 pb-5 h5"><b>Vista previa</b></h3>
-							<img id="fotoCargada">
+							<img id="fotoCargada"  style = "width: 300px; weight: 300px">
 						</div>
 						
    					</div>
