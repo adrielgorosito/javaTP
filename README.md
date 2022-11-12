@@ -59,7 +59,7 @@ Descripción del trabajo:
 
 <h2>Checklist Aprobación Directa</h2> 	
 
-![image](https://user-images.githubusercontent.com/111536783/201493644-ef7a1fd5-5d83-47e9-8d2f-2b692f55a4eb.png)
+![image](https://user-images.githubusercontent.com/111536783/201493665-86504231-f2db-4bb5-83fd-6dcb25660253.png)
 
 
 
