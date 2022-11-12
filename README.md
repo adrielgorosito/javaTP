@@ -49,12 +49,17 @@ Descripción del trabajo:
  5.a. <Reemplaza> El cliente no confirma o cancela la compra.<br> 
 	5.a.1. Fin de CU.<br> 
 
-<h2>Modelo de Dominio</h2>    
+<h2>Modelo de Dominio regularidad</h2>    
     
 [![MDTP-Java.png](https://i.postimg.cc/JhVCs5Gb/MDTP-Java.png)](https://postimg.cc/Yv3sVgN9)
 
 <h2>Checklist Regularidad</h2> 	
 	
-[![MDTP-Java.png](https://i.postimg.cc/nrZPx3SL/MDTP-Java.png)](https://postimg.cc/VrGRBW8y)
+[![MDTP-Java.png](https://i.postimg.cc/sxH7mJ8X/MDTP-Java.png)](https://postimg.cc/wRJ1TD98)
+
+<h2>Checklist Aprobación Directa</h2> 	
+
+![image](https://user-images.githubusercontent.com/111536783/201493600-959a3878-3591-4e18-abb1-688f974ed6a0.png)
+
 
 
