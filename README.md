@@ -7,8 +7,9 @@ Integrantes:
     Gorosito, Adriel (Legajo: 47066)
     Botali, Santiago (Legajo: 47477)
     
-Descripción del trabajo: 
-    Realizaremos una página web acerca de una tienda online de artículos de computación.
+Descripción del trabajo:
+
+   Realizaremos una página web acerca de una tienda online de artículos de computación.
 
 <h2>Alcance funcional</h2>
 
