@@ -163,5 +163,30 @@ public class DataProductTypes {
 		}
 		
 	}
+
+	public void addNewProductType(ProductType pt) {
+		PreparedStatement stmt = null;
+
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "INSERT INTO Tipo_producto (tipo, activo) VALUES (?, ?)");
+			
+			stmt.setString(1, pt.getName());
+			stmt.setBoolean(2, true);
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (stmt != null)
+                	stmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+	}
 	
 }

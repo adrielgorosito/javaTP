@@ -28,5 +28,9 @@ public class CtrlProductType {
 	public void enableProductType(ProductType pt) {
 		dpt.enableProductType(pt);
 	}
+
+	public void addNewProductType(ProductType pt) {
+		dpt.addNewProductType(pt);	
+	}
 	
 }
