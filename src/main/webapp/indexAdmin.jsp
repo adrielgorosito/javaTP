@@ -79,7 +79,7 @@
 			<div class ="text-center">
 				<a class="btn btn-primary" href="controlProducts.jsp" role="button"  style = "width:300px">Gestionar productos</a>
 				<br><br>
-				<a class="btn btn-primary" href="controlProductsTypes.jsp" role="button"  style = "width:300px">Gestionar categorías de productos</a>
+				<a class="btn btn-primary" href="controlProductTypes.jsp" role="button"  style = "width:300px">Gestionar categorías de productos</a>
 				<br><br>
 				<a class="btn btn-primary" href="controlUsers.jsp" role="button"  style = "width:300px">Gestionar usuarios</a>
 			</div>

@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
-
 import entities.Product;
 import entities.ProductType;
 
@@ -91,6 +90,78 @@ public class DataProductTypes {
 		}
 		
 		return pt;
+	}
+
+	public void changeName(ProductType pt, String newName) {
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "UPDATE Tipo_producto SET tipo = ? WHERE id_tipo = ?");
+			pstmt.setString(1, newName);
+			pstmt.setInt(2, pt.getId());
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+
+	public void disableProductType(ProductType pt) {
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "UPDATE Tipo_producto SET activo = false WHERE id_tipo = ?");
+			pstmt.setInt(1, pt.getId());
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+	}
+
+	public void enableProductType(ProductType pt) {
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
+				   "UPDATE Tipo_producto SET activo = true WHERE id_tipo = ?");
+			pstmt.setInt(1, pt.getId());
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if (pstmt != null)
+                	pstmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
 	}
 	
 }
