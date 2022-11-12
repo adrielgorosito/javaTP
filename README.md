@@ -32,7 +32,7 @@ Descripción del trabajo:
 
 <h2>Caso de uso complejo</h2>
 
-<h4><b>CUS: Compra de un producto<h4><b>
+<h4>CUS: Compra de un producto<h4>
 
 <h5>Camino principal</h5>
 1.El cliente ingresa a la página y se loguea con su cuenta en el sistema.<br>
