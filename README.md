@@ -8,11 +8,13 @@ Integrantes:
     Botali, Santiago (Legajo: 47477)
     
 Descripción del trabajo:
+
     Realizaremos una página web acerca de una tienda online de artículos de computación.
 
-Alcance funcional
+<h3>Alcance funcional</h3>
 
 <b>Niveles de acceso</b>
+
 Invitado: es aquella persona que visita la página sin estar logueado, pudiendo ver algunos productos que se encuentran a la venta pero sin poder realizar ningún tipo de compra. Además pueden enviar un mail de contacto.
 Usuario registrado: cumple las mismas funciones que el invitado, a diferencia de que si puede realizar compras, teniendo un historial de las mismas a su alcance (en su perfil).
 Administrador: es un empleado que tiene permisos completos dentro de la página cuyas funciones incluyen consultar productos, darlos de alta/baja, actualizarlos, manejo de usuarios, etc.
