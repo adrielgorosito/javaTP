@@ -61,5 +61,12 @@ Descripción del trabajo:
 
 ![image](https://user-images.githubusercontent.com/111536783/201493665-86504231-f2db-4bb5-83fd-6dcb25660253.png)
 
+| Requerimiento | 2 integrantes | Detalle/ Listado de casos incluidos 
+| --- | --- | --- |
+| ABMC simple | 1 x int | ABMC - Usuario |
+| CU NO-ABMC | 1 | |
+| Listado simple | | |
+| Listado complejo | | |
+
 
 
