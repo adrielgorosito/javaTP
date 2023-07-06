@@ -36,10 +36,10 @@ public class DbConnector {
 				conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + db, user, password);
 				conectados = 0;
 			}
+			conectados++;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		conectados++;
 		return conn;
 	}
 	

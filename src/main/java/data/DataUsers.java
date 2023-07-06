@@ -17,7 +17,7 @@ public class DataUsers {
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
 					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
-							+ "ciudad, direccion FROM User WHERE nombUsuario = ? AND contraseña = ?");
+							+ "ciudad, direccion FROM User WHERE nombUsuario = ? AND contraseÃ±a = ?");
 			stmt.setString(1, u.getUsername());
 			stmt.setString(2, u.getPassword());
 			rs = stmt.executeQuery();
@@ -64,7 +64,7 @@ public class DataUsers {
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
 					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
-					+ "ciudad, direccion FROM User WHERE email = ? AND contraseña = ?");
+					+ "ciudad, direccion FROM User WHERE email = ? AND contraseÃ±a = ?");
 			stmt.setString(1, u.getMail());
 			stmt.setString(2, u.getPassword());
 			rs = stmt.executeQuery();
@@ -184,7 +184,7 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombre, email, contraseña FROM User WHERE email = ?");
+					"SELECT dni, nombre, email, contraseÃ±a FROM User WHERE email = ?");
 			stmt.setString(1, u.getMail());
 			rs = stmt.executeQuery();
 			
@@ -193,7 +193,7 @@ public class DataUsers {
 				userFound.setDni(rs.getInt("dni"));
 				userFound.setName(rs.getString("nombre"));
 				userFound.setMail(rs.getString("email"));
-				userFound.setPassword(rs.getString("contraseña"));
+				userFound.setPassword(rs.getString("contraseÃ±a"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -254,7 +254,7 @@ public class DataUsers {
 
 		try {
 			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
-				   "UPDATE User SET contraseña = ? WHERE dni = ?");
+				   "UPDATE User SET contraseÃ±a = ? WHERE dni = ?");
 			pstmt.setString(1, u.getPassword());
 			pstmt.setInt(2, u.getDni());
 			
