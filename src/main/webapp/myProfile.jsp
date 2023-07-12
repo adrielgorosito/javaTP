@@ -72,13 +72,13 @@
 	
 	<div class="container">
 		<div class="content-center topmargin-lg">
-			<h2 class ="text-center pb-4 pt-5 h1"><b><%= userS.getName()%> <%=userS.getSurname()%></b></h2>
+			<h2 class ="text-center pb-2 pt-3 h1"><b><%= userS.getName()%> <%=userS.getSurname()%></b></h2>
 			<div class ="text-center">
 				<img src = "imgs/index/user.png">
-				<br><br><br>
+				<br><br>
 				<a href = "modifyAddress.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar dirección</button></a>
 				<br><br>
-				<a href = "modifyEmail.jsp#"><button class="btn btn-primary margintop3" style = "width:230px">Modificar email</button></a>
+				<a href = "modifyEmail.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar email</button></a>
 				<br><br>
 				<a href = "modifyPassword.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar contraseña</button></a>
 				<br><br>

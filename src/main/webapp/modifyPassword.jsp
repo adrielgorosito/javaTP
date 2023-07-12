@@ -98,9 +98,8 @@
 				<div class="row justify-content-md-center py-1">
 					<h3 class ="text-center pt-3 h3"><b>Modificar contraseña</b></h3>
 					<p class ="text-center">Te enviaremos un correo electrónico con un código alfanumérico de 20 caracteres, el cual deberás ingresar para poder cambiar tu contraseña.</p>
-					<a class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
-					&ensp;
-					<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Enviar código">
+					<input class="btn btn-primary topmargin-sm" role="button" type = "submit" value = "Enviar código">
+					<a class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="margin-top: 10px; width:120px;">Cancelar</a>
 				</div>
 			</form>
 		</div>
@@ -114,9 +113,8 @@
   						<label for="codeInput" style ="height:20px">Código:&ensp;</label>
   						<input id = "codeInput" name = "codeInput" type="text" class="form-control">
 					</div>
-					<a	class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
-					&ensp;
-					<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Confirmar">
+					<input class="btn btn-primary topmargin-sm" role="button" type = "submit" value = "Modificar">
+					<a class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="margin-top: 10px; width:120px;">Cancelar</a>
 				</div>
 			</form>
 		</div>

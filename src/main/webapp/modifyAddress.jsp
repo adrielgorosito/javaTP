@@ -152,9 +152,8 @@
   						<input id = "addressInput" name = "addressInput" type="text" class="form-control" placeholder="Dirección" required>
 					</div>
 				<%}%>
-				<a	class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
-				&ensp;
-				<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Modificar">
+				<input class="btn btn-primary topmargin-sm" role="button" type="submit" value="Modificar">
+				<a class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="margin-top: 10px; width:120px;">Cancelar</a>
 			</div>
 		</form>
 	</div>
