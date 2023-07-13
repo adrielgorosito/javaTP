@@ -5,9 +5,9 @@ import java.util.Random;
 public class Randomize {
 	
 	public String generateRandomString() {
-		int leftLimit = 48; // número "0"
+		int leftLimit = 48; // nÃºmero "0"
 	    int rightLimit = 122; // letra "z"
-	    int targetStringLength = 20; // tamaño final del String
+	    int targetStringLength = 20; // tamaÃ±o final del String
 	    Random random = new Random();
 	    
 	    String generatedString = random.ints(leftLimit, rightLimit + 1)

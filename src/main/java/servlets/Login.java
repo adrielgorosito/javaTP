@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
 				request.getRequestDispatcher("indexUser.jsp").forward(request, response);
 			}
 		} else {
-			// Probar con un mostrar.println que edite la p·gina y escriba error,
+			// Probar con un mostrar.println que edite la p√°gina y escriba error,
 			// en vez de abrir una nueva (tantear a ver como queda)
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("userSession", null);

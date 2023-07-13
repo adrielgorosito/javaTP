@@ -66,17 +66,17 @@ public class SignUp extends HttpServlet {
 						break;
 					}
 				} else {
-					// La contraseña tiene caracteres especiales
+					// La contraseÃ±a tiene caracteres especiales
 					request.setAttribute("errorType", 8);
 					request.getRequestDispatcher("error.jsp").forward(request, response);
 				}		
 			} else {
-				// Las contraseñas no coinciden
+				// Las contraseÃ±as no coinciden
 				request.setAttribute("errorType", 4);
 				request.getRequestDispatcher("error.jsp").forward(request, response);
 			}
 		} else {
-			// La contraseña no tiene como mínimo 8 caracteres
+			// La contraseÃ±a no tiene como mÃ­nimo 8 caracteres
 			request.setAttribute("errorType", 3);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
