@@ -117,10 +117,10 @@
 				</div>
 				<div class="row">
 					<div class="col-sm">
-						<div class="card w-100 card-border mb-5">
+						<div class="card w-100 card-border mb-5 h-100">
 							<% p = cp.getProduct(tarjProds.get(0)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top">
-  							<div class="card-body">
+  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<div class="card-body d-flex flex-column">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
    								<p class="card-text"><%=p.getDescription()%></p>
    								<h5 class="card-text">$<%=p.getPrice()%></h5>
@@ -128,10 +128,10 @@
 						</div>
 					</div>
 					<div class="col-sm">
-						<div class="card w-100 card-border mb-5">
+						<div class="card w-100 card-border mb-5 h-100">
 							<% p = cp.getProduct(tarjProds.get(1)); %>
-  							<img src="<%=p.getImg()%>" class="card-img-top">
-  							<div class="card-body">
+  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<div class="card-body d-flex flex-column">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
    								<p class="card-text"><%=p.getDescription()%></p>
    								<h5 class="card-text">$<%=p.getPrice()%></h5>
@@ -139,10 +139,10 @@
 						</div>
 					</div>
 					<div class="col-sm">
-						<div class="card w-100 card-border mb-5">
+						<div class="card w-100 card-border mb-5 h-100">
 							<% p = cp.getProduct(tarjProds.get(2)); %>
-  							<img src="<%=p.getImg()%>" class="card-img-top">
-  							<div class="card-body">
+  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<div class="card-body d-flex flex-column">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
    								<p class="card-text"><%=p.getDescription()%></p>
    								<h5 class="card-text">$<%=p.getPrice()%></h5>
@@ -150,12 +150,13 @@
 						</div>
 					</div>
 				</div>
+				<br><br><br>
 				<div class="row">
 					<div class="col-sm">
-						<div class="card w-100 card-border mb-5">
-  							<% p = cp.getProduct(tarjProds.get(3)); %>
-  							<img src="<%=p.getImg()%>" class="card-img-top">
-  							<div class="card-body">
+						<div class="card w-100 card-border mb-5 h-100">
+							<% p = cp.getProduct(tarjProds.get(3)); %>
+  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<div class="card-body d-flex flex-column">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
    								<p class="card-text"><%=p.getDescription()%></p>
    								<h5 class="card-text">$<%=p.getPrice()%></h5>
@@ -163,10 +164,10 @@
 						</div>
 					</div>
 					<div class="col-sm">
-						<div class="card w-100 card-border mb-5">
-  							<% p = cp.getProduct(tarjProds.get(4)); %>
-  							<img src="<%=p.getImg()%>" class="card-img-top">
-  							<div class="card-body">
+						<div class="card w-100 card-border mb-5 h-100">
+							<% p = cp.getProduct(tarjProds.get(4)); %>
+  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<div class="card-body d-flex flex-column">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
    								<p class="card-text"><%=p.getDescription()%></p>
    								<h5 class="card-text">$<%=p.getPrice()%></h5>
@@ -174,10 +175,10 @@
 						</div>
 					</div>
 					<div class="col-sm">
-						<div class="card w-100 card-border mb-5">
-  							<% p = cp.getProduct(tarjProds.get(5)); %>
-  							<img src="<%=p.getImg()%>" class="card-img-top">
-  							<div class="card-body">
+						<div class="card w-100 card-border mb-5 h-100">
+							<% p = cp.getProduct(tarjProds.get(5)); %>
+  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<div class="card-body d-flex flex-column">
    								<h4 class="card-title"><b><%=p.getName()%></b></h4>
    								<p class="card-text"><%=p.getDescription()%></p>
    								<h5 class="card-text">$<%=p.getPrice()%></h5>
