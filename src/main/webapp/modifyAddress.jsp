@@ -59,7 +59,7 @@
    						<div class="dropdown-menu dropdown-menu-right">
       						<a class="dropdown-item" href="myProfile.jsp">Perfil</a>
             	    		<a class="dropdown-item" href="#">Mis compras</a>
-            	    		<a class="dropdown-item" href="#">Ayuda</a>
+            	    		<a class="dropdown-item" href="help.jsp">Ayuda</a>
             	    		<div class="dropdown-divider"></div>
             	    		<a class="dropdown-item" href = "<%= request.getContextPath()%>/CloseSession">Cerrar Sesión</a>
             	    	</div>
