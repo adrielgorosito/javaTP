@@ -109,11 +109,11 @@
         									</td>
         									<td>
         										<div class="form-check">
-        											<input class="form-check-input" type="radio" name="metodoPago" id="radio1" checked>
+        											<input class="form-check-input" type="radio" name="metodoPago" id="radio1" value="Pagofacil" checked>
    													<label class="form-check-label" for="radio1">Pago fácil</label>
         										</div>
         										<div class="form-check">
-        											<input class="form-check-input" type="radio" name="metodoPago" id="radio2">
+        											<input class="form-check-input" type="radio" name="metodoPago" id="radio2" value="Rapipago">
      												<label class="form-check-label" for="radio2">Rapipago</label>
         										</div>
 											</td>

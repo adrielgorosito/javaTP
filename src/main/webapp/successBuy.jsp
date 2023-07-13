@@ -86,11 +86,13 @@
     					<div class="card-body">
     						<h4 class="card-title"><b><font color = "green">Felicitaciones!</font></b></h4>
     						<p class="card-text">Realizaste exitosamente la compra de: <b><%=p.getName()%></b></p>
+    						<p class="card-text">Cantidad: <b><%=cant%></b></p>
+    						<p class="card-text">Precio final: <b>$<%=p.getPrice()*cant + 600%></b></p>
     						
     						
         					<p class="card-text">Tu envío será despachado en el día hábil más cercano.</p>
         					<p class="card-text">
-        						Lo recibirás dentro de los proximos 10 días.
+        						Lo recibirás dentro de los proximos 3 a 5 días hábiles.
         						En caso de no recibirlo o si tienes dudas puedes enviarnos un mail.
         					</p>
         					<div class="d-flex bd-highlight mb-3">
