@@ -82,7 +82,7 @@
 				<br><br>
 				<a href = "modifyPassword.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Modificar contraseña</button></a>
 				<br><br>
-				<a href = "<%= request.getContextPath()%>/CloseSession"><button class="btn btn-primary margintop3">Cerrar sesión</button></a>
+				<a href = "<%= request.getContextPath()%>/CloseSession"><button class="btn btn-outline-primary margintop3">Cerrar sesión</button></a>
 			</div>
 		</div>
 	</div>
