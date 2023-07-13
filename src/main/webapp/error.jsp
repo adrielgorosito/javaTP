@@ -35,11 +35,11 @@
 	   			break;
 	   			
 	   		case 3:
-	   			msg = "La contraseña debe tener como mínimo 8 caracteres.";	
+	   			msg = "Las contraseñas ingresadas no coinciden.";
 	   			break;
 	   			
 	   		case 4:
-	   			msg = "Las contraseñas ingresadas no coinciden.";
+	   			msg = "La contraseña debe tener como mínimo 8 caracteres.";
 	   			break;
 	   			
 	   		case 5:

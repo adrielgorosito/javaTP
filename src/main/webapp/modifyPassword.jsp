@@ -85,9 +85,8 @@
   						<label for="newPassConfirmInput" style ="height:20px">Repita la contraseña:&ensp;</label>
   						<input id = "newPassConfirmInput" name = "newPassConfirmInput" type="password" class="form-control">
 					</div>
-					<a	class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="top-margin:5px; width:120px; display: inline-block">Cancelar</a>
-					&ensp;
-					<input class="btn btn-primary topmargin-sm" role="button" style="top-margin:5px; width:330px; display: inline-block" type = "submit" value = "Confirmar">
+					<input class="btn btn-primary topmargin-sm" role="button" type = "submit" value = "Confirmar">
+					<a class="btn btn-outline-primary topmargin-sm" href="myProfile.jsp" role="button" style="margin-top: 10px; width:120px;">Cancelar</a>
 				</div>
 			</form>
 		</div>
