@@ -19,6 +19,8 @@ public class ShoppingHistory {
 		this.setFormaPago(metodoPago);
 	}
 	
+	public ShoppingHistory() {}
+	
 	public int getIdProd() {
 		return idProd;
 	}

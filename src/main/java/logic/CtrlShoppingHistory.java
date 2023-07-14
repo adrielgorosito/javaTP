@@ -1,7 +1,9 @@
 package logic;
 
+import java.util.LinkedList;
 import data.DataShoppingHistory;
 import entities.ShoppingHistory;
+import entities.User;
 
 public class CtrlShoppingHistory {
 	
@@ -10,4 +12,9 @@ public class CtrlShoppingHistory {
 	public void newShoppingHistory(ShoppingHistory sh) {
 		dsh.addNewShoppingHistory(sh);
 	}
+	
+	public LinkedList<ShoppingHistory> getHistoryByUser(User u) {
+		return dsh.getHistoryByUser(u);
+	}
+	
 }
