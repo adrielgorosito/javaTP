@@ -65,7 +65,7 @@
     					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src = "imgs/index/user.png" alt="" width="60"><%=userS.getName()%> </a>
    						<div class="dropdown-menu dropdown-menu-right">
       						<a class="dropdown-item" href="myProfile.jsp">Mi perfil</a>
-            	    		<a class="dropdown-item" href="#">Mis compras</a>
+            	    		<a class="dropdown-item" href="shoppingHistory.jsp">Mis compras</a>
             	    		<a class="dropdown-item" href="help.jsp">Ayuda</a>
             	    		<div class="dropdown-divider"></div>
             	    		<a class="dropdown-item" href = "<%= request.getContextPath()%>/CloseSession">Cerrar Sesión</a>
