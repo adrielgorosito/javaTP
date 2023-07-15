@@ -189,7 +189,7 @@
 	<div class="container">
 		<div class="content-center topmargin-lg">
 			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de productos</b></h3>
-			<% if (allProducts != null) {%>
+			<% if (!allProducts.isEmpty()) {%>
 			<table class="table table-striped">
   				<thead>
     				<tr>

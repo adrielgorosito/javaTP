@@ -84,7 +84,7 @@
 	<div class="container">
 		<div class="content-center topmargin-lg">
 			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de usuarios</b></h3>
-			<% if (allUsers != null) {%>
+			<% if (!allUsers.isEmpty()) {%>
 			<table class="table table-striped">
   				<thead>
     				<tr>

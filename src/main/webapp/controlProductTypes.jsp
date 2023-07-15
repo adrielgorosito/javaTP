@@ -133,7 +133,7 @@
 	<div class="container">
 		<div class="content-center topmargin-lg">
 			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de tipos de productos</b></h3>
-			<% if (allTypes != null) {%>
+			<% if (!allTypes.isEmpty()) {%>
 			<table class="table table-striped">
   				<thead>
     				<tr>
