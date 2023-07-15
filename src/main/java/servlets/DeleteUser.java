@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.User;
+import logic.CtrlShoppingHistory;
 import logic.CtrlUser;
 
 @WebServlet("/DeleteUser")
@@ -26,6 +27,9 @@ public class DeleteUser extends HttpServlet {
 		User u = new User();
 		CtrlUser cu = new CtrlUser();
 		u.setDni(Integer.parseInt(request.getParameter("dni_user")));
+		
+		CtrlShoppingHistory csh = new CtrlShoppingHistory();
+		csh.deleteByUser(u);
 		
 		cu.deleteUser(u);
 		

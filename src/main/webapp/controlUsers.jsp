@@ -38,7 +38,21 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+	
+	<!-- Para el modal -->
+	<script>
+		$(function(){
+    		$('#deleteModal').on('show.bs.modal', function (event) {
+        		var button = $(event.relatedTarget);
+        		var dni = button.data('id');
+        		var nombre = button.data('user');
+        		var modal = $(this);
+        		modal.find('.modal-body input[name="dni_user"]').val(dni);
+        		modal.find('.modal-body label').html(nombre);
+    		});
+		});
+	</script>
+	
 	<!-- CSS -->
 	<link href = "style/estilos.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
@@ -90,7 +104,7 @@
     				<tr>
       					<th scope="col">DNI</th>
       					<th scope="col">Apellido y nombre</th>
-      					<th scope="col">Username</th>
+      					<th scope="col">Usuario</th>
       					<th scope="col">Email</th>
      					<th scope="col">Teléfono</th>
      					<th scope="col">Domicilio</th>
@@ -113,13 +127,6 @@
       								<%}%>
       							</td>
       							<td>
-      								<%if (allUsers.get(i).getPhone() == null) {%>
-      									-
-      								<%} else {%>
-      									<%=allUsers.get(i).getPhone()%>
-      								<%}%>
-      							</td>
-      							<td>
       								<%if (allUsers.get(i).getAddress() == null) {%>
       									-
       								<%} else {%>
@@ -127,10 +134,9 @@
       								<%}%>
       							</td>
       							<td align = "center">
-      								<form action = "DeleteUser" method = "post">
-      									<input type="hidden" name="dni_user" value=<%=allUsers.get(i).getDni()%>>
-      									<input type = "image" src = "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
-      								</form>
+      								<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allUsers.get(i).getDni()%>" data-user="<%=allUsers.get(i).getUsername()%>">
+      									<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
+      								</a>
       							</td>
     						</tr>
     					<%}%>
@@ -142,6 +148,33 @@
 			<%}%>
 		</div>
 	</div>
+	
+	<!-- Delete Modal -->
+	<form action = "DeleteUser" method = "post">
+    	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    		<div class="modal-dialog">
+        		<div class="modal-content">
+            		<div class="modal-header">
+            			<h4 class="modal-title" id="deleteModalLabel">Eliminar usuario</h4>
+                		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		</div>
+           			<div class="modal-body">
+                    	<div class="form-group">
+                        	Estás a punto de eliminar el usuario: <b><label></label></b>.
+                        	<input type = "hidden" name="dni_user">
+                        	<br>
+                        	<p>Ten en cuenta que borrarás su historial de compras. Estás seguro?</p>
+                    	</div>
+            		</div>
+            		
+            		<div class="modal-footer">
+                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                		<input type = "submit" class="btn btn-primary" value = "Confirmar">
+            		</div>
+        		</div>
+    		</div>
+		</div>
+	</form>
 	
 </body>
 </html>

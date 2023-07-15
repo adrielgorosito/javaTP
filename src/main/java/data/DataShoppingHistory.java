@@ -83,5 +83,28 @@ public class DataShoppingHistory {
 		
 		return shList;
 	}
+
+	public void deleteHistoryByUser(User u) {
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = DbConnector.getInstancia().getConn().prepareStatement(
+                    "DELETE FROM Historial_compras WHERE dniUser = ?");
+            stmt.setInt(1, u.getDni());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 	
 }
