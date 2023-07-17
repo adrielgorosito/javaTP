@@ -110,7 +110,8 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombUsuario FROM User WHERE dni = ?");
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
+					+ "ciudad, direccion FROM User WHERE dni = ?");
 			stmt.setInt(1, u.getDni());
 			rs = stmt.executeQuery();
 			
@@ -118,6 +119,14 @@ public class DataUsers {
 				userFound = new User();
 				userFound.setDni(rs.getInt("dni"));
 				userFound.setUsername(rs.getString("nombUsuario"));
+				userFound.setName(rs.getString("nombre"));
+				userFound.setSurname(rs.getString("apellido"));
+				userFound.setMail(rs.getString("email"));
+				userFound.setPhone(rs.getString("telefono"));
+				userFound.setAdmin(rs.getBoolean("isAdmin"));
+				userFound.setState(rs.getString("provincia"));
+				userFound.setCity(rs.getString("ciudad"));
+				userFound.setAddress(rs.getString("direccion"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -147,7 +156,8 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombUsuario FROM User WHERE nombUsuario = ?");
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
+					+ "ciudad, direccion FROM User WHERE nombUsuario = ?");
 			stmt.setString(1, u.getUsername());
 			rs = stmt.executeQuery();
 			
@@ -155,6 +165,14 @@ public class DataUsers {
 				userFound = new User();
 				userFound.setDni(rs.getInt("dni"));
 				userFound.setUsername(rs.getString("nombUsuario"));
+				userFound.setName(rs.getString("nombre"));
+				userFound.setSurname(rs.getString("apellido"));
+				userFound.setMail(rs.getString("email"));
+				userFound.setPhone(rs.getString("telefono"));
+				userFound.setAdmin(rs.getBoolean("isAdmin"));
+				userFound.setState(rs.getString("provincia"));
+				userFound.setCity(rs.getString("ciudad"));
+				userFound.setAddress(rs.getString("direccion"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -184,15 +202,23 @@ public class DataUsers {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT dni, nombre, email, contraseña FROM User WHERE email = ?");
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
+					+ "ciudad, direccion, contraseña FROM User WHERE email = ?");
 			stmt.setString(1, u.getMail());
 			rs = stmt.executeQuery();
 			
 			if (rs != null && rs.next()) {
 				userFound = new User();
 				userFound.setDni(rs.getInt("dni"));
+				userFound.setUsername(rs.getString("nombUsuario"));
 				userFound.setName(rs.getString("nombre"));
+				userFound.setSurname(rs.getString("apellido"));
 				userFound.setMail(rs.getString("email"));
+				userFound.setPhone(rs.getString("telefono"));
+				userFound.setAdmin(rs.getBoolean("isAdmin"));
+				userFound.setState(rs.getString("provincia"));
+				userFound.setCity(rs.getString("ciudad"));
+				userFound.setAddress(rs.getString("direccion"));
 				userFound.setPassword(rs.getString("contraseña"));
 			}
 		} catch (SQLException e) {
