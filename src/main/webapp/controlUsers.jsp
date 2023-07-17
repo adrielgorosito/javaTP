@@ -134,6 +134,9 @@
       								<%}%>
       							</td>
       							<td align = "center">
+      								<a href="#">
+      									<img src= "imgs/indexAdmin/shoppingHistory.png" style = "width: 25px; weight: 25px">
+      								</a>
       								<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allUsers.get(i).getDni()%>" data-user="<%=allUsers.get(i).getUsername()%>">
       									<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
       								</a>
