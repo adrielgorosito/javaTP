@@ -20,4 +20,15 @@ public class CtrlUser {
 		du.deleteUser(u);
 	}
 	
+	public User searchUserByDni(User u) {
+		return du.searchUserByDni(u);
+	}
+	
+	public User searchUserByUsername(User u) {
+		return du.searchUserByUsername(u);
+	}
+	
+	public User searchUserByMail(User u) {
+		return du.searchUserByMail(u);
+	}
 }
