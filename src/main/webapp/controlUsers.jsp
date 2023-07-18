@@ -134,9 +134,15 @@
       								<%}%>
       							</td>
       							<td align = "center">
-      								<a href="#">
-      									<img src= "imgs/indexAdmin/shoppingHistory.png" style = "width: 25px; weight: 25px">
-      								</a>
+      								<%@ page language = "java" import = "logic.CtrlShoppingHistory" %>
+      								<% CtrlShoppingHistory csh = new CtrlShoppingHistory();
+      								   if (!csh.getHistoryByUser(allUsers.get(i)).isEmpty()) { %>
+      								   	<form action = "ShoppingHistoryS" method = "post">
+  											<input type="hidden" name="dniUser" value=<%=allUsers.get(i).getDni()%>>
+      										<input type = "image" src = "imgs/indexAdmin/shoppingHistory.png" style = "width: 25px; weight: 25px">
+      									</form>
+      								<% } %>
+      								
       								<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allUsers.get(i).getDni()%>" data-user="<%=allUsers.get(i).getUsername()%>">
       									<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
       								</a>
