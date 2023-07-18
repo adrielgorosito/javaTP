@@ -103,12 +103,10 @@
 	<%@ page language = "java" import = "entities.Product" %>
 	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlProduct cp = new CtrlProduct();
-	   Product p = new Product(); 
-	   int totProds = cp.getMaxIdProducts();
-	   
-	   LinkedList<Integer> tarjProds = cp.fillTarjs(totProds); %>
+	   LinkedList<Product> tarjProds = cp.fillTarjs();%>
 
 	<!-- Tarjetas de productos -->
+	<% if (tarjProds.size() == 6) { %>
 	<section id="productos">
  		<div id="tarjetaProducts" class="botpad-1">
 			<div class="container-md p-5">
@@ -118,34 +116,31 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5 h-100">
-							<% p = cp.getProduct(tarjProds.get(0)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<img src= "<%=tarjProds.get(0).getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
   							<div class="card-body d-flex flex-column">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
-   								<h5 class="card-text">$<%=p.getPrice()%></h5>
+   								<h4 class="card-title"><b><%=tarjProds.get(0).getName()%></b></h4>
+   								<p class="card-text"><%=tarjProds.get(0).getDescription()%></p>
+   								<h5 class="card-text">$<%=tarjProds.get(0).getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5 h-100">
-							<% p = cp.getProduct(tarjProds.get(1)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<img src= "<%=tarjProds.get(1).getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
   							<div class="card-body d-flex flex-column">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
-   								<h5 class="card-text">$<%=p.getPrice()%></h5>
+   								<h4 class="card-title"><b><%=tarjProds.get(1).getName()%></b></h4>
+   								<p class="card-text"><%=tarjProds.get(1).getDescription()%></p>
+   								<h5 class="card-text">$<%=tarjProds.get(1).getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5 h-100">
-							<% p = cp.getProduct(tarjProds.get(2)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<img src= "<%=tarjProds.get(2).getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
   							<div class="card-body d-flex flex-column">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
-   								<h5 class="card-text">$<%=p.getPrice()%></h5>
+   								<h4 class="card-title"><b><%=tarjProds.get(2).getName()%></b></h4>
+   								<p class="card-text"><%=tarjProds.get(2).getDescription()%></p>
+   								<h5 class="card-text">$<%=tarjProds.get(2).getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
@@ -154,42 +149,39 @@
 				<div class="row">
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5 h-100">
-							<% p = cp.getProduct(tarjProds.get(3)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<img src= "<%=tarjProds.get(3).getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
   							<div class="card-body d-flex flex-column">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
-   								<h5 class="card-text">$<%=p.getPrice()%></h5>
+   								<h4 class="card-title"><b><%=tarjProds.get(3).getName()%></b></h4>
+   								<p class="card-text"><%=tarjProds.get(3).getDescription()%></p>
+   								<h5 class="card-text">$<%=tarjProds.get(3).getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5 h-100">
-							<% p = cp.getProduct(tarjProds.get(4)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<img src= "<%=tarjProds.get(4).getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
   							<div class="card-body d-flex flex-column">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
-   								<h5 class="card-text">$<%=p.getPrice()%></h5>
+   								<h4 class="card-title"><b><%=tarjProds.get(4).getName()%></b></h4>
+   								<p class="card-text"><%=tarjProds.get(4).getDescription()%></p>
+   								<h5 class="card-text">$<%=tarjProds.get(4).getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="card w-100 card-border mb-5 h-100">
-							<% p = cp.getProduct(tarjProds.get(5)); %>
-  							<img src= "<%=p.getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
+  							<img src= "<%=tarjProds.get(5).getImg()%>" class="card-img-top img-fluid" style="max-height: 300px;">
   							<div class="card-body d-flex flex-column">
-   								<h4 class="card-title"><b><%=p.getName()%></b></h4>
-   								<p class="card-text"><%=p.getDescription()%></p>
-   								<h5 class="card-text">$<%=p.getPrice()%></h5>
+   								<h4 class="card-title"><b><%=tarjProds.get(5).getName()%></b></h4>
+   								<p class="card-text"><%=tarjProds.get(5).getDescription()%></p>
+   								<h5 class="card-text">$<%=tarjProds.get(5).getPrice()%></h5>
  							 </div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--  Hacer un "Para ver más, inicia sesión" y un botón -->
 	</section>
+	<% } %>
 	
 	<!-- Separador -->
 	<div id="separator-2">
