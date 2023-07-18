@@ -108,8 +108,8 @@
 	   
 	   LinkedList<Product> allProducts = cp.getAllProducts();%>
 	
-	<div class="container mt-5">
-		<h3 class ="text-center pt-5 pb-5 h1"><b>Añadir un producto</b></h3>
+	<div class="container">
+		<h3 class ="text-center pt-3 pb-3 h1"><b>Añadir un producto</b></h3>
 		<form action = "NewProduct" method = "post" enctype="multipart/form-data">
 			<div class="card mb-3">
 				<div class="row g-0">
@@ -118,7 +118,6 @@
 							<h3 class ="text-center pt-5 pb-5 h5"><b>Vista previa</b></h3>
 							<img id="fotoCargada"  style = "width: 300px; weight: 300px">
 						</div>
-						
    					</div>
     				<div class="col-md-8">
     					<div class="card-body">
@@ -130,13 +129,13 @@
     						<div class="input-group mb-3 align-items-center">
   								<%CtrlProductType cpt = new CtrlProductType(); 
   								  LinkedList<ProductType> listpt = new LinkedList<ProductType>();
-  								  listpt = cpt.getAllProductTypes();
+  								  listpt = cpt.getActiveProductTypes();
   								%>
   								
   								<label for="catInput" style ="height:20px">Categoría:&ensp;</label>
   								
   								<select id = "catInput" name ="catInput" class="form-select">
-   									<option selected>Seleccione una categoría</option>
+   									<option selected>Seleccione una categoría activa</option>
   									<%for (int i = 0; i < listpt.size(); i++) {%>
    										<option value = "<%=listpt.get(i).getName()%>"><%=listpt.get(i).getName()%></option>
    									<%}%>
@@ -172,9 +171,8 @@
 							</div>
         					
         					<div class="d-flex bd-highlight mb-3">
-        						<div class="ms-auto p-2 bd-highlight">
-        							<a	class="btn btn-outline-primary"	href="controlProducts.jsp" role="button">Cancelar</a>
-        							<input type = "submit" class="btn btn-primary" value = "Crear producto" style = "top-margin:5px; width:330px">
+        						<div class="ms-auto bd-highlight">
+        							<input type = "submit" class="btn btn-primary" value = "Crear producto" style = "width:330px">
        							</div>
        						</div>
        						
@@ -188,7 +186,7 @@
 	
 	<div class="container">
 		<div class="content-center topmargin-lg">
-			<h3 class ="text-center pt-5 pb-5 h1"><b>Listado de productos</b></h3>
+			<h3 class ="text-center pt-3 pb-5 h1"><b>Listado de productos</b></h3>
 			<% if (!allProducts.isEmpty()) {%>
 			<table class="table table-striped">
   				<thead>

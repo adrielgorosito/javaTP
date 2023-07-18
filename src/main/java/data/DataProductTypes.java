@@ -188,5 +188,48 @@ public class DataProductTypes {
 		}
 		
 	}
+
+	public LinkedList<ProductType> getActiveProductTypes() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ProductType pt = null;
+		LinkedList<ProductType> allProductTypes = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM Tipo_producto WHERE activo = 1");
+			
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					pt = new ProductType();
+					pt.setId(rs.getInt("id_tipo"));
+					pt.setName(rs.getString("tipo"));
+					pt.setActive(rs.getBoolean("activo"));
+					
+					allProductTypes.add(pt);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return allProductTypes;
+	}
 	
 }

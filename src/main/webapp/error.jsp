@@ -55,11 +55,11 @@
 	   			break;
 	   			
 	   		case 8:
-	   			msg = "El usuario no puede contener caracteres especiales";
+	   			msg = "El usuario no puede contener caracteres especiales.";
 	   			break;
 	   			
 	   		case 9:
-	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado";
+	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado.";
 	   			break;
 	   			
 	   		case 10:
@@ -73,16 +73,22 @@
 	   		case 12:
 	   			msg = "No tienes acceso a esta sección.";
 	   			break;
-
-	   		// Acordarse de esto
-	   		// Acordarse de esto
-	   		// Acordarse de esto
-	   		// Acordarse de esto
-	   		// Acordarse de esto
+			
 	   		case 13:
-	   			msg = "Producto no encontrado";
-	 		    // volver = "PaginaTodaviaNoHecha.jsp";
+	   			msg = "Producto no encontrado.";
 	 		    indexBack = "indexUser.jsp";
+	   			break;
+	   			
+	   		case 14:
+	   			msg = "Algunos valores numéricos son erróneos.";
+	   			break;
+	   		
+	   		case 15:
+	   			msg = "Algunos valores ingresados son nulos.";
+	   			break;
+	   		
+	   		case 16:
+	   			msg = "La categoría elegida no es válida.";
 	   			break;
 	   }
 	%>

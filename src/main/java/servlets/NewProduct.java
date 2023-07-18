@@ -37,10 +37,27 @@ public class NewProduct extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Product p = new Product();
         
-        p.setName(request.getParameter("nameInput"));
-        p.setDescription(request.getParameter("descInput"));
-        p.setPrice(Double.parseDouble(request.getParameter("priceInput")));
-        p.setStock(Integer.parseInt(request.getParameter("stockInput")));
+        String nameInput = request.getParameter("nameInput");
+        String descInput = request.getParameter("descInput");
+        String priceInput = request.getParameter("priceInput");
+        String stockInput = request.getParameter("stockInput");
+
+        if (nameInput != null && descInput != null && priceInput != null && stockInput != null) {
+            p.setName(nameInput);
+            p.setDescription(descInput);
+
+            try {
+                p.setPrice(Double.parseDouble(priceInput));
+                p.setStock(Integer.parseInt(stockInput));
+            } catch (NumberFormatException e) {
+            	request.setAttribute("errorType", 14);
+    			request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
+        } else {
+        	request.setAttribute("errorType", 15);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+        
         p.setActive(true);
         
         ProductType pt = new ProductType();
@@ -49,6 +66,10 @@ public class NewProduct extends HttpServlet {
         
         p.setType(pt); 
         pt = cpt.getProductTypeByName(p);
+        if (pt == null) {
+        	request.setAttribute("errorType", 16);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
         p.setType(pt);
         
         // Subida de la foto al proyecto

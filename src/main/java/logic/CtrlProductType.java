@@ -12,6 +12,10 @@ public class CtrlProductType {
 	public LinkedList<ProductType> getAllProductTypes() {
 		return dpt.getAllProductTypes();
 	}
+
+	public LinkedList<ProductType> getActiveProductTypes() {
+		return dpt.getActiveProductTypes();
+	}
 	
 	public ProductType getProductTypeByName(Product p) {
 		return dpt.getProductTypeByName(p);
