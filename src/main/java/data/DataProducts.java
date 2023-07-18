@@ -324,4 +324,49 @@ public class DataProducts {
 		
 	}
 
+	public LinkedList<Product> getSixRandomProducts() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<Product> randomProds = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM Producto WHERE activo = 1 ORDER BY RAND() LIMIT 6");
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					Product p = new Product();
+					p.setId_prod(rs.getInt("id_prod"));
+					p.setName(rs.getString("nombre"));
+					p.setDescription(rs.getString("descripcion"));
+					p.setPrice(rs.getDouble("precio"));
+					p.setImg(rs.getString("imagen"));
+					p.setStock(rs.getInt("stock"));
+					p.setActive(rs.getBoolean("activo"));
+					
+					randomProds.add(p);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return randomProds;
+	}
+
 }

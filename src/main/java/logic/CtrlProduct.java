@@ -1,10 +1,8 @@
 package logic;
 
 import java.util.LinkedList;
-
 import data.DataProducts;
 import entities.Product;
-import utils.Randomize;
 
 public class CtrlProduct {
 	
@@ -25,20 +23,8 @@ public class CtrlProduct {
 		return dp.getAll();
 	}
 	
-	public LinkedList<Integer> fillTarjs(int totProds) {
-		Randomize r = new Randomize();
-		
-		LinkedList<Integer> tarjProds = new LinkedList<>();
-		
-		while (tarjProds.size() < 6) {
-			   int idRandom = r.getRandomId(totProds);
-			
-			   if (!tarjProds.contains(idRandom)) {
-				   tarjProds.add(idRandom);
-			   }
-		   }
-		   
-		return tarjProds;
+	public LinkedList<Product> fillTarjs() {
+		return dp.getSixRandomProducts();
 	}
 	
 	public void updateStock(Product p) {
