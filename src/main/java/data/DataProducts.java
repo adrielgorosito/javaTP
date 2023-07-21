@@ -58,40 +58,6 @@ public class DataProducts {
 		return p2;
 	}
 	
-	public int getMaxId()  {
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		int maxId = 0;
-		
-		try {
-			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT MAX(id_prod) maxId FROM producto");
-			rs = stmt.executeQuery();
-			
-			if (rs != null && rs.next()) {
-				maxId = rs.getInt("maxId");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				
-				if (stmt != null) {
-					stmt.close();
-				}
-				
-				DbConnector.getInstancia().releaseConn();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return maxId;
-	}
-	
 	public LinkedList<Product> getAll()  {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;

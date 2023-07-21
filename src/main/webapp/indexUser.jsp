@@ -77,8 +77,7 @@
 	<%@ page language = "java" import = "entities.Product" %>
 	<%@ page language = "java" import = "java.util.LinkedList" %>
 	<% CtrlProduct cp = new CtrlProduct();
-	   Product p = new Product(); 
-	   int totProds = cp.getMaxIdProducts();
+	   Product p = new Product();
 	   
 	   LinkedList<Product> tarjProds = cp.getAllProducts(); %>
 

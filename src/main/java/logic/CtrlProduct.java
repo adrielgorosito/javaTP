@@ -15,10 +15,6 @@ public class CtrlProduct {
 		return dp.searchProductById(p);
 	}
 	
-	public int getMaxIdProducts() {
-		return dp.getMaxId();
-	}
-	
 	public LinkedList<Product> getAllProducts() {
 		return dp.getAll();
 	}
