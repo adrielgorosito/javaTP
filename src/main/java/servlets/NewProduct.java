@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -73,22 +75,23 @@ public class NewProduct extends HttpServlet {
         p.setType(pt);
         
         // Subida de la foto al proyecto
-		Part filePart = request.getPart("photoInput");
-		String photoName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-		InputStream fileContent = filePart.getInputStream();
-	    
-		try {
-			File pFoto = new File(System.getProperty("user.dir") + "\\Workspace\\javaTP\\src\\main\\webapp\\imgs\\productos" + "\\" + pt.getId() + "\\" + photoName);
-        	FileOutputStream fos = new FileOutputStream(pFoto);
-        	IOUtils.copy(fileContent, fos);
-        	fos.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		p.setImg("imgs/productos/" + pt.getId() + "/" + photoName);
-		
-		
+        Part filePart = request.getPart("photoInput");
+        String photoName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        String uniqueFileName = UUID.randomUUID().toString() + "_" + photoName;
+        String relativeImagePath = "imgs/productos/" + pt.getId() + "/" + uniqueFileName;
+
+        try (InputStream fileContent = filePart.getInputStream()) {
+            File pFoto = new File(getServletContext().getRealPath("/") + relativeImagePath);
+            Files.createDirectories(pFoto.getParentFile().toPath());
+            try (FileOutputStream fos = new FileOutputStream(pFoto)) {
+                IOUtils.copy(fileContent, fos);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        p.setImg(relativeImagePath);
+
         CtrlProduct cp = new CtrlProduct();
         cp.addNewProduct(p);
         
