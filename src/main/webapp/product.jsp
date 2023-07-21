@@ -5,7 +5,6 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Productos</title>
 		
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
@@ -21,6 +20,8 @@
 		rd.forward(request, response);
 	}
 	%>
+	
+	<%Product p = (Product) request.getAttribute("prod");%>
 	
 	<!-- Bootstrap -->
 	<!-- ? -->  <link href = "https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel = "stylesheet">
@@ -38,7 +39,7 @@
 	<link href = "style/estilos.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	
-		
+	<title><%=p.getName()%></title>
 </head>
 <body>
 
@@ -72,7 +73,6 @@
 		</div>
 	</nav>
 	
-	<%Product p = (Product) request.getAttribute("prod");%>
 	<section id="producto">
 			<div class="container mt-5">
 				<div class="">

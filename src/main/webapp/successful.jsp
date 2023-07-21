@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Productos</title>
+	<title>Éxito</title>
 		
 	<%@ page language = "java" import = "javax.*" %>
 	<%@ page language = "java" import = "java.io.*" %>
@@ -89,30 +89,35 @@
 			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
 	<%} else if (request.getAttribute("passChanged") != null) {%>
+		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Contraseña modificada exitosamente.</b></font>
 			<br>
 			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
 	<%} else if (request.getAttribute("mailChanged") != null) {%>
+		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Mail modificado exitosamente.</b></font>
 			<br>
 			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
 	<%} else if (request.getAttribute("addressChanged") != null) {%>
+		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Dirección modificada exitosamente.</b></font>
 			<br>
 			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
 		</p>
 	<%} else if (request.getAttribute("productChanged") != null) {%>
+		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Producto modificado exitosamente.</b></font>
 			<br>
 			<font face = "tahoma" size = 2><a href = "controlProducts.jsp">Regresar.</a></font>
 		</p>
 	<%} else if (request.getAttribute("mailSent") != null) {%>
+		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Mail enviado exitosamente.</b></font>
 			Nos pondremos en contacto a la brevedad.
