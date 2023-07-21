@@ -76,6 +76,8 @@
 		</div>
 	</nav>
 	
+	<br>
+	<br>
 	<% if (request.getAttribute("accountCreated") != null) {%>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Cuenta creada exitosamente.</b></font>
@@ -86,43 +88,38 @@
 				DNI: <%= userS.getDni() %>.<br>
 			</font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
+			<a href = "indexUser.jsp"><button class="btn btn-primary margintop3">Ir al inicio</button></a>
 		</p>
 	<%} else if (request.getAttribute("passChanged") != null) {%>
-		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Contraseña modificada exitosamente.</b></font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
+			<a href = "myProfile.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
 		</p>
 	<%} else if (request.getAttribute("mailChanged") != null) {%>
-		<br>
 		<p align = "center">
-			<font face = "tahoma" size = 4 color = "green"><b>Mail modificado exitosamente.</b></font>
+			<font face = "tahoma" size = 4 color = "green"><b>Email modificado exitosamente.</b></font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
+			<a href = "myProfile.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
 		</p>
 	<%} else if (request.getAttribute("addressChanged") != null) {%>
-		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Dirección modificada exitosamente.</b></font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "indexUser.jsp">Ir al inicio</a></font>
+			<a href = "myProfile.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>>
 		</p>
 	<%} else if (request.getAttribute("productChanged") != null) {%>
-		<br>
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Producto modificado exitosamente.</b></font>
 			<br>
-			<font face = "tahoma" size = 2><a href = "controlProducts.jsp">Regresar.</a></font>
+			<a href = "controlProducts.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
 		</p>
 	<%} else if (request.getAttribute("mailSent") != null) {%>
-		<br>
 		<p align = "center">
-			<font face = "tahoma" size = 4 color = "green"><b>Mail enviado exitosamente.</b></font>
+			<font face = "tahoma" size = 4 color = "green"><b>Email enviado exitosamente.</b></font>
 			Nos pondremos en contacto a la brevedad.
 			<br>
-			<font face = "tahoma" size = 2><a href = "index.jsp">Regresar.</a></font>
+			<a href = "index.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
 		</p>
 	<%} %>
 </body>
