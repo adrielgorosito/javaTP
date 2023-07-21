@@ -58,12 +58,12 @@
 				<form action = "SignUp" method = "post">
 					<div class="row justify-content-md-center py-1">
 						<div class="input-group mb-3 align-items-center">
-							<label for="inputName" class="sr-only">Nombre de usuario, mail o dni</label>
-							<input type="text" name = "userInput" class="form-control" id="inputName" placeholder="Nombre de usuario, mail o dni">
+							<label for="inputName" class="sr-only">Nombre</label>
+							<input type="text" name = "name" class="form-control" id="inputName" placeholder="Nombre">
 						</div>
 						<div class="input-group mb-3 align-items-center">
-							<label for="inputLName"	class="sr-only">Apellido</label>
-							<input type="text" name = "surname" class="form-control" id="inputLName" placeholder="Apellido">
+							<label for="inputSurname" class="sr-only">Apellido</label>
+							<input type="text" name = "surname" class="form-control" id="inputSurname" placeholder="Apellido">
 						</div>
 						<div class="input-group mb-3 align-items-center">
 							<label for="inputUser" class="sr-only">DNI</label>
