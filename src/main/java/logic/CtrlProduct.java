@@ -19,6 +19,10 @@ public class CtrlProduct {
 		return dp.getAll();
 	}
 	
+	public LinkedList<Product> getActiveProducts() {
+		return dp.getActiveProducts();
+	}
+	
 	public LinkedList<Product> fillTarjs() {
 		return dp.getSixRandomProducts();
 	}

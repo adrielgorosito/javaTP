@@ -335,4 +335,56 @@ public class DataProducts {
 		return randomProds;
 	}
 
+	public LinkedList<Product> getActiveProducts() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<Product> allProducts = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM Producto p INNER JOIN Tipo_producto tp ON p.tipo_prod = tp.id_tipo "
+					+ "WHERE p.activo = 1");
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					Product p = new Product();
+					p.setId_prod(rs.getInt("id_prod"));
+					p.setName(rs.getString("nombre"));
+					p.setDescription(rs.getString("descripcion"));
+					p.setPrice(rs.getDouble("precio"));
+					p.setImg(rs.getString("imagen"));
+					p.setStock(rs.getInt("stock"));
+					p.setActive(rs.getBoolean("activo"));
+				
+					ProductType pt = new ProductType();
+					pt.setId(rs.getInt("id_tipo"));
+					pt.setName(rs.getString("tipo"));
+					pt.setActive(rs.getBoolean("activo"));
+					p.setType(pt);
+				
+					allProducts.add(p);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return allProducts;
+	}
+
 }

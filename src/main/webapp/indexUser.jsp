@@ -79,7 +79,7 @@
 	<% CtrlProduct cp = new CtrlProduct();
 	   Product p = new Product();
 	   
-	   LinkedList<Product> tarjProds = cp.getAllProducts(); %>
+	   LinkedList<Product> tarjProds = cp.getActiveProducts(); %>
 
 
 	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
