@@ -165,28 +165,30 @@
       							   		CtrlProduct cp = new CtrlProduct();
       							   		LinkedList<Product> listProds = new LinkedList<>();
       							   		listProds = cp.getProductsByType(allTypes.get(i).getId());
-      							   
+      							   		
       							   		int cont = 0;
- 								  
+ 								  		
 								  		for (Product prod : listProds) {
 								      		if (prod.isActive()) {
 								    	  		cont++;
 								      		}
 								 		}
-      							   
+      							   		
       									if (listProds == null || cont == 0) { %>
       										<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allTypes.get(i).getName()%>">
-      											<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
+      											<img src= "imgs/indexAdmin/disable2.png" style = "width: 20px; weight: 20px">
       										</a>
       								 <% } else { %>
       							   			<a href="#" data-toggle="modal" data-target="#errorModal" data-id="<%=allTypes.get(i).getName()%>">
-      											<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
+      											<img src= "imgs/indexAdmin/disable2.png" style = "width: 20px; weight: 20px">
       										</a>
       								<% } %>
       							<%} else { %>
       								<form action = "EnableProductType" method = "post" style ='display:inline;'>
       									<input type="hidden" name="typeId" value=<%=allTypes.get(i).getId()%>>
-      									<input type = "image" src = "imgs/indexAdmin/setActive.png" style = "width: 20px; weight: 20px">
+      									<button type="submit" style="border: none; background: none; padding: 0;">
+                							<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
+            							</button>
       								</form>
       							<%}%>
       							
