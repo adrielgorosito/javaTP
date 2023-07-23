@@ -276,5 +276,11 @@
     	</div>
 	</div>
 	
+	<div class ="text-center">
+		<a href = "indexAdmin.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Volver</button></a>
+	</div>
+	
+	<br>
+	
 </body>
 </html>
