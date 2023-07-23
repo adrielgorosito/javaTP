@@ -106,5 +106,49 @@ public class DataShoppingHistory {
             }
         }
     }
+
+	public LinkedList<ShoppingHistory> getAll() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<ShoppingHistory> shList = new LinkedList<>();
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM Historial_compras ORDER BY fecha DESC");
+			rs = stmt.executeQuery();
+			
+			if (rs != null) {
+				while (rs.next()) {
+					ShoppingHistory sh = new ShoppingHistory();
+					sh.setIdProd(rs.getInt("idProd"));
+					sh.setDniUser(rs.getInt("dniUser"));
+					sh.setFecha(rs.getTimestamp("fecha").toLocalDateTime());
+					sh.setCantidad(rs.getInt("cantidad"));
+					sh.setPrecio(rs.getDouble("precio"));
+					sh.setFormaPago(rs.getString("formaPago"));
+				
+					shList.add(sh);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return shList;
+	}
 	
 }

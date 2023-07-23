@@ -39,20 +39,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
-	<!-- Para el modal -->
-	<script>
-		$(function(){
-    		$('#deleteModal').on('show.bs.modal', function (event) {
-        		var button = $(event.relatedTarget);
-        		var dni = button.data('id');
-        		var nombre = button.data('user');
-        		var modal = $(this);
-        		modal.find('.modal-body input[name="dni_user"]').val(dni);
-        		modal.find('.modal-body label').html(nombre);
-    		});
-		});
-	</script>
-	
 	<!-- CSS -->
 	<link href = "style/estilos.css" rel = "stylesheet">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
@@ -89,6 +75,7 @@
 	
 	<%@ page language = "java" import = "logic.CtrlUser" %>
 	<%@ page language = "java" import = "logic.CtrlProduct" %>
+	<%@ page language = "java" import = "logic.CtrlShoppingHistory" %>
 	<%@ page language = "java" import = "entities.User" %>
 	<%@ page language = "java" import = "entities.ShoppingHistory" %>
 	<%@ page language = "java" import = "entities.Product" %>
@@ -99,62 +86,118 @@
 	   User u = new User();
 	   ShoppingHistory sh = new ShoppingHistory();
 	   
-	   @SuppressWarnings("unchecked")
-	   LinkedList<ShoppingHistory> userHistory = (LinkedList<ShoppingHistory>) request.getAttribute("shList");
-	   %>
+	   
+	   if (request.getAttribute("shList") != null) {
+		   @SuppressWarnings("unchecked")
+		   LinkedList<ShoppingHistory> userHistory = (LinkedList<ShoppingHistory>) request.getAttribute("shList"); %>
 	 
-	<div class="container">
-		<div class="content-center topmargin-lg">
-			<% if (!userHistory.isEmpty()) {
-				   u.setDni(userHistory.get(0).getDniUser());
-				   u = cu.searchUserByDni(u);%>
+			<div class="container">
+				<div class="content-center topmargin-lg">
+					<% if (!userHistory.isEmpty()) {
+							u.setDni(userHistory.get(0).getDniUser());
+							u = cu.searchUserByDni(u);%>
 			
-			<h3 class ="text-center pt-5 pb-5 h1">Historial de compras de: <b><%=u.getName()%> <%=u.getSurname()%></b></h3>
-			<table class="table table-striped">
-  				<thead>
-    				<tr>
-      					<th scope="col">Foto</th>
-      					<th scope="col">Producto</th>
-      					<th scope="col">Cantidad</th>
-      					<th scope="col">Precio</th>
-     					<th scope="col">Forma de pago</th>
-     					<th scope="col">Fecha</th>
-    				</tr>
-  				</thead>
-  				<tbody>
-  					<%for (int i = 0; i < userHistory.size(); i++) {%>
-    					<tr>
-      						<% CtrlProduct cp = new CtrlProduct();
-	   						   Product p = new Product();
+							<h3 class ="text-center pt-5 pb-5 h1">Historial de compras de: <b><%=u.getName()%> <%=u.getSurname()%></b></h3>
+							<table class="table table-striped">
+  								<thead>
+    								<tr>
+      									<th scope="col">Foto</th>
+      									<th scope="col">Producto</th>
+      									<th scope="col">Cantidad</th>
+      									<th scope="col">Precio</th>
+     									<th scope="col">Forma de pago</th>
+     									<th scope="col">Fecha</th>
+    								</tr>
+  								</thead>
+  								<tbody>
+  									<%for (int i = 0; i < userHistory.size(); i++) {%>
+    									<tr>
+      										<% CtrlProduct cp = new CtrlProduct();
+      									 	   Product p = new Product();
 							   
-	   						   p = cp.getProduct(userHistory.get(i).getIdProd());
-							   %>
+      									   	   p = cp.getProduct(userHistory.get(i).getIdProd()); %>
       						
-      						<td><img src= "<%=p.getImg()%>" style = "width: 50px; weight: 50px"></td>
-      						<th><%=p.getName()%></th>
-      						<td><%=userHistory.get(i).getCantidad()%></td>
-      						<td>$<%=userHistory.get(i).getPrecio()%></td>
-      						<td><%=userHistory.get(i).getFormaPago()%></td>
+      										<td><img src= "<%=p.getImg()%>" style = "width: 50px; weight: 50px"></td>
+      										<th><%=p.getName()%></th>
+      										<td><%=userHistory.get(i).getCantidad()%></td>
+      										<td>$<%=userHistory.get(i).getPrecio()%></td>
+      										<td><%=userHistory.get(i).getFormaPago()%></td>
       						
-      						<%LocalDate date = userHistory.get(i).getFecha().toLocalDate(); 
-      						  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-      						  String formattedDate = date.format(formatter);
-      						%>
+      										<% LocalDate date = userHistory.get(i).getFecha().toLocalDate(); 
+      									   	   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+      									   	   String formattedDate = date.format(formatter); %>
       						
-      						<td><%=formattedDate%></td>
-    					</tr>
-    				<%} %>
-  				</tbody>
-			</table>
-			<%} else {%>
-			<p>No hay historial de compras</p>
-			<%}%>
+      										<td><%=formattedDate%></td>
+    									</tr>
+    								<% } %>
+  								</tbody>
+							</table>
+							<%} else {%>
+								<p>No hay historial de compras</p>
+							<%}%>
+					</div>
+			</div>
 			
 			<div class ="text-center">
 				<a href = "controlUsers.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Volver</button></a>
 			</div>
-		</div>
-	</div>
-	
+	   <%} else {
+		    CtrlShoppingHistory csh = new CtrlShoppingHistory();
+		   
+		    LinkedList<ShoppingHistory> userHistory = csh.getAll(); %>
+		    
+	   		<div class="container">
+				<div class="content-center topmargin-lg">
+					<% if (!userHistory.isEmpty()) {
+							u.setDni(userHistory.get(0).getDniUser());
+							u = cu.searchUserByDni(u);%>
+							
+							<h3 class ="text-center pt-3 pb-3 h1"><b>Historial de compras</b></h3>
+							<table class="table table-striped">
+  								<thead>
+    								<tr>
+      									<th scope="col">Foto</th>
+      									<th scope="col">Producto</th>
+      									<th scope="col">Cantidad</th>
+      									<th scope="col">Precio</th>
+     									<th scope="col">Forma de pago</th>
+     									<th scope="col">Fecha</th>
+    								</tr>
+  								</thead>
+  								<tbody>
+  									<%for (int i = 0; i < userHistory.size(); i++) {%>
+    									<tr>
+      										<% CtrlProduct cp = new CtrlProduct();
+      									 	   Product p = new Product();
+							   
+      									   	   p = cp.getProduct(userHistory.get(i).getIdProd()); %>
+      						
+      										<td><img src= "<%=p.getImg()%>" style = "width: 50px; weight: 50px"></td>
+      										<th><%=p.getName()%></th>
+      										<td><%=userHistory.get(i).getCantidad()%></td>
+      										<td>$<%=userHistory.get(i).getPrecio()%></td>
+      										<td><%=userHistory.get(i).getFormaPago()%></td>
+      						
+      										<% LocalDate date = userHistory.get(i).getFecha().toLocalDate(); 
+      									   	   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+      									   	   String formattedDate = date.format(formatter); %>
+      						
+      										<td><%=formattedDate%></td>
+    									</tr>
+    								<% } %>
+  								</tbody>
+							</table>
+							<%} else {%>
+								<p>No hay historial de compras</p>
+							<%}%>
+					</div>
+			</div>
+			
+			<div class ="text-center">
+				<a href = "indexAdmin.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Volver</button></a>
+			</div>
+	   <%}%>
+	   
+	<br>
 </body>
 </html>

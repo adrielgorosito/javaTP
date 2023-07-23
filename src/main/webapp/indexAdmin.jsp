@@ -77,11 +77,13 @@
 			<h3 class ="text-center pt-5 pb-3 h3"><b>Bienvenido, <%=userS.getName()%></b></h3>
 			<p class ="text-center">Acciones:</p>
 			<div class ="text-center">
-				<a class="btn btn-primary" href="controlProducts.jsp" role="button"  style = "width:300px">Gestionar productos</a>
+				<a class="btn btn-primary" href="controlProducts.jsp" role="button" style = "width:300px">Gestionar productos</a>
 				<br><br>
-				<a class="btn btn-primary" href="controlProductTypes.jsp" role="button"  style = "width:300px">Gestionar categorías de productos</a>
+				<a class="btn btn-primary" href="controlProductTypes.jsp" role="button" style = "width:300px">Gestionar categorías de productos</a>
 				<br><br>
-				<a class="btn btn-primary" href="controlUsers.jsp" role="button"  style = "width:300px">Gestionar usuarios</a>
+				<a class="btn btn-primary" href="controlUsers.jsp" role="button" style = "width:300px">Gestionar usuarios</a>
+				<br><br>
+				<a class="btn btn-primary" href="controlShoppingHistory.jsp" role="button" style = "width:300px">Historial de compras</a>
 			</div>
 		</div>
 	</div>

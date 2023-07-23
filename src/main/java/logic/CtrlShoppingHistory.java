@@ -16,6 +16,10 @@ public class CtrlShoppingHistory {
 	public LinkedList<ShoppingHistory> getHistoryByUser(User u) {
 		return dsh.getHistoryByUser(u);
 	}
+	
+	public LinkedList<ShoppingHistory> getAll() {
+		return dsh.getAll();
+	}
 
 	public void deleteByUser(User u) {
 		dsh.deleteHistoryByUser(u);
