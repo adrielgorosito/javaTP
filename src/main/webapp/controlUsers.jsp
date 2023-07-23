@@ -133,19 +133,21 @@
       									<%=allUsers.get(i).getState()%>, <%=allUsers.get(i).getCity()%>, <%=allUsers.get(i).getAddress()%>
       								<%}%>
       							</td>
-      							<td align = "center">
-      								<%@ page language = "java" import = "logic.CtrlShoppingHistory" %>
-      								<% CtrlShoppingHistory csh = new CtrlShoppingHistory();
-      								   if (!csh.getHistoryByUser(allUsers.get(i)).isEmpty()) { %>
-      								   	<form action = "ShoppingHistoryS" method = "post">
-  											<input type="hidden" name="dniUser" value=<%=allUsers.get(i).getDni()%>>
-      										<input type = "image" src = "imgs/indexAdmin/shoppingHistory.png" style = "width: 25px; weight: 25px">
-      									</form>
-      								<% } %>
-      								
-      								<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allUsers.get(i).getDni()%>" data-user="<%=allUsers.get(i).getUsername()%>">
-      									<img src= "imgs/indexAdmin/disable.png" style = "width: 20px; weight: 20px">
-      								</a>
+      							<td align="center">
+          							<%@ page language="java" import="logic.CtrlShoppingHistory" %>
+          							<% CtrlShoppingHistory csh = new CtrlShoppingHistory();
+									   if (!csh.getHistoryByUser(allUsers.get(i)).isEmpty()) { %>
+              							<form action="ShoppingHistoryS" method="post" style="display: inline;">
+                  							<input type="hidden" name="dniUser" value="<%=allUsers.get(i).getDni()%>">
+                  							<button type="submit" style="border: none; background: none; padding: 0;">
+                      							<img src="imgs/indexAdmin/shoppingHistory.png" style="width: 25px; height: 25px;">
+                  							</button>
+              							</form>
+          							<% } %>
+          							
+          							<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allUsers.get(i).getDni()%>" data-user="<%=allUsers.get(i).getUsername()%>">
+              							<img src="imgs/indexAdmin/disable.png" style="width: 20px; height: 20px;">
+          							</a>
       							</td>
     						</tr>
     					<%}%>

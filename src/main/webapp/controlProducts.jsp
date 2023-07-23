@@ -218,24 +218,23 @@
       							<%}%>
       						</td>
       						<td align="center">
-    <form action="EditProduct" method="post" style="display: inline;">
-        <input type="hidden" name="id_prod" value="<%=allProducts.get(i).getId_prod()%>">
-        <button type="submit" style="border: none; background: none; padding: 0;">
-            <img src="imgs/indexAdmin/edit.png" style="width: 20px; height: 20px;">
-        </button>
-    </form>
+          						<form action="EditProduct" method="post" style="display: inline;">
+              						<input type="hidden" name="id_prod" value="<%=allProducts.get(i).getId_prod()%>">
+              						<button type="submit" style="border: none; background: none; padding: 0;">
+                  						<img src="imgs/indexAdmin/edit.png" style="width: 20px; height: 20px;">
+              						</button>
+          						</form>
     
-    <% if (allProducts.get(i).isActive()) { %>
-        <a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allProducts.get(i).getName()%>">
-            <img src="imgs/indexAdmin/disable2.png" style="width: 20px; height: 20px;">
-        </a>
-    <% } else { %>
-        <a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
-            <img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
-        </a>
-    <% } %>
-</td>
-
+          						<% if (allProducts.get(i).isActive()) { %>
+              						<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allProducts.get(i).getName()%>">
+                  						<img src="imgs/indexAdmin/disable2.png" style="width: 20px; height: 20px;">
+              						</a>
+          						<% } else { %>
+              						<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
+                  						<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
+              						</a>
+          						<% } %>
+      						</td>
     					</tr>
     				<%} %>
   				</tbody>
