@@ -80,8 +80,9 @@
 	   Product p = new Product();
 	   
 	   LinkedList<Product> tarjProds = cp.getActiveProducts(); %>
-
-
+	
+	<% if (!tarjProds.isEmpty()) { %>
+	
 	<h3 class="text-center pb-3 pt-5 h1">Productos</h3>
 	
 	<section id="productos">
@@ -150,6 +151,10 @@
   				
   			</div>
 	</section>
+	
+	<%} else {%>
+		<h3 class="text-center pb-3 pt-5 h1">Actualmente no hay productos</h3>
+	<%}%>
 	
 </body>
 </html>
