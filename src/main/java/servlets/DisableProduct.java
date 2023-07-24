@@ -23,7 +23,6 @@ public class DisableProduct extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Product p = new Product();
 		CtrlProduct cp = new CtrlProduct();
 		

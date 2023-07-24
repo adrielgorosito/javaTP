@@ -21,16 +21,15 @@ public class ProductS extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CtrlProduct cp = new CtrlProduct();
 		Product p = cp.getProduct(Integer.parseInt(request.getParameter("id_prod")));
 		
 		request.setAttribute("prod", p);
 		request.getRequestDispatcher("product.jsp").forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

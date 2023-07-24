@@ -26,8 +26,6 @@ public class ShoppingHistoryS extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// 
 		User u = new User();
 		u.setDni(Integer.parseInt(request.getParameter("dniUser")));
 		

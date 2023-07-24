@@ -41,9 +41,6 @@ public class ChangeMail extends HttpServlet {
 			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 		
-		
-			
-
 	}
 
 }

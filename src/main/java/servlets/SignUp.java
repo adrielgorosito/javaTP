@@ -31,7 +31,6 @@ public class SignUp extends HttpServlet {
 				  				Integer.parseInt(request.getParameter("dni")), request.getParameter("phone"),
 				  				request.getParameter("mail"), request.getParameter("username"), request.getParameter("password1"));
 		
-		// Corroborar que el mail tenga @
 		if (request.getParameter("password1").length() >= 8) {
 			if (request.getParameter("password1").equals(request.getParameter("password2"))) {
 				if (!csu.checkCharacters(request.getParameter("username"))) {

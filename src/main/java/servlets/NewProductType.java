@@ -26,7 +26,6 @@ public class NewProductType extends HttpServlet {
 		ProductType pt = new ProductType();
 		CtrlProductType cpt = new CtrlProductType();
 		
-		
 		pt.setName(request.getParameter("nameInput"));
 		
 		cpt.addNewProductType(pt);
