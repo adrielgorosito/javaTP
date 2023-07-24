@@ -146,7 +146,7 @@
           							<% } %>
           							
           							<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allUsers.get(i).getDni()%>" data-user="<%=allUsers.get(i).getUsername()%>">
-              							<img src="imgs/indexAdmin/disable.png" style="width: 20px; height: 20px;">
+              							<img src="imgs/indexAdmin/disable2.png" style="width: 20px; height: 20px;">
           							</a>
       							</td>
     						</tr>

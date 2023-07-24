@@ -84,6 +84,8 @@
 				<a class="btn btn-primary" href="controlUsers.jsp" role="button" style = "width:300px">Gestionar usuarios</a>
 				<br><br>
 				<a class="btn btn-primary" href="controlShoppingHistory.jsp" role="button" style = "width:300px">Historial de compras</a>
+				<br><br>
+				<a href = "<%= request.getContextPath()%>/CloseSession"><button class="btn btn-outline-primary margintop3">Cerrar sesión</button></a>
 			</div>
 		</div>
 	</div>
