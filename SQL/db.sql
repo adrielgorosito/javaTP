@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `javatp` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `javatp`;
--- MySQL dump 10.13  Distrib 8.0.24, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: javatp
 -- ------------------------------------------------------
--- Server version	8.0.24
+-- Server version	8.0.34
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,37 @@ USE `javatp`;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `historial_compras`
+--
+
+DROP TABLE IF EXISTS `historial_compras`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `historial_compras` (
+  `idProd` int NOT NULL,
+  `dniUser` int NOT NULL,
+  `fecha` datetime NOT NULL,
+  `cantidad` int NOT NULL,
+  `precio` double NOT NULL,
+  `formaPago` varchar(45) NOT NULL,
+  PRIMARY KEY (`idProd`,`dniUser`,`fecha`),
+  KEY `fk_dniU_idx` (`dniUser`),
+  CONSTRAINT `fk_dniU` FOREIGN KEY (`dniUser`) REFERENCES `user` (`dni`),
+  CONSTRAINT `fk_idP` FOREIGN KEY (`idProd`) REFERENCES `producto` (`id_prod`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `historial_compras`
+--
+
+LOCK TABLES `historial_compras` WRITE;
+/*!40000 ALTER TABLE `historial_compras` DISABLE KEYS */;
+INSERT INTO `historial_compras` VALUES (1,42125750,'2023-07-23 19:40:56',1,50000,'Rapipago'),(2,42125750,'2023-07-23 19:40:56',2,100000,'Rapipago'),(3,42125750,'2023-07-23 19:40:56',1,40000,'Pagofacil'),(5,41690840,'2023-07-23 19:40:56',2,60000,'Rapipago'),(7,40700800,'2023-07-23 19:40:56',1,90000,'Pagofacil'),(9,41690840,'2023-07-23 19:40:56',1,70000,'Rapipago'),(15,40123123,'2023-07-23 19:40:56',3,50000,'Rapipago'),(16,40123123,'2023-07-23 19:40:56',1,12000,'Pagofacil');
+/*!40000 ALTER TABLE `historial_compras` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `producto`
@@ -36,7 +67,7 @@ CREATE TABLE `producto` (
   PRIMARY KEY (`id_prod`),
   KEY `FK_tipop_rod_idx` (`tipo_prod`),
   CONSTRAINT `FK_tipop_rod` FOREIGN KEY (`tipo_prod`) REFERENCES `tipo_producto` (`id_tipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +137,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin123','admin123','Admin','Istrador','admin@admin.com',NULL,1,NULL,NULL,NULL),(2,'yo','yo','Yo','Persona','yo@gmail.com',NULL,0,'Santa Fe','Rosario','Zeballos 1341'),(40123123,'santi123','abc12345','Santiago','Botali','santiagobotali@gmail.com','3472582341',0,'Santa Fe','Rafaela','Dorrego 1230'),(40700800,'gastonbg','123456789','Gaston','Boggino','gastonboggino@gmail.com','341690875',0,'Santa Fe','Carlos Pellegrini','Uriburu 322'),(40766890,'13julian','123julian','Julian','Boxados','boxadosjulian@gmail.com','3471580977',0,'Buenos Aires','San Nicolás','Belgrano 1185'),(41690840,'luchoarmas','luciano1','Luciano','Armas','lucianoarmas1@gmail.com','341553659',0,'Santa Fe','Capitán Bermudez','San Juan 873'),(42125750,'adrielg1','123456789','Adriel','Gorosito','adrielgorosito14@gmail.com','3476609198',0,'Santa Fe','San Lorenzo','Av. San Martin 1076');
+INSERT INTO `user` VALUES (1,'admin','admin','Admin','Istrador','admin@admin.com',NULL,1,NULL,NULL,NULL),(40123123,'santi123','abc12345','Santiago','Botali','santiagobotali@gmail.com','3472582341',0,'Santa Fe','Rafaela','Dorrego 1230'),(40700800,'gastonbg','123456789','Gaston','Boggino','gastonboggino@gmail.com','341690875',0,'Santa Fe','Carlos Pellegrini','Uriburu 322'),(40766890,'13julian','123julian','Julian','Boxados','boxadosjulian@gmail.com','3471580977',0,'Buenos Aires','San Nicolás','Belgrano 1185'),(41690840,'luchoarmas','luciano1','Luciano','Armas','lucianoarmas1@gmail.com','341553659',0,'Santa Fe','Capitán Bermudez','San Juan 873'),(42125750,'adrielg1','123456789','Adriel','Gorosito','adrielgorosito14@gmail.com','3476609198',0,'Santa Fe','San Lorenzo','Av. San Martin 1076');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -119,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-13 13:04:33
+-- Dump completed on 2023-07-23 19:43:06
