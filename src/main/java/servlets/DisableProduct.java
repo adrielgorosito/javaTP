@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.Product;
+import entities.User;
 import logic.CtrlProduct;
 
 @WebServlet("/DisableProduct")
@@ -23,17 +24,23 @@ public class DisableProduct extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Product p = new Product();
-		CtrlProduct cp = new CtrlProduct();
+		User userS = (User) request.getSession().getAttribute("userSession");
 		
-		p.setName(request.getParameter("prodName"));
-		p.setActive(false);
-		
-		cp.disableProduct(p);
-		
-		request.setAttribute("prod", p);
-		request.getRequestDispatcher("controlProducts.jsp").forward(request, response);
-		
+		if (userS.isAdmin()) {
+			Product p = new Product();
+			CtrlProduct cp = new CtrlProduct();
+			
+			p.setName(request.getParameter("prodName"));
+			p.setActive(false);
+			
+			cp.disableProduct(p);
+			
+			request.setAttribute("prod", p);
+			request.getRequestDispatcher("controlProducts.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 2);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }

@@ -24,16 +24,23 @@ public class DeleteUser extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User u = new User();
-		CtrlUser cu = new CtrlUser();
-		u.setDni(Integer.parseInt(request.getParameter("dni_user")));
+		User userS = (User) request.getSession().getAttribute("userSession");
 		
-		CtrlShoppingHistory csh = new CtrlShoppingHistory();
-		csh.deleteByUser(u);
-		
-		cu.deleteUser(u);
-		
-		request.getRequestDispatcher("controlUsers.jsp").forward(request, response);
+		if (userS.isAdmin()) {
+			User u = new User();
+			CtrlUser cu = new CtrlUser();
+			u.setDni(Integer.parseInt(request.getParameter("dni_user")));
+			
+			CtrlShoppingHistory csh = new CtrlShoppingHistory();
+			csh.deleteByUser(u);
+			
+			cu.deleteUser(u);
+			
+			request.getRequestDispatcher("controlUsers.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 2);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }

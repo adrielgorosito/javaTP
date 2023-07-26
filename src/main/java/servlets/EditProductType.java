@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import entities.Product;
 import entities.ProductType;
+import entities.User;
 import logic.CtrlProductType;
 
 @WebServlet("/EditProductType")
@@ -24,17 +25,24 @@ public class EditProductType extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductType pt = new ProductType();
-		Product p = new Product();
-		CtrlProductType cpt = new CtrlProductType();
-
-		pt.setName(request.getParameter("oldProdName"));
-		p.setType(pt);
+		User userS = (User) request.getSession().getAttribute("userSession");
 		
-		pt = cpt.getProductTypeByName(p);
-		cpt.changeName(pt, request.getParameter("newProdName"));
-		
-		request.getRequestDispatcher("controlProductTypes.jsp").forward(request, response);
+		if (userS.isAdmin()) {
+			ProductType pt = new ProductType();
+			Product p = new Product();
+			CtrlProductType cpt = new CtrlProductType();
+	
+			pt.setName(request.getParameter("oldProdName"));
+			p.setType(pt);
+			
+			pt = cpt.getProductTypeByName(p);
+			cpt.changeName(pt, request.getParameter("newProdName"));
+			
+			request.getRequestDispatcher("controlProductTypes.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 2);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }

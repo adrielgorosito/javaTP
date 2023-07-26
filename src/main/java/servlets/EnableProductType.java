@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import entities.Product;
 import entities.ProductType;
+import entities.User;
 import logic.CtrlProductType;
 
 @WebServlet("/EnableProductType")
@@ -24,14 +25,21 @@ public class EnableProductType extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductType pt = new ProductType();
-		CtrlProductType cpt = new CtrlProductType();
-
-		pt.setId(Integer.parseInt(request.getParameter("typeId")));
+		User userS = (User) request.getSession().getAttribute("userSession");
 		
-		cpt.enableProductType(pt);
-		
-		request.getRequestDispatcher("controlProductTypes.jsp").forward(request, response);
+		if (userS.isAdmin()) {
+			ProductType pt = new ProductType();
+			CtrlProductType cpt = new CtrlProductType();
+	
+			pt.setId(Integer.parseInt(request.getParameter("typeId")));
+			
+			cpt.enableProductType(pt);
+			
+			request.getRequestDispatcher("controlProductTypes.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 2);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }

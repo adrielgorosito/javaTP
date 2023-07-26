@@ -26,15 +26,22 @@ public class ShoppingHistoryS extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User u = new User();
-		u.setDni(Integer.parseInt(request.getParameter("dniUser")));
+		User userS = (User) request.getSession().getAttribute("userSession");
 		
-		CtrlShoppingHistory csh = new CtrlShoppingHistory();
-		LinkedList<ShoppingHistory> sh = new LinkedList<>();
-		sh = csh.getHistoryByUser(u);
-		
-		request.setAttribute("shList", sh);
-		request.getRequestDispatcher("controlShoppingHistory.jsp").forward(request, response);
+		if (userS.isAdmin()) {
+			User u = new User();
+			u.setDni(Integer.parseInt(request.getParameter("dniUser")));
+			
+			CtrlShoppingHistory csh = new CtrlShoppingHistory();
+			LinkedList<ShoppingHistory> sh = new LinkedList<>();
+			sh = csh.getHistoryByUser(u);
+			
+			request.setAttribute("shList", sh);
+			request.getRequestDispatcher("controlShoppingHistory.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 2);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }
