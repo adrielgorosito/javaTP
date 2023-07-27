@@ -193,6 +193,7 @@
     				<tr>
       					<th scope="col">Id</th>
       					<th scope="col">Foto</th>
+      					<th scope="col">Categoría</th>
       					<th scope="col">Nombre</th>
       					<th scope="col">Descripción</th>
      					<th scope="col">Stock</th>
@@ -206,6 +207,7 @@
     					<tr>
       						<th scope="row"><%=allProducts.get(i).getId_prod()%></th>
       						<td><img src= "<%=allProducts.get(i).getImg()%>" style = "width: 50px; weight: 50px"></td>
+      						<td><%=allProducts.get(i).getType().getName()%></td>
       						<td><%=allProducts.get(i).getName()%></td>
       						<td><%=allProducts.get(i).getDescription()%></td>
       						<td><%=allProducts.get(i).getStock()%></td>
@@ -230,9 +232,9 @@
                   						<img src="imgs/indexAdmin/disable2.png" style="width: 20px; height: 20px;">
               						</a>
           						<% } else { %>
-              						<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
-                  						<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
-              						</a>
+          								<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
+                   							<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
+               							</a>
           						<% } %>
       						</td>
     					</tr>
