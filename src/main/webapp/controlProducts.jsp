@@ -231,11 +231,13 @@
               						<a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<%=allProducts.get(i).getName()%>">
                   						<img src="imgs/indexAdmin/disable2.png" style="width: 20px; height: 20px;">
               						</a>
-          						<% } else { %>
-          								<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
-                   							<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
-               							</a>
-          						<% } %>
+          						<% } else {
+          								if (allProducts.get(i).getType().isActive()) { %>
+          									<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allProducts.get(i).getName()%>">
+                   								<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
+               								</a>
+          							 <% }
+          						   } %>
       						</td>
     					</tr>
     				<%} %>
@@ -277,7 +279,7 @@
 		</div>
 	</form>
 	
-	<!-- Update Modal -->
+	<!-- Active Modal -->
 	<form action = "EnableProduct" method = "post">
     	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
     		<div class="modal-dialog">
