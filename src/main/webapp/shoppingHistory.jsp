@@ -80,7 +80,8 @@
 	<% CtrlShoppingHistory csh = new CtrlShoppingHistory();
 	   ShoppingHistory sh = new ShoppingHistory();
 	   
-	   LinkedList<ShoppingHistory> userHistory = csh.getHistoryByUser(userS);%>
+	   LinkedList<ShoppingHistory> userHistory = csh.getHistoryByUser(userS);
+	   %>
 	
 	<div class="container">
 		<div class="content-center topmargin-lg">
@@ -100,28 +101,25 @@
   				<tbody>
   					<%for (int i = 0; i < userHistory.size(); i++) {%>
     					<tr>
-      						<% CtrlProduct cp = new CtrlProduct();
-	   						   Product p = new Product();
-							   
-	   						   p = cp.getProduct(userHistory.get(i).getIdProd());
-							   %>
-      						
-      						<td><img src= "<%=p.getImg()%>" style = "width: 50px; weight: 50px"></td>
-      						<th><%=p.getName()%></th>
+      						<td><img src= "<%=userHistory.get(i).getProd().getImg()%>" style = "width: 50px; weight: 50px"></td>
+      						<th><%=userHistory.get(i).getProd().getName()%></th>
       						<td><%=userHistory.get(i).getCantidad()%></td>
       						<td>$<%=userHistory.get(i).getPrecio()%></td>
       						<td><%=userHistory.get(i).getFormaPago()%></td>
       						
       						<%LocalDate date = userHistory.get(i).getFecha().toLocalDate(); 
       						  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-      						  String formattedDate = date.format(formatter);
-      						%>
+      						  String formattedDate = date.format(formatter);%>
       						
       						<td><%=formattedDate%></td>
     					</tr>
     				<%} %>
   				</tbody>
 			</table>
+			
+			<div class ="text-center">
+				<a href = "indexUser.jsp"><button class="btn btn-primary margintop3" style = "width:230px">Volver</button></a>
+			</div>
 			<%} else {%>
 			<div class="container">
 				<div class="content-center topmargin-lg">
