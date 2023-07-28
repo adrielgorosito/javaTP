@@ -19,7 +19,15 @@ public class CtrlLogin {
 		} else {
 			u = new User(word, pass);
 			
-			return du.loginByUsername(u);
+			if (du.loginByUsername(u) != null) {
+				return du.loginByUsername(u);
+			} else {
+				u.setDni(Integer.parseInt(word));
+				u.setPassword(pass);
+				
+				return du.loginByDni(u);
+			}
+			
 		}
 	}
 

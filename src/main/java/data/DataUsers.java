@@ -103,6 +103,53 @@ public class DataUsers {
 		return userFound;
 	}
 	
+	public User loginByDni(User u)  {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		User userFound = null;
+		
+		try {
+			stmt = DbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT dni, nombUsuario, nombre, apellido, email, telefono, isAdmin, provincia,"
+					+ "ciudad, direccion FROM User WHERE dni = ? AND contraseña = ?");
+			stmt.setInt(1, u.getDni());
+			stmt.setString(2, u.getPassword());
+			rs = stmt.executeQuery();
+			
+			if (rs != null && rs.next()) {
+				userFound = new User();
+				userFound.setDni(rs.getInt("dni"));
+				userFound.setUsername(rs.getString("nombUsuario"));
+				userFound.setName(rs.getString("nombre"));
+				userFound.setSurname(rs.getString("apellido"));
+				userFound.setMail(rs.getString("email"));
+				userFound.setPhone(rs.getString("telefono"));
+				userFound.setAdmin(rs.getBoolean("isAdmin"));
+				userFound.setState(rs.getString("provincia"));
+				userFound.setCity(rs.getString("ciudad"));
+				userFound.setAddress(rs.getString("direccion"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				
+				if (stmt != null) {
+					stmt.close();
+				}
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return userFound;
+	}
+	
 	public User searchUserByDni(User u) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
