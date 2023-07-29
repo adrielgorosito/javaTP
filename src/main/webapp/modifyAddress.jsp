@@ -68,14 +68,11 @@
 			</div>		
 		</div>
 	</nav>
-
-	<div class="mt-5 col text-center">
-		<h1><b>Modificar dirección</b></h1>
-	</div>
 	
-	<div class="container w-25 pt-2">
+	<div class="container w-25 pt-5">
 		<form action = "ChangeAddress" method = "post">
 			<div class="row justify-content-md-center py-1">
+				<h3 class = "text-center pt-3 pb-4 h3"><b>Modificar dirección</b></h3>
 				<%if (userS.getCity() != null) {%>
 					<div class="input-group mb-3 align-items-center">
   						<label for="stateInput" style ="height:20px">Provincia:&ensp;</label>

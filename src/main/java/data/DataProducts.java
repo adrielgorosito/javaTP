@@ -65,7 +65,7 @@ public class DataProducts {
 		
 		try {
 			stmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT * FROM Producto p INNER JOIN Tipo_producto tp ON p.tipo_prod = tp.id_tipo;");
+					"SELECT id_prod, tipo_prod, nombre, descripcion, precio, imagen, stock, p.activo, id_tipo, tipo, tp.activo 'tipoActivo' FROM Producto p INNER JOIN Tipo_producto tp ON p.tipo_prod = tp.id_tipo");
 			rs = stmt.executeQuery();
 			
 			if (rs != null) {
@@ -82,7 +82,7 @@ public class DataProducts {
 					ProductType pt = new ProductType();
 					pt.setId(rs.getInt("id_tipo"));
 					pt.setName(rs.getString("tipo"));
-					pt.setActive(rs.getBoolean("activo"));
+					pt.setActive(rs.getBoolean("tipoActivo"));
 					p.setType(pt);
 				
 					allProducts.add(p);

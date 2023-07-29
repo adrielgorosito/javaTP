@@ -62,6 +62,16 @@
 		});
 		
 		$(function(){
+    		$('#updateModal').on('show.bs.modal', function (event) {
+        		var button = $(event.relatedTarget);
+        		var product = button.data('id');
+        		var modal = $(this);
+        		modal.find('.modal-body input').val(product);
+        		modal.find('.modal-body label').html(product);
+    		});
+		});
+		
+		$(function(){
     		$('#errorModal').on('show.bs.modal', function (event) {
         		var button = $(event.relatedTarget);
         		var product = button.data('id');
@@ -184,12 +194,9 @@
       										</a>
       								<% } %>
       							<%} else { %>
-      								<form action = "EnableProductType" method = "post" style ='display:inline;'>
-      									<input type="hidden" name="typeId" value=<%=allTypes.get(i).getId()%>>
-      									<button type="submit" style="border: none; background: none; padding: 0;">
-                							<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
-            							</button>
-      								</form>
+      								<a href="#" data-toggle="modal" data-target="#updateModal" data-id="<%=allTypes.get(i).getId()%>">
+                   						<img src="imgs/indexAdmin/setActive2.png" style="width: 20px; height: 20px;">
+               						</a>
       							<%}%>
       							
       						</td>
@@ -239,12 +246,40 @@
             		</div>
            			<div class="modal-body">
                     	<div class="form-group">
-                        	Estás a punto de dar de baja la categoría: <label></label>
+                        	Estás a punto de dar de baja: <label></label>
                         	<input type = "hidden" name="typeName">
                         	<br>
                         	<p>Estás seguro?</p>
                     	</div>
             		</div>
+            		
+            		<div class="modal-footer">
+                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                		<input type = "submit" class="btn btn-primary" value = "Confirmar">
+            		</div>
+        		</div>
+    		</div>
+		</div>
+	</form>
+	
+	<!-- Active Modal -->
+	<form action = "EnableProductType" method = "post">
+    	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    		<div class="modal-dialog">
+        		<div class="modal-content">
+            		<div class="modal-header">
+            			<h4 class="modal-title" id="updateModalLabel">Dar de alta</h4>
+                		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		</div>
+           			<div class="modal-body">
+                    	<div class="form-group">
+                        	Estás a punto de dar de alta la categoría con id: <b><label></label></b>
+                        	<input type = "hidden" name="typeId">
+                        	<br>
+                        	<p>Estás seguro?</p>
+                    	</div>
+            		</div>
+            		
             		
             		<div class="modal-footer">
                 		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

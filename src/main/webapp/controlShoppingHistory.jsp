@@ -86,7 +86,6 @@
 	   User u = new User();
 	   ShoppingHistory sh = new ShoppingHistory();
 	   
-	   
 	   if (request.getAttribute("shList") != null) {
 		   @SuppressWarnings("unchecked")
 		   LinkedList<ShoppingHistory> userHistory = (LinkedList<ShoppingHistory>) request.getAttribute("shList"); %>
@@ -94,7 +93,7 @@
 			<div class="container">
 				<div class="content-center topmargin-lg">
 					<% if (!userHistory.isEmpty()) {
-							u.setDni(userHistory.get(0).getDniUser());
+							u.setDni(userHistory.get(0).getU().getDni());
 							u = cu.searchUserByDni(u);%>
 			
 							<h3 class ="text-center pt-5 pb-5 h1">Historial de compras de: <b><%=u.getName()%> <%=u.getSurname()%></b></h3>
@@ -112,13 +111,8 @@
   								<tbody>
   									<%for (int i = 0; i < userHistory.size(); i++) {%>
     									<tr>
-      										<% CtrlProduct cp = new CtrlProduct();
-      									 	   Product p = new Product();
-							   
-      									   	   p = cp.getProduct(userHistory.get(i).getIdProd()); %>
-      						
-      										<td><img src= "<%=p.getImg()%>" style = "width: 50px; weight: 50px"></td>
-      										<th><%=p.getName()%></th>
+      										<td><img src= "<%=userHistory.get(i).getProd().getImg()%>" style = "width: 50px; weight: 50px"></td>
+      										<th><%=userHistory.get(i).getProd().getName()%></th>
       										<td><%=userHistory.get(i).getCantidad()%></td>
       										<td>$<%=userHistory.get(i).getPrecio()%></td>
       										<td><%=userHistory.get(i).getFormaPago()%></td>
@@ -133,7 +127,11 @@
   								</tbody>
 							</table>
 							<%} else {%>
-								<p>No hay historial de compras</p>
+								<p align = "center">
+									<br>
+									<font face = "tahoma" size = "5"><b>No hay historial de compras</b></font>
+									<br><br>
+								</p>
 							<%}%>
 					</div>
 			</div>
@@ -144,41 +142,37 @@
 	   <%} else {
 		    CtrlShoppingHistory csh = new CtrlShoppingHistory();
 		   
-		    LinkedList<ShoppingHistory> userHistory = csh.getAll(); %>
+		    LinkedList<ShoppingHistory> shList = csh.getAll(); %>
 		    
 	   		<div class="container">
 				<div class="content-center topmargin-lg">
-					<% if (!userHistory.isEmpty()) {
-							u.setDni(userHistory.get(0).getDniUser());
-							u = cu.searchUserByDni(u);%>
-							
+					<% if (!shList.isEmpty()) {%>
 							<h3 class ="text-center pt-3 pb-3 h1"><b>Historial de compras</b></h3>
 							<table class="table table-striped">
   								<thead>
     								<tr>
       									<th scope="col">Foto</th>
+      									<th scope="col">Categoría</th>
       									<th scope="col">Producto</th>
       									<th scope="col">Cantidad</th>
-      									<th scope="col">Precio</th>
+      									<th scope="col">Precio final</th>
      									<th scope="col">Forma de pago</th>
+     									<th scope="col">Usuario</th>
      									<th scope="col">Fecha</th>
     								</tr>
   								</thead>
   								<tbody>
-  									<%for (int i = 0; i < userHistory.size(); i++) {%>
+  									<%for (int i = 0; i < shList.size(); i++) {%>
     									<tr>
-      										<% CtrlProduct cp = new CtrlProduct();
-      									 	   Product p = new Product();
-							   
-      									   	   p = cp.getProduct(userHistory.get(i).getIdProd()); %>
+      										<td><img src= "<%=shList.get(i).getProd().getImg()%>" style = "width: 50px; weight: 50px"></td>
+      										<td><%=shList.get(i).getProd().getType().getName()%></td>
+      										<th><%=shList.get(i).getProd().getName()%></th>
+      										<td><%=shList.get(i).getCantidad()%></td>
+      										<td>$<%=shList.get(i).getPrecio()%></td>
+      										<td><%=shList.get(i).getFormaPago()%></td>
+      										<td><%=shList.get(i).getU().getUsername()%></td>
       						
-      										<td><img src= "<%=p.getImg()%>" style = "width: 50px; weight: 50px"></td>
-      										<th><%=p.getName()%></th>
-      										<td><%=userHistory.get(i).getCantidad()%></td>
-      										<td>$<%=userHistory.get(i).getPrecio()%></td>
-      										<td><%=userHistory.get(i).getFormaPago()%></td>
-      						
-      										<% LocalDate date = userHistory.get(i).getFecha().toLocalDate(); 
+      										<% LocalDate date = shList.get(i).getFecha().toLocalDate(); 
       									   	   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
       									   	   String formattedDate = date.format(formatter); %>
       						
@@ -188,7 +182,11 @@
   								</tbody>
 							</table>
 							<%} else {%>
-								<p>No hay historial de compras</p>
+								<p align = "center">
+									<br>
+									<font face = "tahoma" size = "5"><b>No hay historial de compras</b></font>
+									<br><br>
+								</p>
 							<%}%>
 					</div>
 			</div>

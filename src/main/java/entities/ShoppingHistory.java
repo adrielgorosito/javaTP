@@ -3,16 +3,16 @@ package entities;
 import java.time.LocalDateTime;
 
 public class ShoppingHistory {
-	private int idProd;
-	private int dniUser;
+	private Product prod;
+	private User u;
 	private LocalDateTime fecha;
 	private int cantidad;
 	private double precio;
 	private String formaPago;
 	
-	public ShoppingHistory(int id_prod, int dni, LocalDateTime now, int cant, Double price, String metodoPago) {
-		this.setIdProd(id_prod);
-		this.setDniUser(dni);
+	public ShoppingHistory(Product prod, User u, LocalDateTime now, int cant, Double price, String metodoPago) {
+		this.setProd(prod);
+		this.setU(u);
 		this.setFecha(now);
 		this.setCantidad(cant);
 		this.setPrecio(price);
@@ -21,20 +21,22 @@ public class ShoppingHistory {
 	
 	public ShoppingHistory() {}
 	
-	public int getIdProd() {
-		return idProd;
+	public Product getProd() {
+		return prod;
 	}
-	public void setIdProd(int idProd) {
-		this.idProd = idProd;
+
+	public void setProd(Product prod) {
+		this.prod = prod;
 	}
-	
-	public int getDniUser() {
-		return dniUser;
+
+	public User getU() {
+		return u;
 	}
-	public void setDniUser(int dniUser) {
-		this.dniUser = dniUser;
+
+	public void setU(User u) {
+		this.u = u;
 	}
-	
+
 	public LocalDateTime getFecha() {
 		return fecha;
 	}

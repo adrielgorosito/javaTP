@@ -40,7 +40,7 @@ public class FinishBuy extends HttpServlet {
 		p.setStock(p.getStock() - cant);
 		cp.updateStock(p);
 		
-		ShoppingHistory sh = new ShoppingHistory(p.getId_prod(), u1.getDni(), LocalDateTime.now(), cant, p.getPrice()*cant+600, metodoPago);
+		ShoppingHistory sh = new ShoppingHistory(p, u1, LocalDateTime.now(), cant, p.getPrice()*cant+600, metodoPago);
 		csh.newShoppingHistory(sh);
 		
 		request.setAttribute("prod", p);
