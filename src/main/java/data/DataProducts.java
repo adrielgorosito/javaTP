@@ -111,24 +111,44 @@ public class DataProducts {
 	
 	public void updateStock(Product p)  {
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		
 		try {
+			DbConnector.getInstancia().getConn().setAutoCommit(false);
+			
 			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
-					   "UPDATE Producto SET stock = ? WHERE id_prod = ?");
-			pstmt.setInt(1, p.getStock());
-			pstmt.setInt(2, p.getId_prod());
-			pstmt.executeUpdate();
+					"SELECT * FROM Producto WHERE id_prod = ?");
+			pstmt.setInt(1, p.getId_prod());
+			pstmt.executeQuery();
+			
+			pstmt2 = DbConnector.getInstancia().getConn().prepareStatement("UPDATE Producto SET stock = ? WHERE id_prod = ?");
+			pstmt2.setInt(1, p.getStock());
+			pstmt2.setInt(2, p.getId_prod());
+			pstmt2.executeUpdate();
+			
+			DbConnector.getInstancia().getConn().commit();
 			
 		} catch (SQLException e) {
             e.printStackTrace();
-		} finally {
+            
             try {
-                if (pstmt != null)
-                	pstmt.close();
-                DbConnector.getInstancia().releaseConn();
-            } catch (SQLException e) {
-            	e.printStackTrace();
+                if (DbConnector.getInstancia().getConn() != null)
+        			DbConnector.getInstancia().getConn().rollback();
+            } catch (SQLException e2) {
+            	e2.printStackTrace();
             }
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				
+				if (pstmt2 != null)
+					pstmt2.close();
+				
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
