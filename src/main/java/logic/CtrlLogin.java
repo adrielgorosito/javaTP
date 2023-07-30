@@ -22,13 +22,17 @@ public class CtrlLogin {
 			if (du.loginByUsername(u) != null) {
 				return du.loginByUsername(u);
 			} else {
-				u.setDni(Integer.parseInt(word));
-				u.setPassword(pass);
+				try {
+					u.setDni(Integer.parseInt(word));
+					u.setPassword(pass);
 				
-				return du.loginByDni(u);
-			}
+					return du.loginByDni(u);
+					} catch (NumberFormatException n) {
+					return null;
+				}
 			
 		}
 	}
 
+}
 }
