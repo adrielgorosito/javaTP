@@ -27,7 +27,7 @@
 	<nav class="navbar navbar-expand-sm navbar-light sticky-top" id="nave">
 		<div class="container-fluid">
 			<a class="navbar-brand" href = "index.jsp">
-				<img src="imgs/logo.png" alt="" width="200">
+				<img src="imgs/index/logo.png" alt="" width="200">
 			</a>
 			
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toogle navigation">
@@ -37,7 +37,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent" >
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link" href="index.jsp#">Inicio</a></li>
-					&emsp;&emsp;&emsp;&emsp; <!-- Dudosos estos espacios en blanco -->
+					&emsp;&emsp;&emsp;&emsp;
 					<li class="nav-item"><a class="nav-link" href="index.jsp#productos">Productos</a></li>
 					&emsp;&emsp;&emsp;&emsp;
 					<li class="nav-item"><a class="nav-link" href="index.jsp#contacto">Contacto</a></li> 
@@ -57,34 +57,55 @@
 		</div>		 
 	</div>
 	
-	<section>
-		<%
-		String mailSent = (String) request.getAttribute("mailSent");
-		
-		%>
-		<div class="container">
-			<div class="content-center topmargin-lg">
-				<h3 class ="text-center pt-5 h3"><b>Contraseña enviada</b></h3>
-				<br>
-				<p class ="text-center">
-					Hemos envíado un email al correo: <i><b><%=mailSent%></b></i>.
-				</p>
-				<p class ="text-center">
-					Asegúrate de revisar la bandeja de correo no deseado (Spam).
-				</p>
-				<p class ="text-center">
-					En caso de que no encuentres el mensaje en ninguna parte, ponte en contacto con nosotros <a href = "index.jsp#contacto">clickeando aquí</a>.
-				</p>
-			</div>
-			<br>
-			<form action = "index.jsp">
-				<div style = "text-align: center">
-  					<button	type="submit" class="btn btn-primary margintop3" style = "margin: 0 auto;">Ir al inicio</button>
+	<%  if (request.getAttribute("mailSent") != null) {
+			String mailSent = (String) request.getAttribute("mailSent");
+	    %>
+		<section>
+			<div class="container">
+				<div class="content-center topmargin-lg">
+					<h3 class ="text-center pt-5 h3"><b>Contraseña enviada</b></h3>
+					<br>
+					<p class ="text-center">
+						Hemos envíado un email al correo: <i><b><%=mailSent%></b></i>.
+					</p>
+					<p class ="text-center">
+						Asegúrate de revisar la bandeja de correo no deseado (Spam).
+					</p>
+					<p class ="text-center">
+						En caso de que no encuentres el mensaje en ninguna parte, ponte en contacto con nosotros <a href = "index.jsp#contacto">clickeando aquí</a>.
+					</p>
 				</div>
-			</form>
-		</div>
-	</section>
-	
+				<br>
+				<form action = "index.jsp">
+					<div style = "text-align: center">
+	  					<button	type="submit" class="btn btn-primary margintop3" style = "margin: 0 auto;">Ir al inicio</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	<% } else if (request.getAttribute("contactSent") != null) { 
+		String contactSent = (String) request.getAttribute("contactSent"); %>
+		<section>
+			<div class="container">
+				<div class="content-center topmargin-lg">
+					<h3 class ="text-center pt-5 h3"><b>Mail recibido</b></h3>
+					<br>
+					<p class ="text-center">
+						Hemos recibido un correo de tu parte (<i><b><%=contactSent%></b></i>).
+					</p>
+					<p class ="text-center">
+						Nos pondremos en contacto a la brevedad!
+					</p>
+				</div>
+				<br>
+				<form action = "index.jsp">
+					<div style = "text-align: center">
+	  					<button	type="submit" class="btn btn-primary margintop3" style = "margin: 0 auto;">Ir al inicio</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	<% } %>
 </body>
 
 </html>
