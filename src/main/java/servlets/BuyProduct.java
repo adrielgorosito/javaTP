@@ -29,9 +29,15 @@ public class BuyProduct extends HttpServlet {
 		
 		int cant = Integer.parseInt(request.getParameter("quantityInput"));
 		
-		request.setAttribute("prod", p);
-		request.setAttribute("cant", cant);
-		request.getRequestDispatcher("buy.jsp").forward(request, response);
+		if (p.getStock() >= cant) {
+			request.setAttribute("prod", p);
+			request.setAttribute("cant", cant);
+			request.getRequestDispatcher("buy.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorType", 13);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
+		
 	}
 
 }

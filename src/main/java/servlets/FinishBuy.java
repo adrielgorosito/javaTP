@@ -37,16 +37,20 @@ public class FinishBuy extends HttpServlet {
 		int cant = Integer.parseInt(request.getParameter("quantityInput"));
 		String metodoPago = request.getParameter("metodoPago");	
 		
-		p.setStock(p.getStock() - cant);
-		cp.updateStock(p);
+		if (p.getStock() >= cant) {
+			p.setStock(p.getStock() - cant);
+			cp.updateStock(p);
+			
+			ShoppingHistory sh = new ShoppingHistory(p, u1, LocalDateTime.now(), cant, p.getPrice()*cant+600, metodoPago);
+			csh.newShoppingHistory(sh);
+			
+			request.setAttribute("prod", p);
+			request.setAttribute("cant", cant);
+			request.setAttribute("metodo", metodoPago);
+			request.getRequestDispatcher("successBuy.jsp").forward(request, response);
+		}
 		
-		ShoppingHistory sh = new ShoppingHistory(p, u1, LocalDateTime.now(), cant, p.getPrice()*cant+600, metodoPago);
-		csh.newShoppingHistory(sh);
 		
-		request.setAttribute("prod", p);
-		request.setAttribute("cant", cant);
-		request.setAttribute("metodo", metodoPago);
-		request.getRequestDispatcher("successBuy.jsp").forward(request, response);
 	}
 
 }

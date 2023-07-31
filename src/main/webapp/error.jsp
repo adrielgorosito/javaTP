@@ -59,7 +59,7 @@
 	   			break;
 	   			
 	   		case 9:
-	   			msg = "No hay ninguna cuenta asociada al correo electrónico asociado.";
+	   			msg = "No hay ninguna cuenta asociada al correo electrónico ingresado.";
 	   			break;
 	   			
 	   		case 10:
@@ -89,6 +89,14 @@
 	   		
 	   		case 16:
 	   			msg = "La categoría elegida no es válida.";
+	   			break;
+	   			
+	   		case 17:
+	   			msg = "Error inesperado, pruebe nuevamente más tarde.";
+	   			break;
+	   			
+	   		case 18:
+	   			msg = "Debes ingresar un mail válido.";
 	   			break;
 	   }
 	%>

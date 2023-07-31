@@ -28,8 +28,13 @@ public class ProductS extends HttpServlet {
 		CtrlProduct cp = new CtrlProduct();
 		Product p = cp.getProduct(Integer.parseInt(request.getParameter("id_prod")));
 		
-		request.setAttribute("prod", p);
-		request.getRequestDispatcher("product.jsp").forward(request, response);
+		if (p.getStock() <= 0) {
+			request.setAttribute("errorType", 13);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		} else {
+			request.setAttribute("prod", p);
+			request.getRequestDispatcher("product.jsp").forward(request, response);
+		}
 	}
 
 }
