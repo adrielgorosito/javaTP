@@ -38,6 +38,9 @@ public class FinishBuy extends HttpServlet {
 		String metodoPago = request.getParameter("metodoPago");	
 		
 		p.setStock(p.getStock() - cant);
+		if(p.getStock()<0){
+			throw new Exception("LOCO NO PODES COMPRAR TANTOS ")
+		}
 		cp.updateStock(p);
 		
 		ShoppingHistory sh = new ShoppingHistory(p, u1, LocalDateTime.now(), cant, p.getPrice()*cant+600, metodoPago);
