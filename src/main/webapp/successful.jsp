@@ -114,13 +114,6 @@
 			<br>
 			<a href = "controlProducts.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
 		</p>
-	<%} else if (request.getAttribute("mailSent") != null) {%>
-		<p align = "center">
-			<font face = "tahoma" size = 4 color = "green"><b>Email enviado exitosamente.</b></font>
-			Nos pondremos en contacto a la brevedad.
-			<br>
-			<a href = "index.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
-		</p>
 	<%} %>
 </body>
 </html>
