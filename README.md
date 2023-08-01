@@ -70,14 +70,15 @@ Realizamos una página web e-commerce que es una tienda online de productos de c
 - Usuario registrado: es aquella persona que dispone de una cuenta. Puede realizar el proceso de compra de un producto, acceder a un historial de compras y modificar sus datos personales (como dirección, mail y contraseña). Para modificar su contraseña es necesario que confirme un código enviado por mail.
 - Administrador: es un empleado que tiene permisos completos dentro de la página. Puede gestionar los productos (consultar, añadir uno nuevo, modificar y dar de alta o de baja) y los tipos de producto (consultar, añadir uno nuevo, modificar y dar de alta o de baja) y los usuarios (ver el historial de compras completo o eliminar sus cuentas).
 
-<h5> Datos de acceso </h5>
-- Invitado (sin cuenta)
-- Usuario
-   nombre: gastonbg
-   contraseña: 123456789
-- Admin
-   nombre: admin
-   contraseña: admin
+<h4>Datos de acceso</h4>
+
+- Visitante (sin cuenta)
+- Usuario 
+    * nombre: gastonbg
+    * contraseña: 123456789
+- Administrador
+   * nombre: admin
+   * contraseña: admin
 
 <h4>ABMCs</h4>
 
