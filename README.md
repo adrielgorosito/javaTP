@@ -95,14 +95,14 @@ Realizamos una página web e-commerce que es una tienda online de productos de c
 
 <h2>Caso de uso no ABMC</h2>
 
-<h4>CUS: Compra de un producto<h4>
+<h4>CUU: Compra de un producto<h4>
 
 <h5>Camino principal</h5>
-1. El cliente ingresa a la página y se loguea con su cuenta en el sistema. El sistema valida que el cliente tiene una cuenta<br>
-2. El cliente se decide por un producto y procede con la compra seleccionandoló. El sistema lo redirecciona para completar el pedido.<br>
-3. El cliente elige la cantidad del producto que desea. El sistema valida los datos del cliente y lo redirecciona para terminar la compra.<br>
-4. El sistema muestra el subtotal, dirección del cliente, precio del envío y el total. El cliente elige si pagar en Rapipago o Pagofácil.<br>
-5. El cliente confirma la compra y el sistema lo registra.<br>
+1. El cliente ingresa a la página y se loguea con su cuenta en el sistema. El sistema valida que el cliente tiene una cuenta.<br>
+2. El cliente se decide por un producto y procede con la compra seleccionandolo. El sistema lo redirecciona para completar el pedido.<br>
+3. El cliente elige la cantidad que desea. El sistema valida los datos del cliente y lo redirecciona para terminar la compra.<br>
+4. El sistema muestra cantidad, subtotal, dirección, precio del envío y el total. El cliente elige un método de pago (Rapipago o Pagofácil) y confirma la compra.<br>
+5. El sistema registra la compra y actualiza el historial de compras del client <br>
 
 <h5>Camino alternativo</h5>
  1.a. <Durante> El cliente no tiene cuenta.<br>
