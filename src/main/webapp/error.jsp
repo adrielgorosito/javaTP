@@ -68,6 +68,7 @@
 	   			
 	   		case 11:
 	   			msg = "El código ingresado no es correcto.";
+	   			indexBack = "indexUser.jsp";
 	   			break;
 	   			
 	   		case 12:
@@ -81,14 +82,17 @@
 	   			
 	   		case 14:
 	   			msg = "Algunos valores numéricos son erróneos.";
+	   			indexBack = "indexAdmin.jsp";
 	   			break;
 	   		
 	   		case 15:
 	   			msg = "Algunos valores ingresados son nulos.";
+	   			indexBack = "indexAdmin.jsp";
 	   			break;
 	   		
 	   		case 16:
 	   			msg = "La categoría elegida no es válida.";
+	   			indexBack = "indexAdmin.jsp";
 	   			break;
 	   			
 	   		case 17:
@@ -101,14 +105,25 @@
 	   			
 	   		case 19:
 	   			msg = "Debes ingresar una dirección válida.";
+	   			indexBack = "indexUser.jsp";
 	   			break;
 	   		
 	   		case 20:
 	   			msg = "Debes añadir tu dirección para poder comprar. <br><br><a href = \"modifyAddress.jsp\">Añadir dirección...</a>";
+	   			indexBack = "indexUser.jsp";
 	   			break;
 	   			
 	   		case 21:
 	   			msg = "Debes ingresar un nombre y apellido válido.";
+	   			break;
+	   			
+	   		case 22:
+	   			msg = "Ya existe una cuenta con el mail ingresado.";
+	   			break;
+	   			
+	   		case 23:
+	   			msg = "Debes ingresar un mail válido.";
+	   			indexBack = "indexUser.jsp";
 	   			break;
 	   }
 	%>

@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.LinkedList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,20 +30,53 @@ public class SaveEditProduct extends HttpServlet {
 		User userS = (User) request.getSession().getAttribute("userSession");
 		
 		if (userS.isAdmin()) {
+			String nameInput = request.getParameter("nameInput");
+	        String descInput = request.getParameter("descInput");
+	        Double priceInput;
+	        Integer stockInput;
+			
+	        try {
+            	priceInput = Double.parseDouble(request.getParameter("priceInput"));
+    	        stockInput = Integer.parseInt(request.getParameter("stockInput"));
+    	        
+    	        if (nameInput == null || descInput == null || priceInput == null || stockInput == null) {
+    	        	request.setAttribute("errorType", 15);
+    				request.getRequestDispatcher("error.jsp").forward(request, response);
+    				return;
+    	        } else if (priceInput <= 0 || stockInput < 0) {
+    	        	request.setAttribute("errorType", 14);
+    				request.getRequestDispatcher("error.jsp").forward(request, response);
+    				return;
+    	        }
+            } catch (NumberFormatException e) {
+            	request.setAttribute("errorType", 14);
+    			request.getRequestDispatcher("error.jsp").forward(request, response);
+    			return;
+            }
+	        
+	        Product p = new Product();
+	        CtrlProductType cpt = new CtrlProductType();
+	 	   	LinkedList<ProductType> allTypes = cpt.getAllProductTypes();
+	 	   	
+	 	   	for (ProductType prodType : allTypes) {
+				if (prodType.getName().equals(request.getParameter("catInput"))) {
+					p.setType(prodType);
+				}
+			}
+	 	   	
+	 	   	if (p.getType() == null) {
+		 	   	request.setAttribute("errorType", 16);
+				request.getRequestDispatcher("error.jsp").forward(request, response);
+				return;
+	 	   	}
+	        
+			p.setId_prod(Integer.parseInt(request.getParameter("id_prod")));
+			p.setName(nameInput);
+			p.setDescription(descInput);
+			p.setPrice(priceInput);
+			p.setStock(stockInput);
+			
 			CtrlProduct cp = new CtrlProduct();
-			Product p = cp.getProduct(Integer.parseInt(request.getParameter("id_prod")));
-			
-			p.setName(request.getParameter("nameInput"));
-			p.setDescription(request.getParameter("descInput"));
-			p.setPrice(Double.parseDouble(request.getParameter("priceInput")));
-			p.setStock(Integer.parseInt(request.getParameter("stockInput")));
-			p.getType().setName(request.getParameter("catInput"));
-			
-			CtrlProductType cpt = new CtrlProductType();
-			ProductType pt = new ProductType();
-			pt = cpt.getProductTypeByName(p);
-			p.getType().setId(pt.getId());
-			
 			cp.updateProduct(p);
 			
 			request.setAttribute("productChanged", p);

@@ -44,7 +44,7 @@ public class ChangeMail extends HttpServlet {
 				request.getRequestDispatcher("error.jsp").forward(request, response);
 			}
 		} else {
-			request.setAttribute("errorType", 7);
+			request.setAttribute("errorType", 22);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 		

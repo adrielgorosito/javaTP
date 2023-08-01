@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.LinkedList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,14 +30,24 @@ public class EditProductType extends HttpServlet {
 		User userS = (User) request.getSession().getAttribute("userSession");
 		
 		if (userS.isAdmin()) {
-			ProductType pt = new ProductType();
 			Product p = new Product();
+			ProductType pt = new ProductType();
 			CtrlProductType cpt = new CtrlProductType();
-	
-			pt.setName(request.getParameter("oldProdName"));
-			p.setType(pt);
 			
+			LinkedList <ProductType> allTypes = cpt.getAllProductTypes();
+			
+	 	   	for (ProductType prodType : allTypes) {
+				if (prodType.getName().equals(request.getParameter("newProdName"))) {
+					request.setAttribute("errorType", 16);
+					request.getRequestDispatcher("error.jsp").forward(request, response);
+					return;
+				}
+			}
+	 	   	
+	 	   	pt.setName(request.getParameter("oldProdName"));
+	 	   	p.setType(pt);
 			pt = cpt.getProductTypeByName(p);
+			
 			cpt.changeName(pt, request.getParameter("newProdName"));
 			
 			request.getRequestDispatcher("controlProductTypes.jsp").forward(request, response);

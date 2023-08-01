@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.LinkedList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,11 +32,21 @@ public class NewProductType extends HttpServlet {
 			ProductType pt = new ProductType();
 			CtrlProductType cpt = new CtrlProductType();
 			
+			LinkedList <ProductType> allTypes = cpt.getAllProductTypes();
+			
 			pt.setName(request.getParameter("nameInput"));
 			
-			cpt.addNewProductType(pt);
-			
+	 	   	for (ProductType prodType : allTypes) {
+				if (prodType.getName().equals(pt.getName())) {
+					request.setAttribute("errorType", 16);
+					request.getRequestDispatcher("error.jsp").forward(request, response);
+					return;
+				}
+			}
+	 	   	
+	 	   	cpt.addNewProductType(pt);
 			request.getRequestDispatcher("controlProductTypes.jsp").forward(request, response);
+	 	   	
 		} else {
 			request.setAttribute("errorType", 2);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
