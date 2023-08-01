@@ -61,9 +61,9 @@
 	<section>
 		<div class="container">
 			<div class="content-center topmargin-lg">
-				<h3 class ="text-center pt-3 h3"><b>Recupera tu cuenta</b></h3>
-				<p class ="text-center">Olvidar la contraseña es un problema más común de lo que crees. No te sientas con culpa.</p>
-				<p class ="text-center">Ingresa el correo electrónico asociado a tu cuenta. Recibirás un correo con tu contraseña.</p>
+			 <h2 class ="text-center pt-3 h2"><b>Recupera tu cuenta</b></h2>
+ 				<p class ="text-center">Ingrese su dirección de correo electrónico registrado a continuación y le enviaremos su contraseña.</p> 
+   				 
 				<form action = "ForgotPass" method = "post">
 					<div class="content-center">
 						<input type="text" class="form-control" name="mail" placeholder="Email" style="width : 350px; margin:auto">
