@@ -106,7 +106,7 @@
 		<p align = "center">
 			<font face = "tahoma" size = 4 color = "green"><b>Dirección modificada exitosamente.</b></font>
 			<br>
-			<a href = "myProfile.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>>
+			<a href = "myProfile.jsp"><button class="btn btn-primary margintop3">Regresar</button></a>
 		</p>
 	<%} else if (request.getAttribute("productChanged") != null) {%>
 		<p align = "center">

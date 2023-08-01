@@ -43,15 +43,15 @@
 	   			break;
 	   			
 	   		case 5:
-	   			msg = "Ya existe una cuenta con el dni ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
+	   			msg = "Ya existe una cuenta con el dni ingresado. <br><br><a href = \"passwordRecovery.jsp\">¿Olvidaste tu contraseña?</a>";
 	   			break;
 	   			
 	   		case 6:
-	   			msg = "Ya existe una cuenta con el nombre de usuario ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
+	   			msg = "Ya existe una cuenta con el nombre de usuario ingresado. <br><br><a href = \"passwordRecovery.jsp\">¿Olvidaste tu contraseña?</a>";
 	   			break;
 	   			
 	   		case 7:
-	   			msg = "Ya existe una cuenta con el mail ingresado. <br><br><a href = \"olvideContraseña\">¿Olvidaste tu contraseña?</a>";
+	   			msg = "Ya existe una cuenta con el mail ingresado. <br><br><a href = \"passwordRecovery.jsp\">¿Olvidaste tu contraseña?</a>";
 	   			break;
 	   			
 	   		case 8:
@@ -97,6 +97,18 @@
 	   			
 	   		case 18:
 	   			msg = "Debes ingresar un mail válido.";
+	   			break;
+	   			
+	   		case 19:
+	   			msg = "Debes ingresar una dirección válida.";
+	   			break;
+	   		
+	   		case 20:
+	   			msg = "Debes añadir tu dirección para poder comprar. <br><br><a href = \"modifyAddress.jsp\">Añadir dirección...</a>";
+	   			break;
+	   			
+	   		case 21:
+	   			msg = "Debes ingresar un nombre y apellido válido.";
 	   			break;
 	   }
 	%>

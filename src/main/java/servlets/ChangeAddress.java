@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,12 +35,40 @@ public class ChangeAddress extends HttpServlet {
 		u.setCity(request.getParameter("cityInput"));
 		u.setAddress(request.getParameter("addressInput"));
 		
-		CtrlAddress ca = new CtrlAddress();
+		LinkedList<String> validStates = new LinkedList<>();
 		
-		ca.changeAddress(u);
+		validStates.addAll(Arrays.asList(
+			    "Buenos Aires", "Ciudad Autónoma de Buenos Aires", "Catamarca", "Chaco", "Chubut",
+			    "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "Mendoza",
+			    "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz",
+			    "Santa Fe", "Santiago del Estero", "Tucumán"
+				)
+			);
 		
-		request.setAttribute("addressChanged", "nice");
-		request.getRequestDispatcher("successful.jsp").forward(request, response);
+		if (u.getCity() != null || u.getState() != null || u.getAddress() != null) {
+			if (u.getCity().matches("^[a-zA-Z\\s]+$")) {
+				if (validStates.contains(u.getState())) {
+					CtrlAddress ca = new CtrlAddress();
+					
+					ca.changeAddress(u);
+					
+					request.setAttribute("addressChanged", "nice");
+					request.getRequestDispatcher("successful.jsp").forward(request, response);
+				} else {
+					request.setAttribute("errorType", 19);
+					request.getRequestDispatcher("error.jsp").forward(request, response);
+				}
+			} else {
+				request.setAttribute("errorType", 19);
+				request.getRequestDispatcher("error.jsp").forward(request, response);
+			}
+		} else {
+			request.setAttribute("errorType", 19);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
+			
+		
+		
 	}
 
 }

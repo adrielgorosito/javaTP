@@ -82,7 +82,7 @@
 				</div>
 				<div class = "input-group mb-3 align-items-center">
   					<label for = "mailInput" style ="height:20px">Nuevo mail:&ensp;</label>
-  					<input id = "mailInput" name = "mailInput" type="email" class="form-control">
+  					<input id = "mailInput" name = "mailInput" type="email" class="form-control" required>
 				</div>
 				
 				<input class="btn btn-primary topmargin-sm" role="button" type = "submit" value = "Modificar">

@@ -107,7 +107,7 @@
   										</div>
  										<div class="card-footer" style = "height: 4rem">
       										<h5 class="card-text topmargin-sm" style = "display: inline-block">$<%=p.getPrice()%></h5>
-      										<%if (p.getStock() == 0) {%>
+      										<%if (p.getStock() <= 0) {%>
 												<input type = "submit" class="btn btn btn-dark float-end" style="width: 100px" value = "Sin stock" disabled>
   											<%} else {%>
       											<input type = "submit" class="btn btn-primary float-end" style="width: 100px" onclick="document.getElementById('<%=p.getId_prod()%>').submit();" value = "Comprar">
