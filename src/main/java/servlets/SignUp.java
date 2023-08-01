@@ -86,12 +86,12 @@ public class SignUp extends HttpServlet {
 						}		
 					} else {
 						// Las contraseñas no coinciden
-						request.setAttribute("errorType", 4);
+						request.setAttribute("errorType", 3);
 						request.getRequestDispatcher("error.jsp").forward(request, response);
 					}
 				} else {
 					// La contraseña no tiene como mínimo 8 caracteres
-					request.setAttribute("errorType", 3);
+					request.setAttribute("errorType", 4);
 					request.getRequestDispatcher("error.jsp").forward(request, response);
 				}
 			} else {
