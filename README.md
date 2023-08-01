@@ -98,10 +98,10 @@ Realizamos una página web e-commerce que es una tienda online de productos de c
 <h4>CUS: Compra de un producto<h4>
 
 <h5>Camino principal</h5>
-1. El cliente ingresa a la página y se loguea con su cuenta en el sistema.<br>
-2. El cliente se decide por un producto y procede con la compra. El sistema lo redirecciona para completar el pedido.<br>
-3. El cliente elige la cantidad que desea. El sistema lo redirecciona para terminar la compra.<br>
-4. El cliente elige si pagar en Rapipago o Pagofácil. El sistema muestra el subtotal, dirección del cliente, precio del envío y el total.<br>
+1. El cliente ingresa a la página y se loguea con su cuenta en el sistema. El sistema valida que el cliente tiene una cuenta<br>
+2. El cliente se decide por un producto y procede con la compra seleccionandoló. El sistema lo redirecciona para completar el pedido.<br>
+3. El cliente elige la cantidad del producto que desea. El sistema valida los datos del cliente y lo redirecciona para terminar la compra.<br>
+4. El sistema muestra el subtotal, dirección del cliente, precio del envío y el total. El cliente elige si pagar en Rapipago o Pagofácil.<br>
 5. El cliente confirma la compra y el sistema lo registra.<br>
 
 <h5>Camino alternativo</h5>
@@ -109,6 +109,9 @@ Realizamos una página web e-commerce que es una tienda online de productos de c
  &emsp;1.a.1. El cliente se crea una cuenta y el sistema lo registra.<br> 
  2.a. <Anterior> El cliente no se decide por ningún producto.<br> 
  &emsp;2.a.1. Fin de CU.<br> 
+ 3.a <Durante> El cliente no posee dirección <br> 
+&emsp;3.a.1. El sistema se lo informa al cliente y le recomienda agregar una dirección para poder realizar la compra.<br> 
+&emsp;3.a.2. Vuelve al paso 2. <br> 
  5.a. <Reemplaza> El cliente no confirma o cancela la compra.<br> 
  &emsp;5.a.1. Fin de CU.<br> 
 
