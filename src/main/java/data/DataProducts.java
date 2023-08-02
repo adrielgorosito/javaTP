@@ -112,21 +112,33 @@ public class DataProducts {
 	public void updateStock(Product p)  {
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
+		ResultSet rs = null;
+		
+		int cantComprada = p.getStock();
 		
 		try {
 			DbConnector.getInstancia().getConn().setAutoCommit(false);
 			
 			pstmt = DbConnector.getInstancia().getConn().prepareStatement(
-					"SELECT * FROM Producto WHERE id_prod = ?");
+					"SELECT stock FROM Producto WHERE id_prod = ?");
 			pstmt.setInt(1, p.getId_prod());
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
-			pstmt2 = DbConnector.getInstancia().getConn().prepareStatement("UPDATE Producto SET stock = ? WHERE id_prod = ?");
-			pstmt2.setInt(1, p.getStock());
-			pstmt2.setInt(2, p.getId_prod());
-			pstmt2.executeUpdate();
+			if (rs != null && rs.next()) {
+				p.setStock(rs.getInt("stock"));
+				
+				if (p.getStock() >= cantComprada) {
+					pstmt2 = DbConnector.getInstancia().getConn().prepareStatement("UPDATE Producto SET stock = ? WHERE id_prod = ?");
+					pstmt2.setInt(1, p.getStock() - cantComprada);
+					pstmt2.setInt(2, p.getId_prod());
+					pstmt2.executeUpdate();
+				} else {
+					throw new SQLException("No hay suficiente stock disponible para realizar la compra.");
+				}
+			}
 			
 			DbConnector.getInstancia().getConn().commit();
+			DbConnector.getInstancia().getConn().setAutoCommit(true);
 			
 		} catch (SQLException e) {
             e.printStackTrace();
@@ -144,6 +156,10 @@ public class DataProducts {
 				
 				if (pstmt2 != null)
 					pstmt2.close();
+				
+				if (rs != null) {
+					rs.close();
+				}
 				
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
