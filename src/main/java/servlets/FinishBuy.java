@@ -38,7 +38,7 @@ public class FinishBuy extends HttpServlet {
 		String metodoPago = request.getParameter("metodoPago");	
 		
 		if (p.getStock() >= cant) {
-			p.setStock(p.getStock() - cant);
+			p.setStock(cant);
 			cp.updateStock(p);
 			
 			ShoppingHistory sh = new ShoppingHistory(p, u1, LocalDateTime.now(), cant, p.getPrice()*cant+600, metodoPago);

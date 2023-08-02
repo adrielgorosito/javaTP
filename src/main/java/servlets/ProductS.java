@@ -28,7 +28,7 @@ public class ProductS extends HttpServlet {
 		CtrlProduct cp = new CtrlProduct();
 		Product p = cp.getProduct(Integer.parseInt(request.getParameter("id_prod")));
 		
-		if (p.getStock() <= 0) {
+		if (p.getStock() <= 0 || p == null) {
 			request.setAttribute("errorType", 13);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
 		} else {
